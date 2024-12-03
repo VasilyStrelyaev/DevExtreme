@@ -109,94 +109,94 @@ export type GanttExportOptions = {
 };
 
 /**
- * @docid
+ * @docid PdfExportDataGridProps
  * @public
  * @namespace DevExpress.pdfExporter
  * @type object
  */
 export type DataGridExportOptions = {
   /**
-   * @docid
+   * @docid PdfExportDataGridProps.jsPDFDocument
    * @default undefined
    * @public
    */
   jsPDFDocument?: object | undefined;
   /**
-   * @docid
+   * @docid PdfExportDataGridProps.component
    * @default undefined
    * @public
    */
   component?: dxDataGrid | undefined;
   /**
-   * @docid
+   * @docid PdfExportDataGridProps.topLeft
    * @public
    */
   topLeft?: {
     /**
-     * @docid
+     * @docid PdfExportDataGridProps.topLeft.x
      * @default 0
      * @public
      */
     x?: number;
     /**
-     * @docid
+     * @docid PdfExportDataGridProps.topLeft.y
      * @default 0
      * @public
      */
     y?: number;
   };
   /**
-   * @docid
+   * @docid PdfExportDataGridProps.columnWidths
    * @default undefined
    * @public
    */
   columnWidths?: Array<number> | undefined;
   /**
-   * @docid
+   * @docid PdfExportDataGridProps.indent
    * @default 0
    * @public
    */
   indent?: number;
   /**
-   * @docid
+   * @docid PdfExportDataGridProps.margin
    * @public
    */
   margin?: {
     /**
-     * @docid
+     * @docid PdfExportDataGridProps.margin.top
      * @public
      */
     top?: number;
     /**
-     * @docid
+     * @docid PdfExportDataGridProps.margin.left
      * @public
      */
     left?: number;
     /**
-      * @docid
+      * @docid PdfExportDataGridProps.margin.right
       * @public
       */
     right?: number;
     /**
-      * @docid
+      * @docid PdfExportDataGridProps.margin.bottom
       * @public
       */
     bottom?: number;
   };
   /**
-   * @docid
+   * @docid PdfExportDataGridProps.repeatHeaders
    * @default true
    * @public
    */
   repeatHeaders?: boolean;
   /**
-   * @docid
+   * @docid PdfExportDataGridProps.selectedRowsOnly
    * @default false
    * @public
    */
   selectedRowsOnly?: boolean;
   /**
-    * @docid
+    * @docid PdfExportDataGridProps.customDrawCell
     * @type_function_param1_field gridCell:PdfDataGridCell
     * @type_function_param1_field pdfCell:PdfCell
     * @type_function_param1_field doc:object
@@ -204,20 +204,20 @@ export type DataGridExportOptions = {
     */
   customDrawCell?: ((options: { gridCell?: DataGridCell; pdfCell?: Cell; doc?: any; rect?: { x: number; y: number; h: number; w: number }; cancel?: boolean }) => void);
   /**
-   * @docid
+   * @docid PdfExportDataGridProps.customizeCell
    * @type_function_param1_field gridCell:PdfDataGridCell
    * @type_function_param1_field pdfCell:PdfCell
    * @public
    */
   customizeCell?: ((options: { gridCell?: DataGridCell; pdfCell?: Cell }) => void);
   /**
-   * @docid
+   * @docid PdfExportDataGridProps.onRowExporting
    * @type_function_param1_field rowCells:Array<PdfCell>
    * @public
    */
   onRowExporting?: ((options: { rowCells?: Array<Cell>; rowHeight?: number }) => void);
   /**
-   * @docid
+   * @docid PdfExportDataGridProps.loadPanel
    * @public
    */
   loadPanel?: ExportLoadPanel;
@@ -354,6 +354,7 @@ export type Cell = {
 /**
  * @docid pdfExporter.exportDataGrid
  * @publicName exportDataGrid(options)
+ * @param1 options: PdfExportDataGridProps
  * @return Promise<void>
  * @namespace DevExpress.pdfExporter
  * @static

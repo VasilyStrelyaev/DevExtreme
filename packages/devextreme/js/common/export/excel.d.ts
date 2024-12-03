@@ -22,7 +22,7 @@ export type DataGridCell = ExcelDataGridCell;
 export type PivotGridCell = ExcelPivotGridCell;
 
 /**
- * @docid
+ * @docid ExcelExportDataGridProps
  * @public
  * @namespace DevExpress.excelExporter
  * @inherits ExcelExportBaseOptions
@@ -30,25 +30,25 @@ export type PivotGridCell = ExcelPivotGridCell;
  */
 export type DataGridExportOptions = ExcelExportBaseOptions & {
     /**
-     * @docid
+     * @docid ExcelExportDataGridProps.component
      * @default undefined
      * @public
      */
     component?: dxDataGrid | undefined;
     /**
-     * @docid
+     * @docid ExcelExportDataGridProps.selectedRowsOnly
      * @default false
      * @public
      */
     selectedRowsOnly?: boolean;
     /**
-     * @docid
+     * @docid ExcelExportDataGridProps.autoFilterEnabled
      * @default false
      * @public
      */
     autoFilterEnabled?: boolean;
     /**
-     * @docid
+     * @docid ExcelExportDataGridProps.customizeCell
      * @type_function_param1_field gridCell:ExcelDataGridCell
      * @type_function_param1_field excelCell:Object
      * @public
@@ -118,6 +118,7 @@ export type PivotGridExportOptions = ExcelExportBaseOptions & {
 /**
  * @docid excelExporter.exportDataGrid
  * @publicName exportDataGrid(options)
+ * @param1 options:ExcelExportDataGridProps
  * @return Promise<CellRange>
  * @namespace DevExpress.excelExporter
  * @static
