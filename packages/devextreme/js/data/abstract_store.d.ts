@@ -5,7 +5,7 @@ import {
   Store as StoreBase,
   StoreOptions as StoreOptionsBase,
 } from './store';
-import { LoadOptions } from '.';
+import { LoadOptions } from '../common/data.types';
 
 /**
  * @deprecated Use AbstractStoreOptions instead
@@ -16,7 +16,7 @@ export type Options<
   > = AbstractStoreOptions<TItem, TKey>;
 
 /**
- * @namespace DevExpress.data
+ * @namespace DevExpress.common.data
  */
 export interface AbstractStoreOptions<
   TItem = any,
@@ -32,7 +32,7 @@ export interface AbstractStoreOptions<
 }
 
 /**
- * @namespace DevExpress.data
+ * @namespace DevExpress.common.data
  */
 export default class AbstractStore<
   TItem = any,
@@ -56,7 +56,15 @@ export default class AbstractStore<
   load(options: LoadOptions<TItem>): DxExtendedPromise<Array<TItem>>;
 }
 
-export {
-  StoreOptionsBase as StoreOptions,
-  StoreBase as Store,
-};
+/**
+ * @namespace DevExpress.common.data
+ * @deprecated Use Options from data/store instead
+ */
+export type StoreOptions<TItem = any, TKey = any> = StoreOptionsBase<TItem, TKey>;
+
+/**
+ * @namespace DevExpress.common.data
+ * @deprecated Use Store from data/store instead
+ */
+export type Store<TItem = any, TKey = any> = StoreBase<TItem, TKey>;
+

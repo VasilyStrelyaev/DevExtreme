@@ -28,7 +28,7 @@ export type PivotGridCell = ExcelPivotGridCell;
  * @inherits ExcelExportBaseOptions
  * @type object
  */
-export interface ExcelExportDataGridOptions extends ExcelExportBaseOptions {
+export type DataGridExportOptions = ExcelExportBaseOptions & {
     /**
      * @docid
      * @default undefined
@@ -63,7 +63,7 @@ export interface ExcelExportDataGridOptions extends ExcelExportBaseOptions {
  * @inherits ExcelExportBaseOptions
  * @type object
  */
-export interface ExcelExportPivotGridOptions extends ExcelExportBaseOptions {
+export type PivotGridExportOptions = ExcelExportBaseOptions & {
     /**
      * @docid
      * @default undefined
@@ -123,7 +123,7 @@ export interface ExcelExportPivotGridOptions extends ExcelExportBaseOptions {
  * @static
  * @public
  */
-export function exportDataGrid(options: ExcelExportDataGridOptions): DxPromise<CellRange>;
+export function exportDataGrid(options: DataGridExportOptions): DxPromise<CellRange>;
 
 /**
  * @docid excelExporter.exportPivotGrid
@@ -133,4 +133,4 @@ export function exportDataGrid(options: ExcelExportDataGridOptions): DxPromise<C
  * @static
  * @public
  */
-export function exportPivotGrid(options: ExcelExportPivotGridOptions): DxPromise<CellRange>;
+export function exportPivotGrid(options: PivotGridExportOptions): DxPromise<CellRange>;

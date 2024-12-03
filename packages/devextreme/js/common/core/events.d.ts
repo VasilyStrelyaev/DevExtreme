@@ -1,14 +1,19 @@
 import { DxElement } from '../../core/element';
-import { EventObjectInternal, EventType } from '../../events/events.types';
-
-type DxEvent<TNativeEvent = Event> = {} extends EventType ? (EventObjectInternal & TNativeEvent) : EventType;
+import {
+  EventObject as EventObjectInternal,
+  EventType,
+} from '../../events/events.types';
 
 /**
  * @docid
  * @section commonObjectStructures
  * @public
+ * @namespace DevExpress.common.core.events
  */
 export type EventObject = EventObjectInternal;
+
+type DxEvent<TNativeEvent = Event> = {} extends EventType ? (EventObject & TNativeEvent) : EventType;
+
 
 /**
  * @docid

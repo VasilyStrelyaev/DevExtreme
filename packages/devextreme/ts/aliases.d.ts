@@ -1,6 +1,6 @@
 declare namespace DevExpress {
   /** @deprecated Use DevExpress.common.EventObject instead */
-  export type dxEvent = common.EventObject;
+  export type dxEvent = common.core.events.EventObject;
   /** @deprecated Use DevExpress.common.event instead */
   export type event = events.event;
 }
@@ -461,8 +461,8 @@ declare namespace DevExpress.viz {
 }
 
 declare namespace DevExpress.data {
-  /** @deprecated Use DevExpress.data.Store.Options instead */
-  export type StoreOptions = Store.StoreOptions;
+  /** @deprecated Use DevExpress.common.data.StoreOptions instead */
+  export type StoreOptions = common.data.StoreOptions;
 }
 
 // v23.1

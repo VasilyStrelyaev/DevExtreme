@@ -19,11 +19,13 @@ import type {
 } from './data.types';
 
 /**
+ * @namespace DevExpress.common.data
  * @public
  */
 export type SearchOperation = SearchOperationInternal;
 
 /**
+ * @namespace DevExpress.common.data
  * @public
  */
 export type GroupingInterval = GroupingIntervalInternal;
@@ -33,6 +35,7 @@ export type GroupingInterval = GroupingIntervalInternal;
  * @public
  * @type object
  * @skip
+ * @namespace DevExpress.common.data
  */
 export type SortDescriptor<T> = SortDescriptorInternal<T>;
 
@@ -41,6 +44,7 @@ export type SortDescriptor<T> = SortDescriptorInternal<T>;
  * @public
  * @type object
  * @skip
+ * @namespace DevExpress.common.data
  */
 export type GroupDescriptor<T> = GroupDescriptorInternal<T>;
 
@@ -49,6 +53,7 @@ export type GroupDescriptor<T> = GroupDescriptorInternal<T>;
  * @public
  * @type object
  * @skip
+ * @namespace DevExpress.common.data
  */
 export type SelectDescriptor<T> = SelectDescriptorInternal<T>;
 
@@ -56,14 +61,15 @@ export type SelectDescriptor<T> = SelectDescriptorInternal<T>;
  * @docid
  * @public
  * @type object
+ * @namespace DevExpress.common.data
  */
 export type FilterDescriptor = FilterDescriptorInternal;
 
 /**
  * @public
  * @docid
- * @namespace DevExpress.data
  * @type object
+ * @namespace DevExpress.common.data
  */
 export type LoadOptions<T = any> = LoadOptionsInternal<T>;
 
@@ -71,6 +77,7 @@ export type LoadOptions<T = any> = LoadOptionsInternal<T>;
  * @docid
  * @public
  * @type object
+ * @namespace DevExpress.common.data
  */
 export type SummaryDescriptor<T> = SummaryDescriptorInternal<T>;
 
@@ -78,20 +85,20 @@ export type SummaryDescriptor<T> = SummaryDescriptorInternal<T>;
  * @docid Utils.applyChanges
  * @publicName applyChanges(data, changes, options)
  * @param3 options?:any
- * @namespace DevExpress.data
+ * @namespace DevExpress.common.data
  * @public
  */
 export function applyChanges(data: Array<any>, changes: Array<any>, options?: { keyExpr?: string | Array<string>; immutable?: boolean }): Array<any>;
 
 /**
  * @docid
- * @namespace DevExpress.data
+ * @namespace DevExpress.common.data
  * @public
  */
-export interface ArrayStoreOptions<
+export type ArrayStoreOptions<
     TItem = any,
     TKey = any,
-> extends AbstractStoreOptions<TItem, TKey> {
+> = AbstractStoreOptions<TItem, TKey> & {
     /**
      * @docid
      * @public
@@ -101,7 +108,7 @@ export interface ArrayStoreOptions<
 
 /**
  * @docid
- * @inherits Store
+ * @namespace DevExpress.common.data
  * @public
  * @options ArrayStoreOptions
  */
@@ -136,6 +143,7 @@ export class ArrayStore<
 /**
  * @docid
  * @public
+ * @namespace DevExpress.common.data
  */
 export type GroupItem<
     TItem = any,
@@ -158,6 +166,7 @@ type LoadResultArray<TItem = any> = Array<TItem> | Array<GroupItem<TItem>>;
 /**
  * @docid
  * @public
+ * @namespace DevExpress.common.data
  */
 export type LoadResultObject<TItem = any> = {
     /**
@@ -177,6 +186,7 @@ export type LoadResultObject<TItem = any> = {
  * @docid
  * @public
  * @type object
+ * @namespace DevExpress.common.data
  */
 export type LoadResult<
     TItem = any,
@@ -188,18 +198,21 @@ export type LoadResult<
 /**
  * @docid
  * @public
+ * @namespace DevExpress.common.data
  */
 export function isLoadResultObject<TItem>(res: LoadResult<TItem>): res is LoadResultObject<TItem>;
 
 /**
  * @docid
  * @public
+ * @namespace DevExpress.common.data
  */
 export function isGroupItemsArray<TItem>(res: LoadResult<TItem>): res is Array<GroupItem<TItem>>;
 
 /**
  * @docid
  * @public
+ * @namespace DevExpress.common.data
  */
 export function isItemsArray<TItem>(res: LoadResult<TItem>): res is Array<TItem>;
 
@@ -210,18 +223,19 @@ type LoadFunctionResult<T> = T | DxPromise<T> | PromiseLike<T>;
  * @public
  * @type object
  * @deprecated Use LoadResult instead
+ * @namespace DevExpress.common.data
  */
 export type ResolvedData<TItem = any> = LoadResult<TItem>;
 
 /**
  * @docid
  * @public
- * @namespace DevExpress.data
+ * @namespace DevExpress.common.data
  */
-export interface CustomStoreOptions<
+export type CustomStoreOptions<
     TItem = any,
     TKey = any,
-> extends StoreOptionsBase<TItem, TKey> {
+> = StoreOptionsBase<TItem, TKey> & {
     /**
      * @docid
      * @public
@@ -300,6 +314,7 @@ export interface CustomStoreOptions<
  * @inherits Store
  * @public
  * @options CustomStoreOptions
+ * @namespace DevExpress.common.data
  */
 export class CustomStore<
     TItem = any,
@@ -341,17 +356,17 @@ export class CustomStore<
 type DataSourceEventName = 'changed' | 'loadError' | 'loadingChanged';
 
 /**
- * @namespace DevExpress.data
+ * @namespace DevExpress.common.data
  * @docid
  * @public
  * @type object
  */
-export interface DataSourceOptions<
+export type DataSourceOptions<
     TStoreItem = any,
     TMappedItem = TStoreItem,
     TItem = TMappedItem,
     TKey = any,
-> {
+> = {
     /**
      * @docid
      * @public
@@ -484,6 +499,7 @@ export interface DataSourceOptions<
  * @docid
  * @public
  * @options DataSourceOptions
+ * @namespace DevExpress.common.data
  */
 export class DataSource<
     TItem = any,
@@ -753,6 +769,7 @@ export class DataSource<
 /**
  * @docid
  * @public
+ * @namespace DevExpress.common.data
  */
 export type LangParams = {
   /**
@@ -791,7 +808,7 @@ export type StoreOptions<TItem = any, TKey = any> =
 
 /**
  * @docid
- * @namespace DevExpress
+ * @namespace DevExpress.common.data
  * @public
  */
 export class EndpointSelector {
@@ -807,7 +824,7 @@ export class EndpointSelector {
 /**
  * @docid Utils.errorHandler
  * @type function(e)
- * @namespace DevExpress.data
+ * @namespace DevExpress.common.data
  * @deprecated Utils.setErrorHandler
  * @public
  */
@@ -816,7 +833,7 @@ export function errorHandler(e: Error): void;
 /**
  * @docid Utils.setErrorHandler
  * @type function(handler)
- * @namespace DevExpress.data
+ * @namespace DevExpress.common.data
  * @public
  */
 export function setErrorHandler(handler: (e: Error) => void): void;
@@ -824,12 +841,12 @@ export function setErrorHandler(handler: (e: Error) => void): void;
 /**
  * @docid
  * @public
- * @namespace DevExpress.data
+ * @namespace DevExpress.common.data
  */
-export interface LocalStoreOptions<
+export type LocalStoreOptions<
     TItem = any,
     TKey = any,
-> extends ArrayStoreOptions<TItem, TKey> {
+> = ArrayStoreOptions<TItem, TKey> & {
     /**
      * @docid
      * @default 10000
@@ -854,6 +871,7 @@ export interface LocalStoreOptions<
  * @inherits ArrayStore
  * @public
  * @options LocalStoreOptions
+ * @namespace DevExpress.common.data
  */
 export class LocalStore<
     TItem = any,
@@ -872,8 +890,9 @@ export class LocalStore<
  * @docid
  * @type object
  * @public
+ * @namespace DevExpress.common.data
  */
-export interface Query {
+export type Query = {
     /**
      * @docid
      * @publicName aggregate(seed, step, finalize)
@@ -1036,7 +1055,7 @@ export interface Query {
  * @docid Utils.query
  * @publicName query(array, queryOptions)
  * @param2 queryOptions:object
- * @namespace DevExpress.data
+ * @namespace DevExpress.common.data
  * @public
  */
 export function query(array: Array<any>, queryOptions?: any): Query;
@@ -1045,7 +1064,7 @@ export function query(array: Array<any>, queryOptions?: any): Query;
  * @docid Utils.query
  * @publicName query(url, queryOptions)
  * @param2 queryOptions:object
- * @namespace DevExpress.data
+ * @namespace DevExpress.common.data
  * @public
  */
 export function query(url: string, queryOptions: any): Query;
@@ -1053,7 +1072,7 @@ export function query(url: string, queryOptions: any): Query;
 /**
  * @docid Utils.base64_encode
  * @publicName base64_encode(input)
- * @namespace DevExpress.data
+ * @namespace DevExpress.common.data
  * @public
  */
 export function base64_encode(input: string | Array<number>): string;
@@ -1061,7 +1080,7 @@ export function base64_encode(input: string | Array<number>): string;
 /**
  * @docid Utils.compileGetter
  * @publicName compileGetter(expr)
- * @namespace DevExpress.data.utils
+ * @namespace DevExpress.common.data
  * @public
  */
 export function compileGetter(expr: string | Array<string>): Function;
@@ -1069,7 +1088,7 @@ export function compileGetter(expr: string | Array<string>): Function;
 /**
  * @docid Utils.compileSetter
  * @publicName compileSetter(expr)
- * @namespace DevExpress.data.utils
+ * @namespace DevExpress.common.data
  * @public
  */
 export function compileSetter(expr: string | Array<string>): Function;
@@ -1093,10 +1112,10 @@ export type HttpMethod = 'GET' | 'POST' | 'PATCH' | 'MERGE';
 /**
  * @docid
  * @public
- * @namespace DevExpress.data
+ * @namespace DevExpress.common.data
  * @type object
  */
-export interface ODataContextOptions {
+export type ODataContextOptions = {
     /**
      * @docid
      * @type_function_param1_field params:object
@@ -1157,6 +1176,7 @@ export interface ODataContextOptions {
  * @docid
  * @public
  * @options ODataContextOptions
+ * @namespace DevExpress.common.data
  */
 export class ODataContext {
     constructor(options?: ODataContextOptions);
@@ -1190,12 +1210,12 @@ export class ODataContext {
 /**
  * @docid
  * @public
- * @namespace DevExpress.data
+ * @namespace DevExpress.common.data
  */
-export interface ODataStoreOptions<
+export type ODataStoreOptions<
     TItem = any,
     TKey = any,
-> extends AbstractStoreOptions<TItem, TKey> {
+> = AbstractStoreOptions<TItem, TKey> & {
     /**
      * @docid
      * @type_function_param1_field params:object
@@ -1266,6 +1286,7 @@ export interface ODataStoreOptions<
  * @inherits Store
  * @public
  * @options ODataStoreOptions
+ * @namespace DevExpress.common.data
  */
 export class ODataStore<
     TItem = any,
@@ -1291,7 +1312,7 @@ export class ODataStore<
 
 /**
  * @docid
- * @namespace DevExpress.data
+ * @namespace DevExpress.common.data
  * @public
  */
 export class EdmLiteral {
@@ -1307,7 +1328,7 @@ export class EdmLiteral {
 /**
  * @const Utils.keyConverters
  * @publicName odata.keyConverters
- * @namespace DevExpress.data.utils.odata
+ * @namespace DevExpress.common.data
  * @public
  */
 // eslint-disable-next-line vars-on-top, import/no-mutable-exports, no-var, @typescript-eslint/init-declarations, @typescript-eslint/no-explicit-any

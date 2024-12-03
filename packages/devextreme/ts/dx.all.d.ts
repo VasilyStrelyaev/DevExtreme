@@ -704,7 +704,7 @@ declare module DevExpress {
     /**
      * [descr:DataHelperMixin.getDataSource()]
      */
-    getDataSource(): DevExpress.common.DataSource;
+    getDataSource(): DevExpress.common.data.DataSource;
   }
   /**
    * [descr:DefaultOptionsRule]
@@ -905,16 +905,6 @@ declare module DevExpress {
      * [descr:DOMComponentOptions.width]
      */
     width?: number | string | (() => number | string) | undefined;
-  }
-  /**
-   * [descr:EndpointSelector]
-   */
-  export class EndpointSelector {
-    constructor(options: any);
-    /**
-     * [descr:EndpointSelector.urlFor(key)]
-     */
-    urlFor(key: string): string;
   }
   /**
    * [descr:ExportLoadPanel]
@@ -1239,25 +1229,6 @@ declare module DevExpress.common {
     | 'slideOut';
   export type ApplyValueMode = 'instantly' | 'useButtons';
   /**
-   * [descr:ArrayStore]
-   */
-  export class ArrayStore<TItem = any, TKey = any> extends DevExpress.data
-    .AbstractStore<TItem, TKey> {
-    constructor(options?: DevExpress.data.ArrayStoreOptions<TItem, TKey>);
-    /**
-     * [descr:ArrayStore.byKey(key)]
-     */
-    byKey(key: TKey): DevExpress.core.utils.DxPromise<TItem>;
-    /**
-     * [descr:ArrayStore.clear()]
-     */
-    clear(): void;
-    /**
-     * [descr:ArrayStore.createQuery()]
-     */
-    createQuery(): Query;
-  }
-  /**
    * [descr:AsyncCancelable]
    */
   export type AsyncCancelable = {
@@ -1399,201 +1370,6 @@ declare module DevExpress.common {
     validationCallback?: (options: ValidationCallbackData) => boolean;
   };
   /**
-   * [descr:CustomStore]
-   */
-  export class CustomStore<TItem = any, TKey = any> extends DevExpress.data
-    .Store<TItem, TKey> {
-    constructor(options?: DevExpress.data.CustomStoreOptions<TItem, TKey>);
-    /**
-     * [descr:CustomStore.byKey(key, extraOptions)]
-     */
-    byKey(
-      key: TKey,
-      extraOptions?: DevExpress.data.LoadOptions<TItem>
-    ): DevExpress.core.utils.DxPromise<TItem>;
-    /**
-     * [descr:CustomStore.clearRawDataCache()]
-     */
-    clearRawDataCache(): void;
-    /**
-     * [descr:CustomStore.load()]
-     */
-    load(): DevExpress.core.utils.DxExtendedPromise<LoadResult<TItem>>;
-    /**
-     * [descr:CustomStore.load(options)]
-     */
-    load(
-      options: DevExpress.data.LoadOptions<TItem>
-    ): DevExpress.core.utils.DxExtendedPromise<LoadResult<TItem>>;
-  }
-  /**
-   * [descr:DataSource]
-   */
-  export class DataSource<TItem = any, TKey = any> {
-    constructor(data: Array<TItem>);
-    constructor(
-      options:
-        | DevExpress.data.CustomStoreOptions<TItem, TKey>
-        | DevExpress.data.DataSourceOptions<any, any, TItem, TKey>
-    );
-    constructor(store: DevExpress.data.utils.Store<TItem, TKey>);
-    constructor(url: string);
-    /**
-     * [descr:DataSource.cancel(operationId)]
-     */
-    cancel(operationId: number): boolean;
-    /**
-     * [descr:DataSource.dispose()]
-     */
-    dispose(): void;
-    /**
-     * [descr:DataSource.filter()]
-     */
-    filter(): FilterDescriptor | Array<FilterDescriptor>;
-    /**
-     * [descr:DataSource.filter(filterExpr)]
-     */
-    filter(filterExpr: FilterDescriptor | Array<FilterDescriptor>): void;
-    /**
-     * [descr:DataSource.group()]
-     */
-    group(): GroupDescriptor<TItem> | Array<GroupDescriptor<TItem>>;
-    /**
-     * [descr:DataSource.group(groupExpr)]
-     */
-    group(
-      groupExpr: GroupDescriptor<TItem> | Array<GroupDescriptor<TItem>>
-    ): void;
-    /**
-     * [descr:DataSource.isLastPage()]
-     */
-    isLastPage(): boolean;
-    /**
-     * [descr:DataSource.isLoaded()]
-     */
-    isLoaded(): boolean;
-    /**
-     * [descr:DataSource.isLoading()]
-     */
-    isLoading(): boolean;
-    /**
-     * [descr:DataSource.items()]
-     */
-    items(): Array<any>;
-    /**
-     * [descr:DataSource.key()]
-     */
-    key(): string | Array<string>;
-    /**
-     * [descr:DataSource.load()]
-     */
-    load(): DevExpress.core.utils.DxExtendedPromise<any>;
-    /**
-     * [descr:DataSource.loadOptions()]
-     */
-    loadOptions(): DevExpress.data.LoadOptions<TItem>;
-    /**
-     * [descr:DataSource.off(eventName)]
-     */
-    off(eventName: DataSourceEventName): this;
-    /**
-     * [descr:DataSource.off(eventName, eventHandler)]
-     */
-    off(eventName: DataSourceEventName, eventHandler: Function): this;
-    /**
-     * [descr:DataSource.on(eventName, eventHandler)]
-     */
-    on(eventName: DataSourceEventName, eventHandler: Function): this;
-    /**
-     * [descr:DataSource.on(events)]
-     */
-    on(events: { [key in DataSourceEventName]?: Function }): this;
-    /**
-     * [descr:DataSource.pageIndex()]
-     */
-    pageIndex(): number;
-    /**
-     * [descr:DataSource.pageIndex(newIndex)]
-     */
-    pageIndex(newIndex: number): void;
-    /**
-     * [descr:DataSource.pageSize()]
-     */
-    pageSize(): number;
-    /**
-     * [descr:DataSource.pageSize(value)]
-     */
-    pageSize(value: number): void;
-    /**
-     * [descr:DataSource.paginate()]
-     */
-    paginate(): boolean;
-    /**
-     * [descr:DataSource.paginate(value)]
-     */
-    paginate(value: boolean): void;
-    /**
-     * [descr:DataSource.reload()]
-     */
-    reload(): DevExpress.core.utils.DxExtendedPromise<any>;
-    /**
-     * [descr:DataSource.requireTotalCount()]
-     */
-    requireTotalCount(): boolean;
-    /**
-     * [descr:DataSource.requireTotalCount(value)]
-     */
-    requireTotalCount(value: boolean): void;
-    /**
-     * [descr:DataSource.searchExpr()]
-     */
-    searchExpr(): string & Function & Array<string | Function>;
-    /**
-     * [descr:DataSource.searchExpr(expr)]
-     */
-    searchExpr(expr: string | Function | Array<string | Function>): void;
-    /**
-     * [descr:DataSource.searchOperation()]
-     */
-    searchOperation(): string;
-    /**
-     * [descr:DataSource.searchOperation(op)]
-     */
-    searchOperation(op: string): void;
-    /**
-     * [descr:DataSource.searchValue()]
-     */
-    searchValue(): any;
-    /**
-     * [descr:DataSource.searchValue(value)]
-     */
-    searchValue(value: any): void;
-    /**
-     * [descr:DataSource.select()]
-     */
-    select(): SelectDescriptor<TItem>;
-    /**
-     * [descr:DataSource.select(expr)]
-     */
-    select(expr: SelectDescriptor<TItem>): void;
-    /**
-     * [descr:DataSource.sort()]
-     */
-    sort(): SortDescriptor<TItem> | Array<SortDescriptor<TItem>>;
-    /**
-     * [descr:DataSource.sort(sortExpr)]
-     */
-    sort(sortExpr: SortDescriptor<TItem> | Array<SortDescriptor<TItem>>): void;
-    /**
-     * [descr:DataSource.store()]
-     */
-    store(): DevExpress.data.utils.Store<TItem, TKey>;
-    /**
-     * [descr:DataSource.totalCount()]
-     */
-    totalCount(): number;
-  }
-  /**
    * @deprecated Attention! This type is for internal purposes only. If you used it previously, please submit a ticket to our {@link https://supportcenter.devexpress.com/ticket/create Support Center}. We will check if there is an alternative solution.
    */
   type DataSourceEventName = 'changed' | 'loadError' | 'loadingChanged';
@@ -1615,7 +1391,7 @@ declare module DevExpress.common {
    * @deprecated Attention! This type is for internal purposes only. If you used it previously, please submit a ticket to our {@link https://supportcenter.devexpress.com/ticket/create Support Center}. We will check if there is an alternative solution.
    */
   type DxEvent<TNativeEvent = Event> = {} extends DevExpress.events.EventType
-    ? DevExpress.events.EventObjectInternal & TNativeEvent
+    ? DevExpress.common.core.events.EventObject & TNativeEvent
     : DevExpress.events.EventType;
   export type EditorStyle = 'outlined' | 'underlined' | 'filled';
   /**
@@ -1656,20 +1432,12 @@ declare module DevExpress.common {
    * @deprecated Attention! This type is for internal purposes only. If you used it previously, please submit a ticket to our {@link https://supportcenter.devexpress.com/ticket/create Support Center}. We will check if there is an alternative solution.
    */
   type EventName = 'orientationChanged';
-  /**
-   * [descr:EventObject]
-   */
-  export type EventObject = DevExpress.events.EventObjectInternal;
   export type ExportFormat = 'GIF' | 'JPEG' | 'PDF' | 'PNG' | 'SVG';
   /**
    * @deprecated Attention! This type is for internal purposes only. If you used it previously, please submit a ticket to our {@link https://supportcenter.devexpress.com/ticket/create Support Center}. We will check if there is an alternative solution.
    */
   type ExternalFormat = Intl.DateTimeFormatOptions | Intl.NumberFormatOptions;
   export type FieldChooserLayout = 0 | 1 | 2;
-  /**
-   * [descr:FilterDescriptor]
-   */
-  export type FilterDescriptor = DevExpress.utils.FilterDescriptor;
   export type FirstDayOfWeek = 0 | 1 | 2 | 3 | 4 | 5 | 6;
   export type Format =
     | 'billions'
@@ -1827,32 +1595,6 @@ declare module DevExpress.common {
     buyNowLink?: string;
     licensingDocLink?: string;
   };
-  /**
-   * [descr:GroupDescriptor]
-   */
-  export type GroupDescriptor<T> = DevExpress.utils.GroupDescriptor<T>;
-  export type GroupingInterval = DevExpress.utils.GroupingInterval;
-  /**
-   * [descr:GroupItem]
-   */
-  export type GroupItem<TItem = any> = {
-    /**
-     * [descr:GroupItem.key]
-     */
-    key: any | string | number;
-    /**
-     * [descr:GroupItem.items]
-     */
-    items: Array<TItem> | Array<GroupItem<TItem>> | null;
-    /**
-     * [descr:GroupItem.count]
-     */
-    count?: number;
-    /**
-     * [descr:GroupItem.summary]
-     */
-    summary?: Array<any>;
-  };
   export type HorizontalAlignment = 'center' | 'left' | 'right';
   export type HorizontalEdge = 'left' | 'right';
   /**
@@ -1873,24 +1615,6 @@ declare module DevExpress.common {
     readonly element?: DevExpress.core.DxElement;
   }
   /**
-   * [descr:isGroupItemsArray]
-   */
-  export function isGroupItemsArray<TItem>(
-    res: LoadResult<TItem>
-  ): res is Array<GroupItem<TItem>>;
-  /**
-   * [descr:isItemsArray]
-   */
-  export function isItemsArray<TItem>(
-    res: LoadResult<TItem>
-  ): res is Array<TItem>;
-  /**
-   * [descr:isLoadResultObject]
-   */
-  export function isLoadResultObject<TItem>(
-    res: LoadResult<TItem>
-  ): res is LoadResultObject<TItem>;
-  /**
    * [descr:ItemInfo]
    */
   export interface ItemInfo<TItemData = any> {
@@ -1909,19 +1633,6 @@ declare module DevExpress.common {
   }
   export type LabelMode = 'static' | 'floating' | 'hidden' | 'outside';
   /**
-   * [descr:LangParams]
-   */
-  export type LangParams = {
-    /**
-     * [descr:LangParams.locale]
-     */
-    locale: string;
-    /**
-     * [descr:LangParams.collatorOptions]
-     */
-    collatorOptions?: Intl.CollatorOptions;
-  };
-  /**
    * @deprecated Attention! This type is for internal purposes only. If you used it previously, please submit a ticket to our {@link https://supportcenter.devexpress.com/ticket/create Support Center}. We will check if there is an alternative solution.
    */
   type LoadFunctionResult<T> =
@@ -1929,50 +1640,11 @@ declare module DevExpress.common {
     | DevExpress.core.utils.DxPromise<T>
     | PromiseLike<T>;
   /**
-   * [descr:LoadResult]
-   */
-  export type LoadResult<TItem = any> =
-    | Object
-    | LoadResultArray<TItem>
-    | LoadResultObject<TItem>;
-  /**
    * @deprecated Attention! This type is for internal purposes only. If you used it previously, please submit a ticket to our {@link https://supportcenter.devexpress.com/ticket/create Support Center}. We will check if there is an alternative solution.
    */
-  type LoadResultArray<TItem = any> = Array<TItem> | Array<GroupItem<TItem>>;
-  /**
-   * [descr:LoadResultObject]
-   */
-  export type LoadResultObject<TItem = any> = {
-    /**
-     * [descr:LoadResultObject.data]
-     */
-    data: Array<TItem> | Array<GroupItem<TItem>>;
-    /**
-     * [descr:LoadResultObject.totalCount]
-     */
-    totalCount?: number;
-    /**
-     * [descr:LoadResultObject.summary]
-     */
-    summary?: Array<any>;
-    /**
-     * [descr:LoadResultObject.groupCount]
-     */
-    groupCount?: number;
-  };
-  /**
-   * [descr:LocalStore]
-   */
-  export class LocalStore<TItem = any, TKey = any> extends ArrayStore<
-    TItem,
-    TKey
-  > {
-    constructor(options?: DevExpress.data.LocalStoreOptions<TItem, TKey>);
-    /**
-     * [descr:LocalStore.clear()]
-     */
-    clear(): void;
-  }
+  type LoadResultArray<TItem = any> =
+    | Array<TItem>
+    | Array<DevExpress.common.data.GroupItem<TItem>>;
   export type MaskMode = 'always' | 'onFocus';
   export type Mode = 'auto';
   /**
@@ -2015,31 +1687,6 @@ declare module DevExpress.common {
     type: 'numeric';
   };
   /**
-   * [descr:ODataContext]
-   */
-  export class ODataContext {
-    constructor(options?: DevExpress.data.ODataContextOptions);
-    /**
-     * [descr:ODataContext.get(operationName, params)]
-     */
-    get(
-      operationName: string,
-      params: any
-    ): DevExpress.core.utils.DxPromise<any>;
-    /**
-     * [descr:ODataContext.invoke(operationName, params, httpMethod)]
-     */
-    invoke(
-      operationName: string,
-      params: any,
-      httpMethod: HttpMethod
-    ): DevExpress.core.utils.DxPromise<void>;
-    /**
-     * [descr:ODataContext.objectLink(entityAlias, key)]
-     */
-    objectLink(entityAlias: string, key: any | string | number): any;
-  }
-  /**
    * @deprecated Attention! This type is for internal purposes only. If you used it previously, please submit a ticket to our {@link https://supportcenter.devexpress.com/ticket/create Support Center}. We will check if there is an alternative solution.
    */
   export interface ODataRequestOptions {
@@ -2054,31 +1701,6 @@ declare module DevExpress.common {
     timeout: number;
     url: string;
     xhrFields: any;
-  }
-  /**
-   * [descr:ODataStore]
-   */
-  export class ODataStore<TItem = any, TKey = any> extends DevExpress.data
-    .AbstractStore<TItem, TKey> {
-    constructor(options?: DevExpress.data.ODataStoreOptions<TItem, TKey>);
-    /**
-     * [descr:ODataStore.byKey(key, extraOptions)]
-     */
-    byKey(
-      key: TKey,
-      extraOptions?: {
-        expand?: string | Array<string>;
-        select?: string | Array<string>;
-      }
-    ): DevExpress.core.utils.DxPromise<TItem>;
-    /**
-     * [descr:ODataStore.createQuery(loadOptions)]
-     */
-    createQuery(loadOptions?: {
-      expand?: string | Array<string>;
-      requireTotalCount?: boolean;
-      customQueryParams?: any;
-    }): Query;
   }
   export type Orientation = 'horizontal' | 'vertical';
   export type PageLoadMode = 'nextButton' | 'scrollBottom';
@@ -2134,27 +1756,6 @@ declare module DevExpress.common {
      */
     type: 'pattern';
   };
-  /**
-   * [descr:PdfExportGanttFont]
-   */
-  export interface PdfExportGanttFont {
-    /**
-     * [descr:PdfExportGanttFont.fontObject]
-     */
-    fontObject: object | undefined;
-    /**
-     * [descr:PdfExportGanttFont.name]
-     */
-    name: string | undefined;
-    /**
-     * [descr:PdfExportGanttFont.style]
-     */
-    style?: string;
-    /**
-     * [descr:PdfExportGanttFont.weight]
-     */
-    weight?: string | number | undefined;
-  }
   export type Position = 'bottom' | 'left' | 'right' | 'top';
   export type PositionAlignment =
     | 'bottom'
@@ -2166,103 +1767,6 @@ declare module DevExpress.common {
     | 'right bottom'
     | 'right top'
     | 'top';
-  /**
-   * [descr:Query]
-   */
-  export interface Query {
-    /**
-     * [descr:Query.aggregate(seed, step, finalize)]
-     */
-    aggregate(
-      seed: any,
-      step: Function,
-      finalize: Function
-    ): DevExpress.core.utils.DxPromise<any>;
-    /**
-     * [descr:Query.aggregate(step)]
-     */
-    aggregate(step: Function): DevExpress.core.utils.DxPromise<any>;
-    /**
-     * [descr:Query.avg()]
-     */
-    avg(): DevExpress.core.utils.DxPromise<number>;
-    /**
-     * [descr:Query.avg(getter)]
-     */
-    avg(getter: any): DevExpress.core.utils.DxPromise<number>;
-    /**
-     * [descr:Query.count()]
-     */
-    count(): DevExpress.core.utils.DxPromise<number>;
-    /**
-     * [descr:Query.enumerate()]
-     */
-    enumerate(): DevExpress.core.utils.DxPromise<any>;
-    /**
-     * [descr:Query.filter(criteria)]
-     */
-    filter(criteria: Array<any>): Query;
-    /**
-     * [descr:Query.filter(predicate)]
-     */
-    filter(predicate: Function): Query;
-    /**
-     * [descr:Query.groupBy(getter)]
-     */
-    groupBy(getter: any): Query;
-    /**
-     * [descr:Query.max()]
-     */
-    max(): DevExpress.core.utils.DxPromise<number | Date>;
-    /**
-     * [descr:Query.max(getter)]
-     */
-    max(getter: any): DevExpress.core.utils.DxPromise<number | Date>;
-    /**
-     * [descr:Query.min()]
-     */
-    min(): DevExpress.core.utils.DxPromise<number | Date>;
-    /**
-     * [descr:Query.min(getter)]
-     */
-    min(getter: any): DevExpress.core.utils.DxPromise<number | Date>;
-    /**
-     * [descr:Query.select(getter)]
-     */
-    select(...getters: any[]): Query;
-    /**
-     * [descr:Query.slice(skip, take)]
-     */
-    slice(skip: number, take?: number): Query;
-    /**
-     * [descr:Query.sortBy(getter)]
-     */
-    sortBy(getter: any): Query;
-    /**
-     * [descr:Query.sortBy(getter, desc)]
-     */
-    sortBy(getter: any, desc: boolean): Query;
-    /**
-     * [descr:Query.sum()]
-     */
-    sum(): DevExpress.core.utils.DxPromise<number>;
-    /**
-     * [descr:Query.sum(getter)]
-     */
-    sum(getter: any): DevExpress.core.utils.DxPromise<number>;
-    /**
-     * [descr:Query.thenBy(getter)]
-     */
-    thenBy(getter: any): Query;
-    /**
-     * [descr:Query.thenBy(getter, desc)]
-     */
-    thenBy(getter: any, desc: boolean): Query;
-    /**
-     * [descr:Query.toArray()]
-     */
-    toArray(): Array<any>;
-  }
   /**
    * [descr:RangeRule]
    */
@@ -2321,11 +1825,6 @@ declare module DevExpress.common {
     type: 'required';
   };
   /**
-   * [descr:ResolvedData]
-   * @deprecated [depNote:ResolvedData]
-   */
-  export type ResolvedData<TItem = any> = LoadResult<TItem>;
-  /**
    * [descr:SchedulerTimeZone]
    */
   export interface SchedulerTimeZone {
@@ -2348,12 +1847,7 @@ declare module DevExpress.common {
   export type ScrollDirection = 'both' | 'horizontal' | 'vertical';
   export type ScrollMode = 'standard' | 'virtual';
   export type SearchMode = 'contains' | 'startswith' | 'equals';
-  export type SearchOperation = DevExpress.utils.SearchOperation;
   export type SelectAllMode = 'allPages' | 'page';
-  /**
-   * [descr:SelectDescriptor]
-   */
-  export type SelectDescriptor<T> = DevExpress.utils.SelectDescriptor<T>;
   export type SimplifiedSearchMode = 'contains' | 'startswith';
   export type SingleMultipleAllOrNone = 'single' | 'multiple' | 'all' | 'none';
   export type SingleMultipleOrNone = 'single' | 'multiple' | 'none';
@@ -2361,10 +1855,6 @@ declare module DevExpress.common {
   export type SingleOrNone = 'single' | 'none';
   export type SliderValueChangeMode = 'onHandleMove' | 'onHandleRelease';
   export type Sortable = DevExpress.core.OmitInternal<DevExpress.ui.dxSortable>;
-  /**
-   * [descr:SortDescriptor]
-   */
-  export type SortDescriptor<T> = DevExpress.utils.SortDescriptor<T>;
   export type SortOrder = 'asc' | 'desc';
   export type StoreType = 'array' | 'local' | 'odata';
   /**
@@ -2397,10 +1887,6 @@ declare module DevExpress.common {
     type: 'stringLength';
   };
   export type SubmenuShowMode = 'onClick' | 'onHover';
-  /**
-   * [descr:SummaryDescriptor]
-   */
-  export type SummaryDescriptor<T> = DevExpress.utils.SummaryDescriptor<T>;
   export type TabsIconPosition = 'top' | 'end' | 'bottom' | 'start';
   export type TabsStyle = 'primary' | 'secondary';
   export type TextBoxPredefinedButton = 'clear';
@@ -3216,6 +2702,1041 @@ declare module DevExpress.common.charts {
   export type WordWrap = 'normal' | 'breakWord' | 'none';
   export type ZoomPanAction = 'zoom' | 'pan';
 }
+declare module DevExpress.common.core.events {
+  /**
+   * [descr:EventObject]
+   */
+  export type EventObject = DevExpress.events.EventObject;
+}
+declare module DevExpress.common.data {
+  /**
+   * @deprecated Attention! This type is for internal purposes only. If you used it previously, please submit a ticket to our {@link https://supportcenter.devexpress.com/ticket/create Support Center}. We will check if there is an alternative solution.
+   */
+  export class AbstractStore<TItem = any, TKey = any> extends Store<
+    TItem,
+    TKey
+  > {
+    constructor(
+      options?: DevExpress.common.data.AbstractStore.Options<TItem, TKey>
+    );
+    /**
+     * [descr:Store.load()]
+     */
+    load(): DevExpress.core.utils.DxExtendedPromise<Array<TItem>>;
+    /**
+     * [descr:Store.load(options)]
+     */
+    load(
+      options: DevExpress.data.LoadOptions<TItem>
+    ): DevExpress.core.utils.DxExtendedPromise<Array<TItem>>;
+  }
+  module AbstractStore {
+    /**
+     * @deprecated Use AbstractStoreOptions instead
+     * @deprecated Attention! This type is for internal purposes only. If you used it previously, please submit a ticket to our {@link https://supportcenter.devexpress.com/ticket/create Support Center}. We will check if there is an alternative solution.
+     */
+    export type Options<TItem = any, TKey = any> = AbstractStoreOptions<
+      TItem,
+      TKey
+    >;
+  }
+  /**
+   * @deprecated Attention! This type is for internal purposes only. If you used it previously, please submit a ticket to our {@link https://supportcenter.devexpress.com/ticket/create Support Center}. We will check if there is an alternative solution.
+   */
+  export interface AbstractStoreOptions<TItem = any, TKey = any>
+    extends StoreOptions<TItem, TKey> {
+    /**
+     * [descr:StoreOptions.onLoaded]
+     */
+    onLoaded?: (
+      result: Array<TItem>,
+      loadOptions: DevExpress.data.LoadOptions<TItem>
+    ) => void;
+  }
+  /**
+   * [descr:Utils.applyChanges(data, changes, options)]
+   */
+  export function applyChanges(
+    data: Array<any>,
+    changes: Array<any>,
+    options?: { keyExpr?: string | Array<string>; immutable?: boolean }
+  ): Array<any>;
+  /**
+   * [descr:ArrayStore]
+   */
+  export class ArrayStore<TItem = any, TKey = any> extends AbstractStore<
+    TItem,
+    TKey
+  > {
+    constructor(options?: ArrayStoreOptions<TItem, TKey>);
+    /**
+     * [descr:ArrayStore.byKey(key)]
+     */
+    byKey(key: TKey): DevExpress.core.utils.DxPromise<TItem>;
+    /**
+     * [descr:ArrayStore.clear()]
+     */
+    clear(): void;
+    /**
+     * [descr:ArrayStore.createQuery()]
+     */
+    createQuery(): Query;
+  }
+  /**
+   * [descr:ArrayStoreOptions]
+   */
+  export type ArrayStoreOptions<TItem = any, TKey = any> = AbstractStoreOptions<
+    TItem,
+    TKey
+  > & {
+    /**
+     * [descr:ArrayStoreOptions.data]
+     */
+    data?: Array<TItem>;
+  };
+  /**
+   * [descr:Utils.base64_encode(input)]
+   */
+  export function base64_encode(input: string | Array<number>): string;
+  /**
+   * [descr:Utils.compileGetter(expr)]
+   */
+  export function compileGetter(expr: string | Array<string>): Function;
+  /**
+   * [descr:Utils.compileSetter(expr)]
+   */
+  export function compileSetter(expr: string | Array<string>): Function;
+  /**
+   * [descr:CustomStore]
+   */
+  export class CustomStore<TItem = any, TKey = any> extends Store<TItem, TKey> {
+    constructor(options?: CustomStoreOptions<TItem, TKey>);
+    /**
+     * [descr:CustomStore.byKey(key, extraOptions)]
+     */
+    byKey(
+      key: TKey,
+      extraOptions?: LoadOptions<TItem>
+    ): DevExpress.core.utils.DxPromise<TItem>;
+    /**
+     * [descr:CustomStore.clearRawDataCache()]
+     */
+    clearRawDataCache(): void;
+    /**
+     * [descr:CustomStore.load()]
+     */
+    load(): DevExpress.core.utils.DxExtendedPromise<LoadResult<TItem>>;
+    /**
+     * [descr:CustomStore.load(options)]
+     */
+    load(
+      options: LoadOptions<TItem>
+    ): DevExpress.core.utils.DxExtendedPromise<LoadResult<TItem>>;
+  }
+  /**
+   * [descr:CustomStoreOptions]
+   */
+  export type CustomStoreOptions<TItem = any, TKey = any> = StoreOptions<
+    TItem,
+    TKey
+  > & {
+    /**
+     * [descr:CustomStoreOptions.byKey]
+     */
+    byKey?: (
+      key: TKey,
+      extraOptions?: LoadOptions<TItem>
+    ) => PromiseLike<TItem>;
+    /**
+     * [descr:CustomStoreOptions.cacheRawData]
+     */
+    cacheRawData?: boolean;
+    /**
+     * [descr:CustomStoreOptions.insert]
+     */
+    insert?: (values: TItem) => PromiseLike<TItem>;
+    /**
+     * [descr:CustomStoreOptions.load]
+     */
+    load: (
+      options: LoadOptions<TItem>
+    ) => LoadFunctionResult<LoadResult<TItem>>;
+    /**
+     * [descr:CustomStoreOptions.loadMode]
+     */
+    loadMode?: 'processed' | 'raw';
+    /**
+     * [descr:CustomStoreOptions.onLoaded]
+     */
+    onLoaded?: (
+      result: LoadResult<TItem>,
+      loadOptions: LoadOptions<TItem>
+    ) => void;
+    /**
+     * [descr:CustomStoreOptions.remove]
+     */
+    remove?: (key: TKey) => PromiseLike<void>;
+    /**
+     * [descr:CustomStoreOptions.totalCount]
+     */
+    totalCount?: (loadOptions: {
+      filter?: FilterDescriptor | Array<FilterDescriptor>;
+      group?: GroupDescriptor<TItem> | Array<GroupDescriptor<TItem>>;
+    }) => PromiseLike<number>;
+    /**
+     * [descr:CustomStoreOptions.update]
+     */
+    update?: (key: TKey, values: TItem) => PromiseLike<any>;
+    /**
+     * [descr:CustomStoreOptions.useDefaultSearch]
+     */
+    useDefaultSearch?: boolean | undefined;
+  };
+  /**
+   * [descr:DataSource]
+   */
+  export class DataSource<TItem = any, TKey = any> {
+    constructor(data: Array<TItem>);
+    constructor(
+      options:
+        | CustomStoreOptions<TItem, TKey>
+        | DataSourceOptions<any, any, TItem, TKey>
+    );
+    constructor(store: DevExpress.data.utils.Store<TItem, TKey>);
+    constructor(url: string);
+    /**
+     * [descr:DataSource.cancel(operationId)]
+     */
+    cancel(operationId: number): boolean;
+    /**
+     * [descr:DataSource.dispose()]
+     */
+    dispose(): void;
+    /**
+     * [descr:DataSource.filter()]
+     */
+    filter(): FilterDescriptor | Array<FilterDescriptor>;
+    /**
+     * [descr:DataSource.filter(filterExpr)]
+     */
+    filter(filterExpr: FilterDescriptor | Array<FilterDescriptor>): void;
+    /**
+     * [descr:DataSource.group()]
+     */
+    group(): GroupDescriptor<TItem> | Array<GroupDescriptor<TItem>>;
+    /**
+     * [descr:DataSource.group(groupExpr)]
+     */
+    group(
+      groupExpr: GroupDescriptor<TItem> | Array<GroupDescriptor<TItem>>
+    ): void;
+    /**
+     * [descr:DataSource.isLastPage()]
+     */
+    isLastPage(): boolean;
+    /**
+     * [descr:DataSource.isLoaded()]
+     */
+    isLoaded(): boolean;
+    /**
+     * [descr:DataSource.isLoading()]
+     */
+    isLoading(): boolean;
+    /**
+     * [descr:DataSource.items()]
+     */
+    items(): Array<any>;
+    /**
+     * [descr:DataSource.key()]
+     */
+    key(): string | Array<string>;
+    /**
+     * [descr:DataSource.load()]
+     */
+    load(): DevExpress.core.utils.DxExtendedPromise<any>;
+    /**
+     * [descr:DataSource.loadOptions()]
+     */
+    loadOptions(): LoadOptions<TItem>;
+    /**
+     * [descr:DataSource.off(eventName)]
+     */
+    off(eventName: DataSourceEventName): this;
+    /**
+     * [descr:DataSource.off(eventName, eventHandler)]
+     */
+    off(eventName: DataSourceEventName, eventHandler: Function): this;
+    /**
+     * [descr:DataSource.on(eventName, eventHandler)]
+     */
+    on(eventName: DataSourceEventName, eventHandler: Function): this;
+    /**
+     * [descr:DataSource.on(events)]
+     */
+    on(events: { [key in DataSourceEventName]?: Function }): this;
+    /**
+     * [descr:DataSource.pageIndex()]
+     */
+    pageIndex(): number;
+    /**
+     * [descr:DataSource.pageIndex(newIndex)]
+     */
+    pageIndex(newIndex: number): void;
+    /**
+     * [descr:DataSource.pageSize()]
+     */
+    pageSize(): number;
+    /**
+     * [descr:DataSource.pageSize(value)]
+     */
+    pageSize(value: number): void;
+    /**
+     * [descr:DataSource.paginate()]
+     */
+    paginate(): boolean;
+    /**
+     * [descr:DataSource.paginate(value)]
+     */
+    paginate(value: boolean): void;
+    /**
+     * [descr:DataSource.reload()]
+     */
+    reload(): DevExpress.core.utils.DxExtendedPromise<any>;
+    /**
+     * [descr:DataSource.requireTotalCount()]
+     */
+    requireTotalCount(): boolean;
+    /**
+     * [descr:DataSource.requireTotalCount(value)]
+     */
+    requireTotalCount(value: boolean): void;
+    /**
+     * [descr:DataSource.searchExpr()]
+     */
+    searchExpr(): string & Function & Array<string | Function>;
+    /**
+     * [descr:DataSource.searchExpr(expr)]
+     */
+    searchExpr(expr: string | Function | Array<string | Function>): void;
+    /**
+     * [descr:DataSource.searchOperation()]
+     */
+    searchOperation(): string;
+    /**
+     * [descr:DataSource.searchOperation(op)]
+     */
+    searchOperation(op: string): void;
+    /**
+     * [descr:DataSource.searchValue()]
+     */
+    searchValue(): any;
+    /**
+     * [descr:DataSource.searchValue(value)]
+     */
+    searchValue(value: any): void;
+    /**
+     * [descr:DataSource.select()]
+     */
+    select(): SelectDescriptor<TItem>;
+    /**
+     * [descr:DataSource.select(expr)]
+     */
+    select(expr: SelectDescriptor<TItem>): void;
+    /**
+     * [descr:DataSource.sort()]
+     */
+    sort(): SortDescriptor<TItem> | Array<SortDescriptor<TItem>>;
+    /**
+     * [descr:DataSource.sort(sortExpr)]
+     */
+    sort(sortExpr: SortDescriptor<TItem> | Array<SortDescriptor<TItem>>): void;
+    /**
+     * [descr:DataSource.store()]
+     */
+    store(): DevExpress.data.utils.Store<TItem, TKey>;
+    /**
+     * [descr:DataSource.totalCount()]
+     */
+    totalCount(): number;
+  }
+  /**
+   * [descr:DataSourceOptions]
+   */
+  export type DataSourceOptions<
+    TStoreItem = any,
+    TMappedItem = TStoreItem,
+    TItem = TMappedItem,
+    TKey = any
+  > = {
+    /**
+     * [descr:DataSourceOptions.customQueryParams]
+     */
+    customQueryParams?: any;
+    /**
+     * [descr:DataSourceOptions.expand]
+     */
+    expand?: Array<string> | string;
+    /**
+     * [descr:DataSourceOptions.filter]
+     */
+    filter?: FilterDescriptor | Array<FilterDescriptor>;
+    /**
+     * [descr:DataSourceOptions.group]
+     */
+    group?: GroupDescriptor<TItem> | Array<GroupDescriptor<TItem>>;
+    /**
+     * [descr:DataSourceOptions.langParams]
+     */
+    langParams?: LangParams;
+    /**
+     * [descr:DataSourceOptions.map]
+     */
+    map?: (dataItem: TStoreItem) => TMappedItem;
+    /**
+     * [descr:DataSourceOptions.onChanged]
+     */
+    onChanged?: (e: { readonly changes?: Array<TMappedItem> }) => void;
+    /**
+     * [descr:DataSourceOptions.onLoadError]
+     */
+    onLoadError?: (error: { readonly message?: string }) => void;
+    /**
+     * [descr:DataSourceOptions.onLoadingChanged]
+     */
+    onLoadingChanged?: (isLoading: boolean) => void;
+    /**
+     * [descr:DataSourceOptions.pageSize]
+     */
+    pageSize?: number;
+    /**
+     * [descr:DataSourceOptions.paginate]
+     */
+    paginate?: boolean | undefined;
+    /**
+     * [descr:DataSourceOptions.postProcess]
+     */
+    postProcess?: (data: Array<TMappedItem>) => Array<TItem>;
+    /**
+     * [descr:DataSourceOptions.pushAggregationTimeout]
+     */
+    pushAggregationTimeout?: number | undefined;
+    /**
+     * [descr:DataSourceOptions.requireTotalCount]
+     */
+    requireTotalCount?: boolean;
+    /**
+     * [descr:DataSourceOptions.reshapeOnPush]
+     */
+    reshapeOnPush?: boolean;
+    /**
+     * [descr:DataSourceOptions.searchExpr]
+     */
+    searchExpr?: string | Function | Array<string | Function>;
+    /**
+     * [descr:DataSourceOptions.searchOperation]
+     */
+    searchOperation?: SearchOperation;
+    /**
+     * [descr:DataSourceOptions.searchValue]
+     */
+    searchValue?: any;
+    /**
+     * [descr:DataSourceOptions.select]
+     */
+    select?: SelectDescriptor<TItem>;
+    /**
+     * [descr:DataSourceOptions.sort]
+     */
+    sort?: SortDescriptor<TItem> | Array<SortDescriptor<TItem>>;
+    /**
+     * [descr:DataSourceOptions.store]
+     */
+    store?:
+      | Array<TStoreItem>
+      | DevExpress.data.utils.Store<TStoreItem, TKey>
+      | DevExpress.data.utils.StoreOptions<TStoreItem, TKey>;
+  };
+  /**
+   * [descr:EdmLiteral]
+   */
+  export class EdmLiteral {
+    constructor(value: string);
+    /**
+     * [descr:EdmLiteral.valueOf()]
+     */
+    valueOf(): string;
+  }
+  /**
+   * [descr:EndpointSelector]
+   */
+  export class EndpointSelector {
+    constructor(options: any);
+    /**
+     * [descr:EndpointSelector.urlFor(key)]
+     */
+    urlFor(key: string): string;
+  }
+  /**
+   * [descr:Utils.errorHandler]
+   * @deprecated [depNote:Utils.errorHandler]
+   */
+  export function errorHandler(e: Error): void;
+  /**
+   * [descr:FilterDescriptor]
+   */
+  export type FilterDescriptor = DevExpress.data.FilterDescriptor;
+  /**
+   * [descr:GroupDescriptor]
+   */
+  export type GroupDescriptor<T> = DevExpress.data.GroupDescriptor<T>;
+  export type GroupingInterval = DevExpress.data.GroupingInterval;
+  /**
+   * [descr:GroupItem]
+   */
+  export type GroupItem<TItem = any> = {
+    /**
+     * [descr:GroupItem.key]
+     */
+    key: any | string | number;
+    /**
+     * [descr:GroupItem.items]
+     */
+    items: Array<TItem> | Array<GroupItem<TItem>> | null;
+    /**
+     * [descr:GroupItem.count]
+     */
+    count?: number;
+    /**
+     * [descr:GroupItem.summary]
+     */
+    summary?: Array<any>;
+  };
+  /**
+   * [descr:isGroupItemsArray]
+   */
+  export function isGroupItemsArray<TItem>(
+    res: LoadResult<TItem>
+  ): res is Array<GroupItem<TItem>>;
+  /**
+   * [descr:isItemsArray]
+   */
+  export function isItemsArray<TItem>(
+    res: LoadResult<TItem>
+  ): res is Array<TItem>;
+  /**
+   * [descr:isLoadResultObject]
+   */
+  export function isLoadResultObject<TItem>(
+    res: LoadResult<TItem>
+  ): res is LoadResultObject<TItem>;
+  /**
+   * [descr:Utils.keyConverters]
+   */
+  export var keyConverters: any;
+  /**
+   * [descr:LangParams]
+   */
+  export type LangParams = {
+    /**
+     * [descr:LangParams.locale]
+     */
+    locale: string;
+    /**
+     * [descr:LangParams.collatorOptions]
+     */
+    collatorOptions?: Intl.CollatorOptions;
+  };
+  /**
+   * [descr:LoadOptions]
+   */
+  export type LoadOptions<T = any> = DevExpress.data.LoadOptions<T>;
+  /**
+   * [descr:LoadResult]
+   */
+  export type LoadResult<TItem = any> =
+    | Object
+    | LoadResultArray<TItem>
+    | LoadResultObject<TItem>;
+  /**
+   * [descr:LoadResultObject]
+   */
+  export type LoadResultObject<TItem = any> = {
+    /**
+     * [descr:LoadResultObject.data]
+     */
+    data: Array<TItem> | Array<GroupItem<TItem>>;
+    /**
+     * [descr:LoadResultObject.totalCount]
+     */
+    totalCount?: number;
+    /**
+     * [descr:LoadResultObject.summary]
+     */
+    summary?: Array<any>;
+    /**
+     * [descr:LoadResultObject.groupCount]
+     */
+    groupCount?: number;
+  };
+  /**
+   * [descr:LocalStore]
+   */
+  export class LocalStore<TItem = any, TKey = any> extends ArrayStore<
+    TItem,
+    TKey
+  > {
+    constructor(options?: LocalStoreOptions<TItem, TKey>);
+    /**
+     * [descr:LocalStore.clear()]
+     */
+    clear(): void;
+  }
+  /**
+   * [descr:LocalStoreOptions]
+   */
+  export type LocalStoreOptions<TItem = any, TKey = any> = ArrayStoreOptions<
+    TItem,
+    TKey
+  > & {
+    /**
+     * [descr:LocalStoreOptions.flushInterval]
+     */
+    flushInterval?: number;
+    /**
+     * [descr:LocalStoreOptions.immediate]
+     */
+    immediate?: boolean;
+    /**
+     * [descr:LocalStoreOptions.name]
+     */
+    name?: string;
+  };
+  /**
+   * [descr:ODataContext]
+   */
+  export class ODataContext {
+    constructor(options?: ODataContextOptions);
+    /**
+     * [descr:ODataContext.get(operationName, params)]
+     */
+    get(
+      operationName: string,
+      params: any
+    ): DevExpress.core.utils.DxPromise<any>;
+    /**
+     * [descr:ODataContext.invoke(operationName, params, httpMethod)]
+     */
+    invoke(
+      operationName: string,
+      params: any,
+      httpMethod: HttpMethod
+    ): DevExpress.core.utils.DxPromise<void>;
+    /**
+     * [descr:ODataContext.objectLink(entityAlias, key)]
+     */
+    objectLink(entityAlias: string, key: any | string | number): any;
+  }
+  /**
+   * [descr:ODataContextOptions]
+   */
+  export type ODataContextOptions = {
+    /**
+     * [descr:ODataContextOptions.beforeSend]
+     */
+    beforeSend?: (options: {
+      url: string;
+      async: boolean;
+      method: string;
+      timeout: number;
+      params: any;
+      payload: any;
+      headers: any;
+    }) => void;
+    /**
+     * [descr:ODataContextOptions.deserializeDates]
+     */
+    deserializeDates?: boolean;
+    /**
+     * [descr:ODataContextOptions.entities]
+     */
+    entities?: any;
+    /**
+     * [descr:ODataContextOptions.errorHandler]
+     */
+    errorHandler?: (e: {
+      httpStatus: number;
+      errorDetails: any;
+      requestOptions: ODataRequestOptions;
+    }) => void;
+    /**
+     * [descr:ODataContextOptions.filterToLower]
+     */
+    filterToLower?: boolean;
+    /**
+     * [descr:ODataContextOptions.jsonp]
+     */
+    jsonp?: boolean;
+    /**
+     * [descr:ODataContextOptions.url]
+     */
+    url?: string;
+    /**
+     * [descr:ODataContextOptions.version]
+     */
+    version?: number;
+    /**
+     * [descr:ODataContextOptions.withCredentials]
+     */
+    withCredentials?: boolean;
+  };
+  /**
+   * [descr:ODataStore]
+   */
+  export class ODataStore<TItem = any, TKey = any> extends AbstractStore<
+    TItem,
+    TKey
+  > {
+    constructor(options?: ODataStoreOptions<TItem, TKey>);
+    /**
+     * [descr:ODataStore.byKey(key, extraOptions)]
+     */
+    byKey(
+      key: TKey,
+      extraOptions?: {
+        expand?: string | Array<string>;
+        select?: string | Array<string>;
+      }
+    ): DevExpress.core.utils.DxPromise<TItem>;
+    /**
+     * [descr:ODataStore.createQuery(loadOptions)]
+     */
+    createQuery(loadOptions?: {
+      expand?: string | Array<string>;
+      requireTotalCount?: boolean;
+      customQueryParams?: any;
+    }): Query;
+  }
+  /**
+   * [descr:ODataStoreOptions]
+   */
+  export type ODataStoreOptions<TItem = any, TKey = any> = AbstractStoreOptions<
+    TItem,
+    TKey
+  > & {
+    /**
+     * [descr:ODataStoreOptions.beforeSend]
+     */
+    beforeSend?: (options: {
+      url: string;
+      async: boolean;
+      method: string;
+      timeout: number;
+      params: any;
+      payload: any;
+      headers: any;
+    }) => void;
+    /**
+     * [descr:ODataStoreOptions.deserializeDates]
+     */
+    deserializeDates?: boolean;
+    /**
+     * [descr:ODataStoreOptions.errorHandler]
+     */
+    errorHandler?: (e: {
+      httpStatus: number;
+      errorDetails: any;
+      requestOptions: ODataRequestOptions;
+    }) => void;
+    /**
+     * [descr:ODataStoreOptions.fieldTypes]
+     */
+    fieldTypes?: any;
+    /**
+     * [descr:ODataStoreOptions.filterToLower]
+     */
+    filterToLower?: boolean;
+    /**
+     * [descr:ODataStoreOptions.jsonp]
+     */
+    jsonp?: boolean;
+    /**
+     * [descr:ODataStoreOptions.keyType]
+     */
+    keyType?:
+      | 'String'
+      | 'Int32'
+      | 'Int64'
+      | 'Guid'
+      | 'Boolean'
+      | 'Single'
+      | 'Decimal'
+      | any;
+    /**
+     * [descr:ODataStoreOptions.url]
+     */
+    url?: string;
+    /**
+     * [descr:ODataStoreOptions.version]
+     */
+    version?: number;
+    /**
+     * [descr:ODataStoreOptions.withCredentials]
+     */
+    withCredentials?: boolean;
+  };
+  /**
+   * [descr:Utils.query(array, queryOptions)]
+   */
+  export function query(array: Array<any>, queryOptions?: any): Query;
+  /**
+   * [descr:Utils.query(url, queryOptions)]
+   */
+  export function query(url: string, queryOptions: any): Query;
+  /**
+   * [descr:Query]
+   */
+  export type Query = {
+    /**
+     * [descr:Query.aggregate(seed, step, finalize)]
+     */
+    aggregate(
+      seed: any,
+      step: Function,
+      finalize: Function
+    ): DevExpress.core.utils.DxPromise<any>;
+    /**
+     * [descr:Query.aggregate(step)]
+     */
+    aggregate(step: Function): DevExpress.core.utils.DxPromise<any>;
+    /**
+     * [descr:Query.avg()]
+     */
+    avg(): DevExpress.core.utils.DxPromise<number>;
+    /**
+     * [descr:Query.avg(getter)]
+     */
+    avg(getter: any): DevExpress.core.utils.DxPromise<number>;
+    /**
+     * [descr:Query.count()]
+     */
+    count(): DevExpress.core.utils.DxPromise<number>;
+    /**
+     * [descr:Query.enumerate()]
+     */
+    enumerate(): DevExpress.core.utils.DxPromise<any>;
+    /**
+     * [descr:Query.filter(criteria)]
+     */
+    filter(criteria: Array<any>): Query;
+    /**
+     * [descr:Query.filter(predicate)]
+     */
+    filter(predicate: Function): Query;
+    /**
+     * [descr:Query.groupBy(getter)]
+     */
+    groupBy(getter: any): Query;
+    /**
+     * [descr:Query.max()]
+     */
+    max(): DevExpress.core.utils.DxPromise<number | Date>;
+    /**
+     * [descr:Query.max(getter)]
+     */
+    max(getter: any): DevExpress.core.utils.DxPromise<number | Date>;
+    /**
+     * [descr:Query.min()]
+     */
+    min(): DevExpress.core.utils.DxPromise<number | Date>;
+    /**
+     * [descr:Query.min(getter)]
+     */
+    min(getter: any): DevExpress.core.utils.DxPromise<number | Date>;
+    /**
+     * [descr:Query.select(getter)]
+     */
+    select(...getters: any[]): Query;
+    /**
+     * [descr:Query.slice(skip, take)]
+     */
+    slice(skip: number, take?: number): Query;
+    /**
+     * [descr:Query.sortBy(getter)]
+     */
+    sortBy(getter: any): Query;
+    /**
+     * [descr:Query.sortBy(getter, desc)]
+     */
+    sortBy(getter: any, desc: boolean): Query;
+    /**
+     * [descr:Query.sum()]
+     */
+    sum(): DevExpress.core.utils.DxPromise<number>;
+    /**
+     * [descr:Query.sum(getter)]
+     */
+    sum(getter: any): DevExpress.core.utils.DxPromise<number>;
+    /**
+     * [descr:Query.thenBy(getter)]
+     */
+    thenBy(getter: any): Query;
+    /**
+     * [descr:Query.thenBy(getter, desc)]
+     */
+    thenBy(getter: any, desc: boolean): Query;
+    /**
+     * [descr:Query.toArray()]
+     */
+    toArray(): Array<any>;
+  };
+  /**
+   * [descr:ResolvedData]
+   * @deprecated [depNote:ResolvedData]
+   */
+  export type ResolvedData<TItem = any> = LoadResult<TItem>;
+  export type SearchOperation = DevExpress.data.SearchOperation;
+  /**
+   * [descr:SelectDescriptor]
+   */
+  export type SelectDescriptor<T> = DevExpress.data.SelectDescriptor<T>;
+  /**
+   * [descr:Utils.setErrorHandler]
+   */
+  export function setErrorHandler(handler: (e: Error) => void): void;
+  /**
+   * [descr:SortDescriptor]
+   */
+  export type SortDescriptor<T> = DevExpress.data.SortDescriptor<T>;
+  /**
+   * [descr:Store]
+   * @deprecated Attention! This type is for internal purposes only. If you used it previously, please submit a ticket to our {@link https://supportcenter.devexpress.com/ticket/create Support Center}. We will check if there is an alternative solution.
+   */
+  export class Store<TItem = any, TKey = any> {
+    constructor(options?: StoreOptions<TItem, TKey>);
+    /**
+     * [descr:Store.insert(values)]
+     */
+    insert(values: TItem): DevExpress.core.utils.DxExtendedPromise<TItem>;
+    /**
+     * [descr:Store.key()]
+     */
+    key(): string | Array<string>;
+    /**
+     * [descr:Store.keyOf(obj)]
+     */
+    keyOf(obj: TItem): TKey;
+    /**
+     * [descr:Store.off(eventName)]
+     */
+    off(eventName: DevExpress.data.StoreEventName): this;
+    /**
+     * [descr:Store.off(eventName, eventHandler)]
+     */
+    off(
+      eventName: DevExpress.data.StoreEventName,
+      eventHandler: Function
+    ): this;
+    /**
+     * [descr:Store.on(eventName, eventHandler)]
+     */
+    on(eventName: DevExpress.data.StoreEventName, eventHandler: Function): this;
+    /**
+     * [descr:Store.on(events)]
+     */
+    on(events: { [key in DevExpress.data.StoreEventName]?: Function }): this;
+    /**
+     * [descr:Store.push(changes)]
+     */
+    push(
+      changes: Array<{
+        type: 'insert' | 'update' | 'remove';
+        data?: DevExpress.core.DeepPartial<TItem>;
+        key?: TKey;
+        index?: number;
+      }>
+    ): void;
+    /**
+     * [descr:Store.remove(key)]
+     */
+    remove(key: TKey): DevExpress.core.utils.DxPromise<void>;
+    /**
+     * [descr:Store.totalCount(options)]
+     */
+    totalCount(obj: {
+      filter?:
+        | DevExpress.data.FilterDescriptor
+        | Array<DevExpress.data.FilterDescriptor>;
+      group?:
+        | DevExpress.data.GroupDescriptor<TItem>
+        | Array<DevExpress.data.GroupDescriptor<TItem>>;
+    }): DevExpress.core.utils.DxPromise<number>;
+    /**
+     * [descr:Store.update(key, values)]
+     */
+    update(
+      key: TKey,
+      values: DevExpress.core.DeepPartial<TItem>
+    ): DevExpress.core.utils.DxExtendedPromise<TItem>;
+  }
+  /**
+   * [descr:StoreOptions]
+   * @deprecated Attention! This type is for internal purposes only. If you used it previously, please submit a ticket to our {@link https://supportcenter.devexpress.com/ticket/create Support Center}. We will check if there is an alternative solution.
+   */
+  export type StoreOptions<TItem = any, TKey = any> = {
+    /**
+     * [descr:StoreOptions.errorHandler]
+     */
+    errorHandler?: Function;
+    /**
+     * [descr:StoreOptions.key]
+     */
+    key?: string | Array<string>;
+    /**
+     * [descr:StoreOptions.onInserted]
+     */
+    onInserted?: (values: TItem, key: TKey) => void;
+    /**
+     * [descr:StoreOptions.onInserting]
+     */
+    onInserting?: (values: TItem) => void;
+    /**
+     * [descr:StoreOptions.onLoading]
+     */
+    onLoading?: (loadOptions: DevExpress.data.LoadOptions<TItem>) => void;
+    /**
+     * [descr:StoreOptions.onModified]
+     */
+    onModified?: Function;
+    /**
+     * [descr:StoreOptions.onModifying]
+     */
+    onModifying?: Function;
+    /**
+     * [descr:StoreOptions.onPush]
+     */
+    onPush?: (changes: Array<TItem>) => void;
+    /**
+     * [descr:StoreOptions.onRemoved]
+     */
+    onRemoved?: (key: TKey) => void;
+    /**
+     * [descr:StoreOptions.onRemoving]
+     */
+    onRemoving?: (key: TKey) => void;
+    /**
+     * [descr:StoreOptions.onUpdated]
+     */
+    onUpdated?: (key: TKey, values: TItem) => void;
+    /**
+     * [descr:StoreOptions.onUpdating]
+     */
+    onUpdating?: (key: TKey, values: TItem) => void;
+  };
+  /**
+   * [descr:SummaryDescriptor]
+   */
+  export type SummaryDescriptor<T> = DevExpress.data.SummaryDescriptor<T>;
+}
 declare module DevExpress.common.grids {
   /**
    * [descr:AdaptiveDetailRowPreparingInfo]
@@ -3663,7 +4184,7 @@ declare module DevExpress.common.grids {
       | DevExpress.ui.dxFilterBuilder.FilterLookupDataSource<any>
       | ((options: {
           component?: any;
-          dataSource?: DevExpress.data.DataSourceOptions | null;
+          dataSource?: DevExpress.common.data.DataSourceOptions | null;
         }) => void)
       | undefined;
     /**
@@ -4213,7 +4734,7 @@ declare module DevExpress.common.grids {
      * [descr:GridBase.getCombinedFilter(returnDataField)]
      */
     getCombinedFilter(returnDataField: boolean): any;
-    getDataSource(): DataSource<TRowData, TKey>;
+    getDataSource(): DevExpress.common.data.DataSource<TRowData, TKey>;
     /**
      * [descr:GridBase.getKeyByRowIndex(rowIndex)]
      */
@@ -5609,130 +6130,6 @@ declare module DevExpress.core.utils {
 }
 declare module DevExpress.data {
   /**
-   * @deprecated Attention! This type is for internal purposes only. If you used it previously, please submit a ticket to our {@link https://supportcenter.devexpress.com/ticket/create Support Center}. We will check if there is an alternative solution.
-   */
-  export class AbstractStore<TItem = any, TKey = any> extends Store<
-    TItem,
-    TKey
-  > {
-    constructor(options?: DevExpress.data.AbstractStore.Options<TItem, TKey>);
-    /**
-     * [descr:Store.load()]
-     */
-    load(): DevExpress.core.utils.DxExtendedPromise<Array<TItem>>;
-    /**
-     * [descr:Store.load(options)]
-     */
-    load(
-      options: LoadOptions<TItem>
-    ): DevExpress.core.utils.DxExtendedPromise<Array<TItem>>;
-  }
-  module AbstractStore {
-    /**
-     * @deprecated Use AbstractStoreOptions instead
-     * @deprecated Attention! This type is for internal purposes only. If you used it previously, please submit a ticket to our {@link https://supportcenter.devexpress.com/ticket/create Support Center}. We will check if there is an alternative solution.
-     */
-    export type Options<TItem = any, TKey = any> = AbstractStoreOptions<
-      TItem,
-      TKey
-    >;
-  }
-  /**
-   * @deprecated Attention! This type is for internal purposes only. If you used it previously, please submit a ticket to our {@link https://supportcenter.devexpress.com/ticket/create Support Center}. We will check if there is an alternative solution.
-   */
-  export interface AbstractStoreOptions<TItem = any, TKey = any>
-    extends DevExpress.data.Store.StoreOptions<TItem, TKey> {
-    /**
-     * [descr:StoreOptions.onLoaded]
-     */
-    onLoaded?: (result: Array<TItem>, loadOptions: LoadOptions<TItem>) => void;
-  }
-  /**
-   * [descr:Utils.applyChanges(data, changes, options)]
-   */
-  export function applyChanges(
-    data: Array<any>,
-    changes: Array<any>,
-    options?: { keyExpr?: string | Array<string>; immutable?: boolean }
-  ): Array<any>;
-  /**
-   * [descr:ArrayStoreOptions]
-   */
-  export interface ArrayStoreOptions<TItem = any, TKey = any>
-    extends AbstractStoreOptions<TItem, TKey> {
-    /**
-     * [descr:ArrayStoreOptions.data]
-     */
-    data?: Array<TItem>;
-  }
-  /**
-   * [descr:Utils.base64_encode(input)]
-   */
-  export function base64_encode(input: string | Array<number>): string;
-  /**
-   * [descr:CustomStoreOptions]
-   */
-  export interface CustomStoreOptions<TItem = any, TKey = any>
-    extends DevExpress.data.Store.StoreOptions<TItem, TKey> {
-    /**
-     * [descr:CustomStoreOptions.byKey]
-     */
-    byKey?: (
-      key: TKey,
-      extraOptions?: LoadOptions<TItem>
-    ) => PromiseLike<TItem>;
-    /**
-     * [descr:CustomStoreOptions.cacheRawData]
-     */
-    cacheRawData?: boolean;
-    /**
-     * [descr:CustomStoreOptions.insert]
-     */
-    insert?: (values: TItem) => PromiseLike<TItem>;
-    /**
-     * [descr:CustomStoreOptions.load]
-     */
-    load: (
-      options: LoadOptions<TItem>
-    ) => DevExpress.common.LoadFunctionResult<
-      DevExpress.common.LoadResult<TItem>
-    >;
-    /**
-     * [descr:CustomStoreOptions.loadMode]
-     */
-    loadMode?: 'processed' | 'raw';
-    /**
-     * [descr:CustomStoreOptions.onLoaded]
-     */
-    onLoaded?: (
-      result: DevExpress.common.LoadResult<TItem>,
-      loadOptions: LoadOptions<TItem>
-    ) => void;
-    /**
-     * [descr:CustomStoreOptions.remove]
-     */
-    remove?: (key: TKey) => PromiseLike<void>;
-    /**
-     * [descr:CustomStoreOptions.totalCount]
-     */
-    totalCount?: (loadOptions: {
-      filter?:
-        | DevExpress.common.FilterDescriptor
-        | Array<DevExpress.common.FilterDescriptor>;
-      group?:
-        | DevExpress.common.GroupDescriptor<TItem>
-        | Array<DevExpress.common.GroupDescriptor<TItem>>;
-    }) => PromiseLike<number>;
-    /**
-     * [descr:CustomStoreOptions.update]
-     */
-    update?: (key: TKey, values: TItem) => PromiseLike<any>;
-    /**
-     * [descr:CustomStoreOptions.useDefaultSearch]
-     */
-    useDefaultSearch?: boolean | undefined;
-  }
-  /**
    * [descr:DataSourceLike]
    * @deprecated Attention! This type is for internal purposes only. If you used it previously, please submit a ticket to our {@link https://supportcenter.devexpress.com/ticket/create Support Center}. We will check if there is an alternative solution.
    */
@@ -5741,110 +6138,7 @@ declare module DevExpress.data {
     | Array<TItem>
     | DevExpress.data.utils.Store<TItem, TKey>
     | DataSourceOptionsStub<any, any, TItem>
-    | DevExpress.common.DataSource<TItem, TKey>;
-  /**
-   * [descr:DataSourceOptions]
-   */
-  export interface DataSourceOptions<
-    TStoreItem = any,
-    TMappedItem = TStoreItem,
-    TItem = TMappedItem,
-    TKey = any
-  > {
-    /**
-     * [descr:DataSourceOptions.customQueryParams]
-     */
-    customQueryParams?: any;
-    /**
-     * [descr:DataSourceOptions.expand]
-     */
-    expand?: Array<string> | string;
-    /**
-     * [descr:DataSourceOptions.filter]
-     */
-    filter?:
-      | DevExpress.common.FilterDescriptor
-      | Array<DevExpress.common.FilterDescriptor>;
-    /**
-     * [descr:DataSourceOptions.group]
-     */
-    group?:
-      | DevExpress.common.GroupDescriptor<TItem>
-      | Array<DevExpress.common.GroupDescriptor<TItem>>;
-    /**
-     * [descr:DataSourceOptions.langParams]
-     */
-    langParams?: DevExpress.common.LangParams;
-    /**
-     * [descr:DataSourceOptions.map]
-     */
-    map?: (dataItem: TStoreItem) => TMappedItem;
-    /**
-     * [descr:DataSourceOptions.onChanged]
-     */
-    onChanged?: (e: { readonly changes?: Array<TMappedItem> }) => void;
-    /**
-     * [descr:DataSourceOptions.onLoadError]
-     */
-    onLoadError?: (error: { readonly message?: string }) => void;
-    /**
-     * [descr:DataSourceOptions.onLoadingChanged]
-     */
-    onLoadingChanged?: (isLoading: boolean) => void;
-    /**
-     * [descr:DataSourceOptions.pageSize]
-     */
-    pageSize?: number;
-    /**
-     * [descr:DataSourceOptions.paginate]
-     */
-    paginate?: boolean | undefined;
-    /**
-     * [descr:DataSourceOptions.postProcess]
-     */
-    postProcess?: (data: Array<TMappedItem>) => Array<TItem>;
-    /**
-     * [descr:DataSourceOptions.pushAggregationTimeout]
-     */
-    pushAggregationTimeout?: number | undefined;
-    /**
-     * [descr:DataSourceOptions.requireTotalCount]
-     */
-    requireTotalCount?: boolean;
-    /**
-     * [descr:DataSourceOptions.reshapeOnPush]
-     */
-    reshapeOnPush?: boolean;
-    /**
-     * [descr:DataSourceOptions.searchExpr]
-     */
-    searchExpr?: string | Function | Array<string | Function>;
-    /**
-     * [descr:DataSourceOptions.searchOperation]
-     */
-    searchOperation?: DevExpress.common.SearchOperation;
-    /**
-     * [descr:DataSourceOptions.searchValue]
-     */
-    searchValue?: any;
-    /**
-     * [descr:DataSourceOptions.select]
-     */
-    select?: DevExpress.common.SelectDescriptor<TItem>;
-    /**
-     * [descr:DataSourceOptions.sort]
-     */
-    sort?:
-      | DevExpress.common.SortDescriptor<TItem>
-      | Array<DevExpress.common.SortDescriptor<TItem>>;
-    /**
-     * [descr:DataSourceOptions.store]
-     */
-    store?:
-      | Array<TStoreItem>
-      | DevExpress.data.utils.Store<TStoreItem, TKey>
-      | DevExpress.data.utils.StoreOptions<TStoreItem, TKey>;
-  }
+    | DevExpress.common.data.DataSource<TItem, TKey>;
   /**
    * @deprecated Attention! This type is for internal purposes only. If you used it previously, please submit a ticket to our {@link https://supportcenter.devexpress.com/ticket/create Support Center}. We will check if there is an alternative solution.
    */
@@ -5856,11 +6150,11 @@ declare module DevExpress.data {
     customQueryParams?: any;
     expand?: Array<string> | string;
     filter?:
-      | DevExpress.common.FilterDescriptor
-      | Array<DevExpress.common.FilterDescriptor>;
+      | DevExpress.common.data.FilterDescriptor
+      | Array<DevExpress.common.data.FilterDescriptor>;
     group?:
-      | DevExpress.common.GroupDescriptor<TItem>
-      | Array<DevExpress.common.GroupDescriptor<TItem>>;
+      | DevExpress.common.data.GroupDescriptor<TItem>
+      | Array<DevExpress.common.data.GroupDescriptor<TItem>>;
     map?: (dataItem: TStoreItem) => TMappedItem;
     onChanged?: (e: { readonly changes?: Array<TMappedItem> }) => void;
     onLoadError?: (error: { readonly message?: string }) => void;
@@ -5872,32 +6166,42 @@ declare module DevExpress.data {
     requireTotalCount?: boolean;
     reshapeOnPush?: boolean;
     searchExpr?: string | Function | Array<string | Function>;
-    searchOperation?: DevExpress.common.SearchOperation;
+    searchOperation?: DevExpress.common.data.SearchOperation;
     searchValue?: any;
-    select?: DevExpress.common.SelectDescriptor<TItem>;
+    select?: DevExpress.common.data.SelectDescriptor<TItem>;
     sort?:
-      | DevExpress.common.SortDescriptor<TItem>
-      | Array<DevExpress.common.SortDescriptor<TItem>>;
+      | DevExpress.common.data.SortDescriptor<TItem>
+      | Array<DevExpress.common.data.SortDescriptor<TItem>>;
     store?:
       | Array<TStoreItem>
       | DevExpress.data.utils.Store<TStoreItem, any>
       | DevExpress.data.utils.StoreOptions<TStoreItem, any>;
   }
   /**
-   * [descr:EdmLiteral]
+   * @deprecated Attention! This type is for internal purposes only. If you used it previously, please submit a ticket to our {@link https://supportcenter.devexpress.com/ticket/create Support Center}. We will check if there is an alternative solution.
    */
-  export class EdmLiteral {
-    constructor(value: string);
-    /**
-     * [descr:EdmLiteral.valueOf()]
-     */
-    valueOf(): string;
-  }
+  export type FilterDescriptor = any;
   /**
-   * [descr:Utils.errorHandler]
-   * @deprecated [depNote:Utils.errorHandler]
+   * @deprecated Attention! This type is for internal purposes only. If you used it previously, please submit a ticket to our {@link https://supportcenter.devexpress.com/ticket/create Support Center}. We will check if there is an alternative solution.
    */
-  export function errorHandler(e: Error): void;
+  export type GroupDescriptor<T> =
+    | KeySelector<T>
+    | (OrderingDescriptor<T> & {
+        groupInterval?: number | GroupingInterval;
+        isExpanded?: boolean;
+      });
+  /**
+   * @deprecated Attention! This type is for internal purposes only. If you used it previously, please submit a ticket to our {@link https://supportcenter.devexpress.com/ticket/create Support Center}. We will check if there is an alternative solution.
+   */
+  export type GroupingInterval =
+    | 'year'
+    | 'quarter'
+    | 'month'
+    | 'day'
+    | 'dayOfWeek'
+    | 'hour'
+    | 'minute'
+    | 'second';
   /**
    * [descr:Guid]
    */
@@ -5920,145 +6224,85 @@ declare module DevExpress.data {
     | string
     | ((source: T) => string | number | Date | Object);
   /**
-   * [descr:LoadOptions]
+   * @deprecated Attention! This type is for internal purposes only. If you used it previously, please submit a ticket to our {@link https://supportcenter.devexpress.com/ticket/create Support Center}. We will check if there is an alternative solution.
    */
-  export type LoadOptions<T = any> = DevExpress.utils.LoadOptions<T>;
-  /**
-   * [descr:LocalStoreOptions]
-   */
-  export interface LocalStoreOptions<TItem = any, TKey = any>
-    extends ArrayStoreOptions<TItem, TKey> {
+  export interface LoadOptions<T = any> {
     /**
-     * [descr:LocalStoreOptions.flushInterval]
+     * [descr:LoadOptions.customQueryParams]
      */
-    flushInterval?: number;
+    customQueryParams?: any;
     /**
-     * [descr:LocalStoreOptions.immediate]
+     * [descr:LoadOptions.startDate]
      */
-    immediate?: boolean;
+    startDate?: Date;
     /**
-     * [descr:LocalStoreOptions.name]
+     * [descr:LoadOptions.endDate]
      */
-    name?: string;
-  }
-  /**
-   * [descr:ODataContextOptions]
-   */
-  export interface ODataContextOptions {
+    endDate?: Date;
     /**
-     * [descr:ODataContextOptions.beforeSend]
+     * [descr:LoadOptions.expand]
      */
-    beforeSend?: (options: {
-      url: string;
-      async: boolean;
-      method: string;
-      timeout: number;
-      params: any;
-      payload: any;
-      headers: any;
-    }) => void;
+    expand?: Array<string>;
     /**
-     * [descr:ODataContextOptions.deserializeDates]
+     * [descr:LoadOptions.filter]
      */
-    deserializeDates?: boolean;
+    filter?: FilterDescriptor | Array<FilterDescriptor>;
     /**
-     * [descr:ODataContextOptions.entities]
+     * [descr:LoadOptions.group]
      */
-    entities?: any;
+    group?: GroupDescriptor<T> | Array<GroupDescriptor<T>>;
     /**
-     * [descr:ODataContextOptions.errorHandler]
+     * [descr:LoadOptions.groupSummary]
      */
-    errorHandler?: (e: {
-      httpStatus: number;
-      errorDetails: any;
-      requestOptions: DevExpress.common.ODataRequestOptions;
-    }) => void;
+    groupSummary?: SummaryDescriptor<T> | Array<SummaryDescriptor<T>>;
     /**
-     * [descr:ODataContextOptions.filterToLower]
+     * [descr:LoadOptions.parentIds]
      */
-    filterToLower?: boolean;
+    parentIds?: Array<any>;
     /**
-     * [descr:ODataContextOptions.jsonp]
+     * [descr:LoadOptions.requireGroupCount]
      */
-    jsonp?: boolean;
+    requireGroupCount?: boolean;
     /**
-     * [descr:ODataContextOptions.url]
+     * [descr:LoadOptions.requireTotalCount]
      */
-    url?: string;
+    requireTotalCount?: boolean;
     /**
-     * [descr:ODataContextOptions.version]
+     * [descr:LoadOptions.searchExpr]
      */
-    version?: number;
+    searchExpr?: string | Function | Array<string | Function>;
     /**
-     * [descr:ODataContextOptions.withCredentials]
+     * [descr:LoadOptions.searchOperation]
      */
-    withCredentials?: boolean;
-  }
-  /**
-   * [descr:ODataStoreOptions]
-   */
-  export interface ODataStoreOptions<TItem = any, TKey = any>
-    extends AbstractStoreOptions<TItem, TKey> {
+    searchOperation?: SearchOperation;
     /**
-     * [descr:ODataStoreOptions.beforeSend]
+     * [descr:LoadOptions.searchValue]
      */
-    beforeSend?: (options: {
-      url: string;
-      async: boolean;
-      method: string;
-      timeout: number;
-      params: any;
-      payload: any;
-      headers: any;
-    }) => void;
+    searchValue?: any;
     /**
-     * [descr:ODataStoreOptions.deserializeDates]
+     * [descr:LoadOptions.select]
      */
-    deserializeDates?: boolean;
+    select?: SelectDescriptor<T>;
     /**
-     * [descr:ODataStoreOptions.errorHandler]
+     * [descr:LoadOptions.skip]
      */
-    errorHandler?: (e: {
-      httpStatus: number;
-      errorDetails: any;
-      requestOptions: DevExpress.common.ODataRequestOptions;
-    }) => void;
+    skip?: number;
     /**
-     * [descr:ODataStoreOptions.fieldTypes]
+     * [descr:LoadOptions.sort]
      */
-    fieldTypes?: any;
+    sort?: SortDescriptor<T> | Array<SortDescriptor<T>>;
     /**
-     * [descr:ODataStoreOptions.filterToLower]
+     * [descr:LoadOptions.take]
      */
-    filterToLower?: boolean;
+    take?: number;
     /**
-     * [descr:ODataStoreOptions.jsonp]
+     * [descr:LoadOptions.totalSummary]
      */
-    jsonp?: boolean;
+    totalSummary?: SummaryDescriptor<T> | Array<SummaryDescriptor<T>>;
     /**
-     * [descr:ODataStoreOptions.keyType]
+     * [descr:LoadOptions.userData]
      */
-    keyType?:
-      | 'String'
-      | 'Int32'
-      | 'Int64'
-      | 'Guid'
-      | 'Boolean'
-      | 'Single'
-      | 'Decimal'
-      | any;
-    /**
-     * [descr:ODataStoreOptions.url]
-     */
-    url?: string;
-    /**
-     * [descr:ODataStoreOptions.version]
-     */
-    version?: number;
-    /**
-     * [descr:ODataStoreOptions.withCredentials]
-     */
-    withCredentials?: boolean;
+    userData?: any;
   }
   /**
    * @deprecated Attention! This type is for internal purposes only. If you used it previously, please submit a ticket to our {@link https://supportcenter.devexpress.com/ticket/create Support Center}. We will check if there is an alternative solution.
@@ -6088,7 +6332,7 @@ declare module DevExpress.data {
       dataIndex?: number;
       maxRowCount?: number;
       customColumns?: Array<string>;
-    }): DevExpress.common.DataSource;
+    }): DevExpress.common.data.DataSource;
     /**
      * [descr:PivotGridDataSource.dispose()]
      */
@@ -6467,19 +6711,26 @@ declare module DevExpress.data {
         };
   }
   /**
-   * [descr:Utils.query(array, queryOptions)]
+   * @deprecated Attention! This type is for internal purposes only. If you used it previously, please submit a ticket to our {@link https://supportcenter.devexpress.com/ticket/create Support Center}. We will check if there is an alternative solution.
    */
-  export function query(
-    array: Array<any>,
-    queryOptions?: any
-  ): DevExpress.common.Query;
+  export type SearchOperation =
+    | '='
+    | '<>'
+    | '>'
+    | '>='
+    | '<'
+    | '<='
+    | 'startswith'
+    | 'endswith'
+    | 'contains'
+    | 'notcontains';
   /**
-   * [descr:Utils.query(url, queryOptions)]
+   * @deprecated Attention! This type is for internal purposes only. If you used it previously, please submit a ticket to our {@link https://supportcenter.devexpress.com/ticket/create Support Center}. We will check if there is an alternative solution.
    */
-  export function query(
-    url: string,
-    queryOptions: any
-  ): DevExpress.common.Query;
+  export type SelectDescriptor<T> =
+    | string
+    | Array<string>
+    | ((source: T) => any);
   /**
    * @deprecated Attention! This type is for internal purposes only. If you used it previously, please submit a ticket to our {@link https://supportcenter.devexpress.com/ticket/create Support Center}. We will check if there is an alternative solution.
    */
@@ -6487,77 +6738,9 @@ declare module DevExpress.data {
     selector: KeySelector<T>;
   };
   /**
-   * [descr:Utils.setErrorHandler]
-   */
-  export function setErrorHandler(handler: (e: Error) => void): void;
-  /**
-   * [descr:Store]
    * @deprecated Attention! This type is for internal purposes only. If you used it previously, please submit a ticket to our {@link https://supportcenter.devexpress.com/ticket/create Support Center}. We will check if there is an alternative solution.
    */
-  export class Store<TItem = any, TKey = any> {
-    constructor(options?: DevExpress.data.Store.StoreOptions<TItem, TKey>);
-    /**
-     * [descr:Store.insert(values)]
-     */
-    insert(values: TItem): DevExpress.core.utils.DxExtendedPromise<TItem>;
-    /**
-     * [descr:Store.key()]
-     */
-    key(): string | Array<string>;
-    /**
-     * [descr:Store.keyOf(obj)]
-     */
-    keyOf(obj: TItem): TKey;
-    /**
-     * [descr:Store.off(eventName)]
-     */
-    off(eventName: StoreEventName): this;
-    /**
-     * [descr:Store.off(eventName, eventHandler)]
-     */
-    off(eventName: StoreEventName, eventHandler: Function): this;
-    /**
-     * [descr:Store.on(eventName, eventHandler)]
-     */
-    on(eventName: StoreEventName, eventHandler: Function): this;
-    /**
-     * [descr:Store.on(events)]
-     */
-    on(events: { [key in StoreEventName]?: Function }): this;
-    /**
-     * [descr:Store.push(changes)]
-     */
-    push(
-      changes: Array<{
-        type: 'insert' | 'update' | 'remove';
-        data?: DevExpress.core.DeepPartial<TItem>;
-        key?: TKey;
-        index?: number;
-      }>
-    ): void;
-    /**
-     * [descr:Store.remove(key)]
-     */
-    remove(key: TKey): DevExpress.core.utils.DxPromise<void>;
-    /**
-     * [descr:Store.totalCount(options)]
-     */
-    totalCount(obj: {
-      filter?:
-        | DevExpress.utils.FilterDescriptor
-        | Array<DevExpress.utils.FilterDescriptor>;
-      group?:
-        | DevExpress.utils.GroupDescriptor<TItem>
-        | Array<DevExpress.utils.GroupDescriptor<TItem>>;
-    }): DevExpress.core.utils.DxPromise<number>;
-    /**
-     * [descr:Store.update(key, values)]
-     */
-    update(
-      key: TKey,
-      values: DevExpress.core.DeepPartial<TItem>
-    ): DevExpress.core.utils.DxExtendedPromise<TItem>;
-  }
+  export type SortDescriptor<T> = KeySelector<T> | OrderingDescriptor<T>;
   /**
    * @deprecated Attention! This type is for internal purposes only. If you used it previously, please submit a ticket to our {@link https://supportcenter.devexpress.com/ticket/create Support Center}. We will check if there is an alternative solution.
    */
@@ -6573,6 +6756,14 @@ declare module DevExpress.data {
     | 'removing'
     | 'modified'
     | 'modifying';
+  /**
+   * @deprecated Attention! This type is for internal purposes only. If you used it previously, please submit a ticket to our {@link https://supportcenter.devexpress.com/ticket/create Support Center}. We will check if there is an alternative solution.
+   */
+  export type SummaryDescriptor<T> =
+    | KeySelector<T>
+    | (SelectionDescriptor<T> & {
+        summaryType?: 'sum' | 'avg' | 'min' | 'max' | 'count';
+      });
   /**
    * [descr:XmlaStore]
    */
@@ -6615,87 +6806,23 @@ declare module DevExpress.data.PivotGridDataSource {
    */
   export type Field = PivotGridDataSourceField;
 }
-declare module DevExpress.data.Store {
-  /**
-   * [descr:StoreOptions]
-   * @deprecated Attention! This type is for internal purposes only. If you used it previously, please submit a ticket to our {@link https://supportcenter.devexpress.com/ticket/create Support Center}. We will check if there is an alternative solution.
-   */
-  export type StoreOptions<TItem = any, TKey = any> = {
-    /**
-     * [descr:StoreOptions.errorHandler]
-     */
-    errorHandler?: Function;
-    /**
-     * [descr:StoreOptions.key]
-     */
-    key?: string | Array<string>;
-    /**
-     * [descr:StoreOptions.onInserted]
-     */
-    onInserted?: (values: TItem, key: TKey) => void;
-    /**
-     * [descr:StoreOptions.onInserting]
-     */
-    onInserting?: (values: TItem) => void;
-    /**
-     * [descr:StoreOptions.onLoading]
-     */
-    onLoading?: (loadOptions: LoadOptions<TItem>) => void;
-    /**
-     * [descr:StoreOptions.onModified]
-     */
-    onModified?: Function;
-    /**
-     * [descr:StoreOptions.onModifying]
-     */
-    onModifying?: Function;
-    /**
-     * [descr:StoreOptions.onPush]
-     */
-    onPush?: (changes: Array<TItem>) => void;
-    /**
-     * [descr:StoreOptions.onRemoved]
-     */
-    onRemoved?: (key: TKey) => void;
-    /**
-     * [descr:StoreOptions.onRemoving]
-     */
-    onRemoving?: (key: TKey) => void;
-    /**
-     * [descr:StoreOptions.onUpdated]
-     */
-    onUpdated?: (key: TKey, values: TItem) => void;
-    /**
-     * [descr:StoreOptions.onUpdating]
-     */
-    onUpdating?: (key: TKey, values: TItem) => void;
-  };
-}
 declare module DevExpress.data.utils {
-  /**
-   * [descr:Utils.compileGetter(expr)]
-   */
-  export function compileGetter(expr: string | Array<string>): Function;
-  /**
-   * [descr:Utils.compileSetter(expr)]
-   */
-  export function compileSetter(expr: string | Array<string>): Function;
   export type Store<TItem = any, TKey = any> =
-    | DevExpress.common.CustomStore<TItem, TKey>
-    | DevExpress.common.ArrayStore<TItem, TKey>
-    | DevExpress.common.LocalStore<TItem, TKey>
-    | DevExpress.common.ODataStore<TItem, TKey>;
+    | DevExpress.common.data.CustomStore<TItem, TKey>
+    | DevExpress.common.data.ArrayStore<TItem, TKey>
+    | DevExpress.common.data.LocalStore<TItem, TKey>
+    | DevExpress.common.data.ODataStore<TItem, TKey>;
   export type StoreOptions<TItem = any, TKey = any> =
-    | CustomStoreOptions<TItem, TKey>
-    | (ArrayStoreOptions<TItem, TKey> & { type: 'array' })
-    | (LocalStoreOptions<TItem, TKey> & { type: 'local' })
-    | (ODataStoreOptions<TItem, TKey> & { type: 'odata' });
-}
-declare module DevExpress.data.utils.odata {
-  /**
-   * [descr:Utils.keyConverters]
-   */
-  export var keyConverters: any;
+    | DevExpress.common.data.CustomStoreOptions<TItem, TKey>
+    | (DevExpress.common.data.ArrayStoreOptions<TItem, TKey> & {
+        type: 'array';
+      })
+    | (DevExpress.common.data.LocalStoreOptions<TItem, TKey> & {
+        type: 'local';
+      })
+    | (DevExpress.common.data.ODataStoreOptions<TItem, TKey> & {
+        type: 'odata';
+      });
 }
 declare module DevExpress.events {
   /**
@@ -6703,7 +6830,7 @@ declare module DevExpress.events {
    * @deprecated Attention! This type is for internal purposes only. If you used it previously, please submit a ticket to our {@link https://supportcenter.devexpress.com/ticket/create Support Center}. We will check if there is an alternative solution.
    */
   export type DxEvent<TNativeEvent = Event> = {} extends EventType
-    ? EventObjectInternal & TNativeEvent
+    ? EventObject & TNativeEvent
     : EventType;
   /**
    * [descr:event]
@@ -6714,48 +6841,48 @@ declare module DevExpress.events {
   /**
    * @deprecated Attention! This type is for internal purposes only. If you used it previously, please submit a ticket to our {@link https://supportcenter.devexpress.com/ticket/create Support Center}. We will check if there is an alternative solution.
    */
-  export type EventObjectInternal = {
+  export type EventObject = {
     /**
-     * [descr:EventObjectInternal.currentTarget]
+     * [descr:EventObject.currentTarget]
      */
     currentTarget: Element;
 
     /**
-     * [descr:EventObjectInternal.data]
+     * [descr:EventObject.data]
      */
     data: any;
 
     /**
-     * [descr:EventObjectInternal.delegateTarget]
+     * [descr:EventObject.delegateTarget]
      */
     delegateTarget: Element;
 
     /**
-     * [descr:EventObjectInternal.target]
+     * [descr:EventObject.target]
      */
     target: Element;
     /**
-     * [descr:EventObjectInternal.isDefaultPrevented()]
+     * [descr:EventObject.isDefaultPrevented()]
      */
     isDefaultPrevented(): boolean;
     /**
-     * [descr:EventObjectInternal.isImmediatePropagationStopped()]
+     * [descr:EventObject.isImmediatePropagationStopped()]
      */
     isImmediatePropagationStopped(): boolean;
     /**
-     * [descr:EventObjectInternal.isPropagationStopped()]
+     * [descr:EventObject.isPropagationStopped()]
      */
     isPropagationStopped(): boolean;
     /**
-     * [descr:EventObjectInternal.preventDefault()]
+     * [descr:EventObject.preventDefault()]
      */
     preventDefault(): void;
     /**
-     * [descr:EventObjectInternal.stopImmediatePropagation()]
+     * [descr:EventObject.stopImmediatePropagation()]
      */
     stopImmediatePropagation(): void;
     /**
-     * [descr:EventObjectInternal.stopPropagation()]
+     * [descr:EventObject.stopPropagation()]
      */
     stopPropagation(): void;
   };
@@ -6940,6 +7067,30 @@ declare module DevExpress.excelExporter {
   }
   export type DataGridCell = ExcelDataGridCell;
   /**
+   * [descr:DataGridExportOptions]
+   */
+  export type DataGridExportOptions = ExcelExportBaseOptions & {
+    /**
+     * [descr:DataGridExportOptions.component]
+     */
+    component?: DevExpress.ui.dxDataGrid | undefined;
+    /**
+     * [descr:DataGridExportOptions.selectedRowsOnly]
+     */
+    selectedRowsOnly?: boolean;
+    /**
+     * [descr:DataGridExportOptions.autoFilterEnabled]
+     */
+    autoFilterEnabled?: boolean;
+    /**
+     * [descr:DataGridExportOptions.customizeCell]
+     */
+    customizeCell?: (options: {
+      gridCell?: DataGridCell;
+      excelCell?: any;
+    }) => void;
+  };
+  /**
    * @deprecated Use DataGridCell instead
    * @deprecated Attention! This type is for internal purposes only. If you used it previously, please submit a ticket to our {@link https://supportcenter.devexpress.com/ticket/create Support Center}. We will check if there is an alternative solution.
    */
@@ -7009,70 +7160,6 @@ declare module DevExpress.excelExporter {
     encodeExecutableContent?: boolean;
   }
   /**
-   * [descr:ExcelExportDataGridOptions]
-   */
-  export interface ExcelExportDataGridOptions extends ExcelExportBaseOptions {
-    /**
-     * [descr:ExcelExportDataGridOptions.component]
-     */
-    component?: DevExpress.ui.dxDataGrid | undefined;
-    /**
-     * [descr:ExcelExportDataGridOptions.selectedRowsOnly]
-     */
-    selectedRowsOnly?: boolean;
-    /**
-     * [descr:ExcelExportDataGridOptions.autoFilterEnabled]
-     */
-    autoFilterEnabled?: boolean;
-    /**
-     * [descr:ExcelExportDataGridOptions.customizeCell]
-     */
-    customizeCell?: (options: {
-      gridCell?: DataGridCell;
-      excelCell?: any;
-    }) => void;
-  }
-  /**
-   * [descr:ExcelExportPivotGridOptions]
-   */
-  export interface ExcelExportPivotGridOptions extends ExcelExportBaseOptions {
-    /**
-     * [descr:ExcelExportPivotGridOptions.component]
-     */
-    component?: DevExpress.ui.dxPivotGrid | undefined;
-    /**
-     * [descr:ExcelExportPivotGridOptions.mergeRowFieldValues]
-     */
-    mergeRowFieldValues?: boolean;
-    /**
-     * [descr:ExcelExportPivotGridOptions.mergeColumnFieldValues]
-     */
-    mergeColumnFieldValues?: boolean;
-    /**
-     * [descr:ExcelExportPivotGridOptions.exportFilterFieldHeaders]
-     */
-    exportFilterFieldHeaders?: boolean;
-    /**
-     * [descr:ExcelExportPivotGridOptions.exportDataFieldHeaders]
-     */
-    exportDataFieldHeaders?: boolean;
-    /**
-     * [descr:ExcelExportPivotGridOptions.exportColumnFieldHeaders]
-     */
-    exportColumnFieldHeaders?: boolean;
-    /**
-     * [descr:ExcelExportPivotGridOptions.exportRowFieldHeaders]
-     */
-    exportRowFieldHeaders?: boolean;
-    /**
-     * [descr:ExcelExportPivotGridOptions.customizeCell]
-     */
-    customizeCell?: (options: {
-      pivotCell?: PivotGridCell;
-      excelCell?: any;
-    }) => void;
-  }
-  /**
    * @deprecated Use PivotGridCell instead
    * @deprecated Attention! This type is for internal purposes only. If you used it previously, please submit a ticket to our {@link https://supportcenter.devexpress.com/ticket/create Support Center}. We will check if there is an alternative solution.
    */
@@ -7098,15 +7185,55 @@ declare module DevExpress.excelExporter {
    * [descr:excelExporter.exportDataGrid(options)]
    */
   export function exportDataGrid(
-    options: ExcelExportDataGridOptions
+    options: DataGridExportOptions
   ): DevExpress.core.utils.DxPromise<CellRange>;
   /**
    * [descr:excelExporter.exportPivotGrid(options)]
    */
   export function exportPivotGrid(
-    options: ExcelExportPivotGridOptions
+    options: PivotGridExportOptions
   ): DevExpress.core.utils.DxPromise<CellRange>;
   export type PivotGridCell = ExcelPivotGridCell;
+  /**
+   * [descr:PivotGridExportOptions]
+   */
+  export type PivotGridExportOptions = ExcelExportBaseOptions & {
+    /**
+     * [descr:PivotGridExportOptions.component]
+     */
+    component?: DevExpress.ui.dxPivotGrid | undefined;
+    /**
+     * [descr:PivotGridExportOptions.mergeRowFieldValues]
+     */
+    mergeRowFieldValues?: boolean;
+    /**
+     * [descr:PivotGridExportOptions.mergeColumnFieldValues]
+     */
+    mergeColumnFieldValues?: boolean;
+    /**
+     * [descr:PivotGridExportOptions.exportFilterFieldHeaders]
+     */
+    exportFilterFieldHeaders?: boolean;
+    /**
+     * [descr:PivotGridExportOptions.exportDataFieldHeaders]
+     */
+    exportDataFieldHeaders?: boolean;
+    /**
+     * [descr:PivotGridExportOptions.exportColumnFieldHeaders]
+     */
+    exportColumnFieldHeaders?: boolean;
+    /**
+     * [descr:PivotGridExportOptions.exportRowFieldHeaders]
+     */
+    exportRowFieldHeaders?: boolean;
+    /**
+     * [descr:PivotGridExportOptions.customizeCell]
+     */
+    customizeCell?: (options: {
+      pivotCell?: PivotGridCell;
+      excelCell?: any;
+    }) => void;
+  };
 }
 declare module DevExpress.fileManagement {
   /**
@@ -7549,7 +7676,7 @@ declare module DevExpress.pdfExporter {
   /**
    * [descr:PdfCell]
    */
-  export interface Cell {
+  export type Cell = {
     /**
      * [descr:PdfCell.backgroundColor]
      */
@@ -7636,90 +7763,72 @@ declare module DevExpress.pdfExporter {
      * [descr:PdfCell.wordWrapEnabled]
      */
     wordWrapEnabled?: boolean;
-  }
+  };
   export type DataGridCell = PdfDataGridCell;
   /**
-   * [descr:pdfExporter.exportDataGrid(options)]
+   * [descr:DataGridExportOptions]
    */
-  export function exportDataGrid(
-    options: PdfExportDataGridOptions
-  ): DevExpress.core.utils.DxPromise<void>;
-  /**
-   * [descr:pdfExporter.exportGantt(options)]
-   */
-  export function exportGantt(
-    options: PdfExportGanttOptions
-  ): DevExpress.core.utils.DxPromise<any>;
-  /**
-   * @deprecated Use DataGridCell instead
-   * @deprecated Attention! This type is for internal purposes only. If you used it previously, please submit a ticket to our {@link https://supportcenter.devexpress.com/ticket/create Support Center}. We will check if there is an alternative solution.
-   */
-  export interface PdfDataGridCell
-    extends DevExpress.excelExporter.DataGridCell {}
-  /**
-   * [descr:PdfExportDataGridOptions]
-   */
-  export interface PdfExportDataGridOptions {
+  export type DataGridExportOptions = {
     /**
-     * [descr:PdfExportDataGridOptions.jsPDFDocument]
+     * [descr:DataGridExportOptions.jsPDFDocument]
      */
     jsPDFDocument?: object | undefined;
     /**
-     * [descr:PdfExportDataGridOptions.component]
+     * [descr:DataGridExportOptions.component]
      */
     component?: DevExpress.ui.dxDataGrid | undefined;
     /**
-     * [descr:PdfExportDataGridOptions.topLeft]
+     * [descr:DataGridExportOptions.topLeft]
      */
     topLeft?: {
       /**
-       * [descr:PdfExportDataGridOptions.topLeft.x]
+       * [descr:DataGridExportOptions.topLeft.x]
        */
       x?: number;
       /**
-       * [descr:PdfExportDataGridOptions.topLeft.y]
+       * [descr:DataGridExportOptions.topLeft.y]
        */
       y?: number;
     };
     /**
-     * [descr:PdfExportDataGridOptions.columnWidths]
+     * [descr:DataGridExportOptions.columnWidths]
      */
     columnWidths?: Array<number> | undefined;
     /**
-     * [descr:PdfExportDataGridOptions.indent]
+     * [descr:DataGridExportOptions.indent]
      */
     indent?: number;
     /**
-     * [descr:PdfExportDataGridOptions.margin]
+     * [descr:DataGridExportOptions.margin]
      */
     margin?: {
       /**
-       * [descr:PdfExportDataGridOptions.margin.top]
+       * [descr:DataGridExportOptions.margin.top]
        */
       top?: number;
       /**
-       * [descr:PdfExportDataGridOptions.margin.left]
+       * [descr:DataGridExportOptions.margin.left]
        */
       left?: number;
       /**
-       * [descr:PdfExportDataGridOptions.margin.right]
+       * [descr:DataGridExportOptions.margin.right]
        */
       right?: number;
       /**
-       * [descr:PdfExportDataGridOptions.margin.bottom]
+       * [descr:DataGridExportOptions.margin.bottom]
        */
       bottom?: number;
     };
     /**
-     * [descr:PdfExportDataGridOptions.repeatHeaders]
+     * [descr:DataGridExportOptions.repeatHeaders]
      */
     repeatHeaders?: boolean;
     /**
-     * [descr:PdfExportDataGridOptions.selectedRowsOnly]
+     * [descr:DataGridExportOptions.selectedRowsOnly]
      */
     selectedRowsOnly?: boolean;
     /**
-     * [descr:PdfExportDataGridOptions.customDrawCell]
+     * [descr:DataGridExportOptions.customDrawCell]
      */
     customDrawCell?: (options: {
       gridCell?: DataGridCell;
@@ -7729,69 +7838,108 @@ declare module DevExpress.pdfExporter {
       cancel?: boolean;
     }) => void;
     /**
-     * [descr:PdfExportDataGridOptions.customizeCell]
+     * [descr:DataGridExportOptions.customizeCell]
      */
     customizeCell?: (options: {
       gridCell?: DataGridCell;
       pdfCell?: Cell;
     }) => void;
     /**
-     * [descr:PdfExportDataGridOptions.onRowExporting]
+     * [descr:DataGridExportOptions.onRowExporting]
      */
     onRowExporting?: (options: {
       rowCells?: Array<Cell>;
       rowHeight?: number;
     }) => void;
     /**
-     * [descr:PdfExportDataGridOptions.loadPanel]
+     * [descr:DataGridExportOptions.loadPanel]
      */
     loadPanel?: ExportLoadPanel;
-  }
+  };
   /**
-   * [descr:PdfExportGanttOptions]
+   * [descr:pdfExporter.exportDataGrid(options)]
    */
-  export interface PdfExportGanttOptions {
+  export function exportDataGrid(
+    options: DataGridExportOptions
+  ): DevExpress.core.utils.DxPromise<void>;
+  /**
+   * [descr:pdfExporter.exportGantt(options)]
+   */
+  export function exportGantt(
+    options: GanttExportOptions
+  ): DevExpress.core.utils.DxPromise<any>;
+  /**
+   * [descr:GanttExportFont]
+   */
+  export type GanttExportFont = {
     /**
-     * [descr:PdfExportGanttOptions.createDocumentMethod]
+     * [descr:GanttExportFont.fontObject]
+     */
+    fontObject: object | undefined;
+    /**
+     * [descr:GanttExportFont.name]
+     */
+    name: string | undefined;
+    /**
+     * [descr:GanttExportFont.style]
+     */
+    style?: string;
+    /**
+     * [descr:GanttExportFont.weight]
+     */
+    weight?: string | number | undefined;
+  };
+  /**
+   * [descr:GanttExportOptions]
+   */
+  export type GanttExportOptions = {
+    /**
+     * [descr:GanttExportOptions.createDocumentMethod]
      */
     createDocumentMethod?: (options: any) => object;
     /**
-     * [descr:PdfExportGanttOptions.jsPDFDocument]
+     * [descr:GanttExportOptions.jsPDFDocument]
      */
     jsPDFDocument?: object | undefined;
     /**
-     * [descr:PdfExportGanttOptions.component]
+     * [descr:GanttExportOptions.component]
      */
     component?: DevExpress.ui.dxGantt | undefined;
     /**
-     * [descr:PdfExportGanttOptions.format]
+     * [descr:GanttExportOptions.format]
      */
     format?: string | object | undefined;
     /**
-     * [descr:PdfExportGanttOptions.landscape]
+     * [descr:GanttExportOptions.landscape]
      */
     landscape?: boolean;
     /**
-     * [descr:PdfExportGanttOptions.fileName]
+     * [descr:GanttExportOptions.fileName]
      */
     fileName?: string | undefined;
     /**
-     * [descr:PdfExportGanttOptions.margins]
+     * [descr:GanttExportOptions.margins]
      */
     margins?: object | undefined;
     /**
-     * [descr:PdfExportGanttOptions.exportMode]
+     * [descr:GanttExportOptions.exportMode]
      */
     exportMode?: DevExpress.ui.dxGantt.GanttPdfExportMode;
     /**
-     * [descr:PdfExportGanttOptions.dateRange]
+     * [descr:GanttExportOptions.dateRange]
      */
     dateRange?: DevExpress.ui.dxGantt.GanttPdfExportDateRange | object;
     /**
-     * [descr:PdfExportGanttOptions.font]
+     * [descr:GanttExportOptions.font]
      */
-    font?: DevExpress.common.PdfExportGanttFont;
-  }
+    font?: GanttExportFont;
+  };
+  /**
+   * @deprecated Use DataGridCell instead
+   * @deprecated Attention! This type is for internal purposes only. If you used it previously, please submit a ticket to our {@link https://supportcenter.devexpress.com/ticket/create Support Center}. We will check if there is an alternative solution.
+   */
+  export interface PdfDataGridCell
+    extends DevExpress.excelExporter.DataGridCell {}
 }
 declare module DevExpress.ui {
   /**
@@ -7829,7 +7977,7 @@ declare module DevExpress.ui {
     TItem extends DevExpress.ui.CollectionWidget.ItemLike = any,
     TKey = any
   > extends Widget<TProperties> {
-    getDataSource(): DevExpress.common.DataSource<TItem, TKey>;
+    getDataSource(): DevExpress.common.data.DataSource<TItem, TKey>;
   }
   module CollectionWidget {
     /**
@@ -8012,7 +8160,7 @@ declare module DevExpress.ui {
    */
   export class DataExpressionMixin {
     constructor(options?: DataExpressionMixinOptions);
-    getDataSource(): DevExpress.common.DataSource;
+    getDataSource(): DevExpress.common.data.DataSource;
   }
   /**
    * [descr:DataExpressionMixinOptions]
@@ -9324,7 +9472,7 @@ declare module DevExpress.ui {
      */
     renderMessage(message: DevExpress.ui.dxChat.Message): void;
 
-    getDataSource(): DevExpress.common.DataSource<DevExpress.ui.dxChat.Message>;
+    getDataSource(): DevExpress.common.data.DataSource<DevExpress.ui.dxChat.Message>;
   }
   module dxChat {
     /**
@@ -10083,7 +10231,7 @@ declare module DevExpress.ui {
     ): DevExpress.core.DxElement | undefined;
     getCombinedFilter(): any;
     getCombinedFilter(returnDataField: boolean): any;
-    getDataSource(): DevExpress.common.DataSource<TRowData, TKey>;
+    getDataSource(): DevExpress.common.data.DataSource<TRowData, TKey>;
     getKeyByRowIndex(rowIndex: number): TKey | undefined;
     getRowElement(
       rowIndex: number
@@ -12722,11 +12870,11 @@ declare module DevExpress.ui {
     /**
      * [descr:dxDiagram.getNodeDataSource()]
      */
-    getNodeDataSource(): DevExpress.common.DataSource;
+    getNodeDataSource(): DevExpress.common.data.DataSource;
     /**
      * [descr:dxDiagram.getEdgeDataSource()]
      */
-    getEdgeDataSource(): DevExpress.common.DataSource;
+    getEdgeDataSource(): DevExpress.common.data.DataSource;
     /**
      * [descr:dxDiagram.getItemByKey(key)]
      */
@@ -14310,7 +14458,7 @@ declare module DevExpress.ui {
    * [descr:dxDropDownBox]
    */
   export class dxDropDownBox extends dxDropDownEditor<dxDropDownBoxOptions> {
-    getDataSource(): DevExpress.common.DataSource;
+    getDataSource(): DevExpress.common.data.DataSource;
   }
   module dxDropDownBox {
     /**
@@ -14490,7 +14638,7 @@ declare module DevExpress.ui {
      * [descr:dxDropDownButton.close()]
      */
     close(): DevExpress.core.utils.DxPromise<void>;
-    getDataSource(): DevExpress.common.DataSource;
+    getDataSource(): DevExpress.common.data.DataSource;
     /**
      * [descr:dxDropDownButton.open()]
      */
@@ -14608,7 +14756,9 @@ declare module DevExpress.ui {
     dropDownContentTemplate?:
       | template
       | ((
-          data: Array<string | number | any> | DevExpress.common.DataSource,
+          data:
+            | Array<string | number | any>
+            | DevExpress.common.data.DataSource,
           contentElement: DevExpress.core.DxElement
         ) => string | DevExpress.core.UserDefinedElement);
     /**
@@ -14835,7 +14985,7 @@ declare module DevExpress.ui {
   export class dxDropDownList<
     TProperties
   > extends dxDropDownEditor<TProperties> {
-    getDataSource(): DevExpress.common.DataSource;
+    getDataSource(): DevExpress.common.data.DataSource;
   }
   module dxDropDownList {
     /**
@@ -16351,7 +16501,7 @@ declare module DevExpress.ui {
      */
     export type FilterLookupDataSource<T> = Exclude<
       DevExpress.data.DataSourceLike<T>,
-      string | DevExpress.common.DataSource
+      string | DevExpress.common.data.DataSource
     >;
     export type GroupOperation = 'and' | 'or' | 'notAnd' | 'notOr';
     /**
@@ -23006,7 +23156,7 @@ declare module DevExpress.ui {
    * [descr:dxRadioGroup]
    */
   export class dxRadioGroup extends Editor<dxRadioGroupOptions> {
-    getDataSource(): DevExpress.common.DataSource;
+    getDataSource(): DevExpress.common.data.DataSource;
   }
   module dxRadioGroup {
     /**
@@ -23555,7 +23705,7 @@ declare module DevExpress.ui {
       date: Date | string,
       recurrenceEditMode: DevExpress.ui.dxScheduler.RecurrenceEditMode
     ): void;
-    getDataSource(): DevExpress.common.DataSource;
+    getDataSource(): DevExpress.common.data.DataSource;
     /**
      * [descr:dxScheduler.getEndViewDate()]
      */
@@ -27814,7 +27964,7 @@ declare module DevExpress.ui {
     ): DevExpress.core.DxElement | undefined;
     getCombinedFilter(): any;
     getCombinedFilter(returnDataField: boolean): any;
-    getDataSource(): DevExpress.common.DataSource<TRowData, TKey>;
+    getDataSource(): DevExpress.common.data.DataSource<TRowData, TKey>;
     getKeyByRowIndex(rowIndex: number): TKey | undefined;
     getRowElement(
       rowIndex: number
@@ -30996,36 +31146,11 @@ declare module DevExpress.utils {
    */
   export function cancelAnimationFrame(requestID: number): void;
   /**
-   * @deprecated Attention! This type is for internal purposes only. If you used it previously, please submit a ticket to our {@link https://supportcenter.devexpress.com/ticket/create Support Center}. We will check if there is an alternative solution.
-   */
-  export type FilterDescriptor = any;
-  /**
    * [descr:utils.getTimeZones(date)]
    */
   export function getTimeZones(
     date?: Date
   ): Array<DevExpress.common.SchedulerTimeZone>;
-  /**
-   * @deprecated Attention! This type is for internal purposes only. If you used it previously, please submit a ticket to our {@link https://supportcenter.devexpress.com/ticket/create Support Center}. We will check if there is an alternative solution.
-   */
-  export type GroupDescriptor<T> =
-    | DevExpress.data.KeySelector<T>
-    | (DevExpress.data.OrderingDescriptor<T> & {
-        groupInterval?: number | GroupingInterval;
-        isExpanded?: boolean;
-      });
-  /**
-   * @deprecated Attention! This type is for internal purposes only. If you used it previously, please submit a ticket to our {@link https://supportcenter.devexpress.com/ticket/create Support Center}. We will check if there is an alternative solution.
-   */
-  export type GroupingInterval =
-    | 'year'
-    | 'quarter'
-    | 'month'
-    | 'day'
-    | 'dayOfWeek'
-    | 'hour'
-    | 'minute'
-    | 'second';
   /**
    * [descr:utils.initMobileViewport(options)]
    */
@@ -31035,125 +31160,9 @@ declare module DevExpress.utils {
     allowSelection?: boolean;
   }): void;
   /**
-   * @deprecated Attention! This type is for internal purposes only. If you used it previously, please submit a ticket to our {@link https://supportcenter.devexpress.com/ticket/create Support Center}. We will check if there is an alternative solution.
-   */
-  export interface LoadOptions<T = any> {
-    /**
-     * [descr:LoadOptions.customQueryParams]
-     */
-    customQueryParams?: any;
-    /**
-     * [descr:LoadOptions.startDate]
-     */
-    startDate?: Date;
-    /**
-     * [descr:LoadOptions.endDate]
-     */
-    endDate?: Date;
-    /**
-     * [descr:LoadOptions.expand]
-     */
-    expand?: Array<string>;
-    /**
-     * [descr:LoadOptions.filter]
-     */
-    filter?: FilterDescriptor | Array<FilterDescriptor>;
-    /**
-     * [descr:LoadOptions.group]
-     */
-    group?: GroupDescriptor<T> | Array<GroupDescriptor<T>>;
-    /**
-     * [descr:LoadOptions.groupSummary]
-     */
-    groupSummary?: SummaryDescriptor<T> | Array<SummaryDescriptor<T>>;
-    /**
-     * [descr:LoadOptions.parentIds]
-     */
-    parentIds?: Array<any>;
-    /**
-     * [descr:LoadOptions.requireGroupCount]
-     */
-    requireGroupCount?: boolean;
-    /**
-     * [descr:LoadOptions.requireTotalCount]
-     */
-    requireTotalCount?: boolean;
-    /**
-     * [descr:LoadOptions.searchExpr]
-     */
-    searchExpr?: string | Function | Array<string | Function>;
-    /**
-     * [descr:LoadOptions.searchOperation]
-     */
-    searchOperation?: SearchOperation;
-    /**
-     * [descr:LoadOptions.searchValue]
-     */
-    searchValue?: any;
-    /**
-     * [descr:LoadOptions.select]
-     */
-    select?: SelectDescriptor<T>;
-    /**
-     * [descr:LoadOptions.skip]
-     */
-    skip?: number;
-    /**
-     * [descr:LoadOptions.sort]
-     */
-    sort?: SortDescriptor<T> | Array<SortDescriptor<T>>;
-    /**
-     * [descr:LoadOptions.take]
-     */
-    take?: number;
-    /**
-     * [descr:LoadOptions.totalSummary]
-     */
-    totalSummary?: SummaryDescriptor<T> | Array<SummaryDescriptor<T>>;
-    /**
-     * [descr:LoadOptions.userData]
-     */
-    userData?: any;
-  }
-  /**
    * [descr:utils.requestAnimationFrame(callback)]
    */
   export function requestAnimationFrame(callback: Function): number;
-  /**
-   * @deprecated Attention! This type is for internal purposes only. If you used it previously, please submit a ticket to our {@link https://supportcenter.devexpress.com/ticket/create Support Center}. We will check if there is an alternative solution.
-   */
-  export type SearchOperation =
-    | '='
-    | '<>'
-    | '>'
-    | '>='
-    | '<'
-    | '<='
-    | 'startswith'
-    | 'endswith'
-    | 'contains'
-    | 'notcontains';
-  /**
-   * @deprecated Attention! This type is for internal purposes only. If you used it previously, please submit a ticket to our {@link https://supportcenter.devexpress.com/ticket/create Support Center}. We will check if there is an alternative solution.
-   */
-  export type SelectDescriptor<T> =
-    | string
-    | Array<string>
-    | ((source: T) => any);
-  /**
-   * @deprecated Attention! This type is for internal purposes only. If you used it previously, please submit a ticket to our {@link https://supportcenter.devexpress.com/ticket/create Support Center}. We will check if there is an alternative solution.
-   */
-  export type SortDescriptor<T> =
-    | DevExpress.data.KeySelector<T>
-    | DevExpress.data.OrderingDescriptor<T>;
-  /**
-   * @deprecated Attention! This type is for internal purposes only. If you used it previously, please submit a ticket to our {@link https://supportcenter.devexpress.com/ticket/create Support Center}. We will check if there is an alternative solution.
-   */
-  export type SummaryDescriptor<T> =
-    | DevExpress.data.KeySelector<T>
-    | (DevExpress.data.SelectionDescriptor<T> & {
-        summaryType?: 'sum' | 'avg' | 'min' | 'max' | 'count';
-      });
 }
 declare module DevExpress.viz {
   /**
@@ -31198,7 +31207,7 @@ declare module DevExpress.viz {
      * [descr:BaseChart.getAllSeries()]
      */
     getAllSeries(): Array<baseSeriesObject>;
-    getDataSource(): DevExpress.common.DataSource;
+    getDataSource(): DevExpress.common.data.DataSource;
     /**
      * [descr:BaseChart.getSeriesByName(seriesName)]
      */
@@ -36942,7 +36951,7 @@ declare module DevExpress.viz {
      * [descr:dxFunnel.getAllItems()]
      */
     getAllItems(): Array<DevExpress.viz.dxFunnel.Item>;
-    getDataSource(): DevExpress.common.DataSource;
+    getDataSource(): DevExpress.common.data.DataSource;
     /**
      * [descr:dxFunnel.hideTooltip()]
      */
@@ -39914,7 +39923,7 @@ declare module DevExpress.viz {
    * [descr:dxRangeSelector]
    */
   export class dxRangeSelector extends BaseWidget<dxRangeSelectorOptions> {
-    getDataSource(): DevExpress.common.DataSource;
+    getDataSource(): DevExpress.common.data.DataSource;
     /**
      * [descr:dxRangeSelector.getValue()]
      */
@@ -40559,7 +40568,7 @@ declare module DevExpress.viz {
      * [descr:dxSankey.getAllNodes()]
      */
     getAllNodes(): Array<dxSankeyNode>;
-    getDataSource(): DevExpress.common.DataSource;
+    getDataSource(): DevExpress.common.data.DataSource;
     /**
      * [descr:dxSankey.hideTooltip()]
      */
@@ -41116,7 +41125,7 @@ declare module DevExpress.viz {
    * [descr:dxSparkline]
    */
   export class dxSparkline extends BaseSparkline<dxSparklineOptions> {
-    getDataSource(): DevExpress.common.DataSource;
+    getDataSource(): DevExpress.common.data.DataSource;
   }
   module dxSparkline {
     /**
@@ -41288,7 +41297,7 @@ declare module DevExpress.viz {
      * [descr:dxTreeMap.getCurrentNode()]
      */
     getCurrentNode(): dxTreeMapNode;
-    getDataSource(): DevExpress.common.DataSource;
+    getDataSource(): DevExpress.common.data.DataSource;
     /**
      * [descr:dxTreeMap.getRootNode()]
      */
@@ -42581,7 +42590,7 @@ declare module DevExpress.viz {
     /**
      * [descr:MapLayer.getDataSource()]
      */
-    getDataSource(): DevExpress.common.DataSource;
+    getDataSource(): DevExpress.common.data.DataSource;
     /**
      * [descr:MapLayer.getElements()]
      */

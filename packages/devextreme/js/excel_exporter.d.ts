@@ -1,8 +1,8 @@
 export {
   DataGridCell,
   PivotGridCell,
-  ExcelExportDataGridOptions as ExcelExportDataGridProps,
-  ExcelExportPivotGridOptions as ExcelExportPivotGridProps,
+  DataGridExportOptions as ExcelExportDataGridProps,
+  PivotGridExportOptions as ExcelExportPivotGridProps,
   exportDataGrid,
   exportPivotGrid,
 } from './common/export/excel';

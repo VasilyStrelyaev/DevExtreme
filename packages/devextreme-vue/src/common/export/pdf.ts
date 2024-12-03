@@ -1,9 +1,9 @@
 export {
     Cell,
     DataGridCell,
+    DataGridExportOptions,
     exportDataGrid,
     exportGantt,
-    PdfExportDataGridOptions,
-    PdfExportGanttFont,
-    PdfExportGanttOptions,
+    GanttExportFont,
+    GanttExportOptions,
 } from "devextreme/common/export/pdf";

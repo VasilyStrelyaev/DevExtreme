@@ -3,9 +3,9 @@ import {
   Cell,
   exportDataGrid,
   exportGantt,
-  PdfExportGanttFont,
-  PdfExportDataGridOptions,
-  PdfExportGanttOptions,
+  GanttExportFont,
+  DataGridExportOptions,
+  GanttExportOptions,
 } from './common/export/pdf';
 
 import { PdfDataGridCell } from './pdf_exporter.types';
@@ -15,8 +15,8 @@ export {
   Cell,
   exportDataGrid,
   exportGantt,
-  PdfExportGanttFont,
-  PdfExportDataGridOptions as PdfExportDataGridProps,
-  PdfExportGanttOptions as PdfExportGanttProps,
+  GanttExportFont as PdfExportGanttFont,
+  DataGridExportOptions as PdfExportDataGridProps,
+  GanttExportOptions as PdfExportGanttProps,
   PdfDataGridCell,
 };
