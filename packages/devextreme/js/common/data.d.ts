@@ -94,6 +94,8 @@ export function applyChanges(data: Array<any>, changes: Array<any>, options?: { 
  * @docid
  * @namespace DevExpress.common.data
  * @public
+ * @type object
+ * @inherits StoreOptions
  */
 export type ArrayStoreOptions<
     TItem = any,
@@ -231,6 +233,7 @@ export type ResolvedData<TItem = any> = LoadResult<TItem>;
  * @docid
  * @public
  * @namespace DevExpress.common.data
+ * @type object
  */
 export type CustomStoreOptions<
     TItem = any,
@@ -1211,6 +1214,7 @@ export class ODataContext {
  * @docid
  * @public
  * @namespace DevExpress.common.data
+ * @type object
  */
 export type ODataStoreOptions<
     TItem = any,
