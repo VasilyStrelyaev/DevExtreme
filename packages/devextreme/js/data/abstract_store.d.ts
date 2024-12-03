@@ -5,7 +5,7 @@ import {
   Store as StoreBase,
   StoreOptions as StoreOptionsBase,
 } from './store';
-import { LoadOptions } from '../common/data.types';
+import { LoadOptions } from '../common/data';
 
 /**
  * @deprecated Use AbstractStoreOptions instead
