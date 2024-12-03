@@ -1,6 +1,6 @@
 import { DxPromise, DxExtendedPromise } from '../core/utils/deferred';
 import { DeepPartial } from '../core';
-import { FilterDescriptor, GroupDescriptor, LoadOptions } from '../common/data.types';
+import { FilterDescriptor, GroupDescriptor, LoadOptions } from '../common/data';
 
 /**
  * @docid StoreOptions
