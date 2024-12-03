@@ -2703,9 +2703,6 @@ declare module DevExpress.common.charts {
   export type ZoomPanAction = 'zoom' | 'pan';
 }
 declare module DevExpress.common.core.events {
-  /**
-   * [descr:EventObject]
-   */
   export type EventObject = DevExpress.events.EventObject;
 }
 declare module DevExpress.common.data {
@@ -2727,12 +2724,11 @@ declare module DevExpress.common.data {
      * [descr:Store.load(options)]
      */
     load(
-      options: DevExpress.data.LoadOptions<TItem>
+      options: LoadOptions<TItem>
     ): DevExpress.core.utils.DxExtendedPromise<Array<TItem>>;
   }
   module AbstractStore {
     /**
-     * @deprecated Use AbstractStoreOptions instead
      * @deprecated Attention! This type is for internal purposes only. If you used it previously, please submit a ticket to our {@link https://supportcenter.devexpress.com/ticket/create Support Center}. We will check if there is an alternative solution.
      */
     export type Options<TItem = any, TKey = any> = AbstractStoreOptions<
@@ -2748,10 +2744,7 @@ declare module DevExpress.common.data {
     /**
      * [descr:StoreOptions.onLoaded]
      */
-    onLoaded?: (
-      result: Array<TItem>,
-      loadOptions: DevExpress.data.LoadOptions<TItem>
-    ) => void;
+    onLoaded?: (result: Array<TItem>, loadOptions: LoadOptions<TItem>) => void;
   }
   /**
    * [descr:Utils.applyChanges(data, changes, options)]
@@ -3663,12 +3656,8 @@ declare module DevExpress.common.data {
      * [descr:Store.totalCount(options)]
      */
     totalCount(obj: {
-      filter?:
-        | DevExpress.data.FilterDescriptor
-        | Array<DevExpress.data.FilterDescriptor>;
-      group?:
-        | DevExpress.data.GroupDescriptor<TItem>
-        | Array<DevExpress.data.GroupDescriptor<TItem>>;
+      filter?: FilterDescriptor | Array<FilterDescriptor>;
+      group?: GroupDescriptor<TItem> | Array<GroupDescriptor<TItem>>;
     }): DevExpress.core.utils.DxPromise<number>;
     /**
      * [descr:Store.update(key, values)]
@@ -3702,7 +3691,7 @@ declare module DevExpress.common.data {
     /**
      * [descr:StoreOptions.onLoading]
      */
-    onLoading?: (loadOptions: DevExpress.data.LoadOptions<TItem>) => void;
+    onLoading?: (loadOptions: LoadOptions<TItem>) => void;
     /**
      * [descr:StoreOptions.onModified]
      */
@@ -7067,23 +7056,23 @@ declare module DevExpress.excelExporter {
   }
   export type DataGridCell = ExcelDataGridCell;
   /**
-   * [descr:DataGridExportOptions]
+   * [descr:ExcelExportDataGridProps]
    */
   export type DataGridExportOptions = ExcelExportBaseOptions & {
     /**
-     * [descr:DataGridExportOptions.component]
+     * [descr:ExcelExportDataGridProps.component]
      */
     component?: DevExpress.ui.dxDataGrid | undefined;
     /**
-     * [descr:DataGridExportOptions.selectedRowsOnly]
+     * [descr:ExcelExportDataGridProps.selectedRowsOnly]
      */
     selectedRowsOnly?: boolean;
     /**
-     * [descr:DataGridExportOptions.autoFilterEnabled]
+     * [descr:ExcelExportDataGridProps.autoFilterEnabled]
      */
     autoFilterEnabled?: boolean;
     /**
-     * [descr:DataGridExportOptions.customizeCell]
+     * [descr:ExcelExportDataGridProps.customizeCell]
      */
     customizeCell?: (options: {
       gridCell?: DataGridCell;
@@ -7766,69 +7755,69 @@ declare module DevExpress.pdfExporter {
   };
   export type DataGridCell = PdfDataGridCell;
   /**
-   * [descr:DataGridExportOptions]
+   * [descr:PdfExportDataGridProps]
    */
   export type DataGridExportOptions = {
     /**
-     * [descr:DataGridExportOptions.jsPDFDocument]
+     * [descr:PdfExportDataGridProps.jsPDFDocument]
      */
     jsPDFDocument?: object | undefined;
     /**
-     * [descr:DataGridExportOptions.component]
+     * [descr:PdfExportDataGridProps.component]
      */
     component?: DevExpress.ui.dxDataGrid | undefined;
     /**
-     * [descr:DataGridExportOptions.topLeft]
+     * [descr:PdfExportDataGridProps.topLeft]
      */
     topLeft?: {
       /**
-       * [descr:DataGridExportOptions.topLeft.x]
+       * [descr:PdfExportDataGridProps.topLeft.x]
        */
       x?: number;
       /**
-       * [descr:DataGridExportOptions.topLeft.y]
+       * [descr:PdfExportDataGridProps.topLeft.y]
        */
       y?: number;
     };
     /**
-     * [descr:DataGridExportOptions.columnWidths]
+     * [descr:PdfExportDataGridProps.columnWidths]
      */
     columnWidths?: Array<number> | undefined;
     /**
-     * [descr:DataGridExportOptions.indent]
+     * [descr:PdfExportDataGridProps.indent]
      */
     indent?: number;
     /**
-     * [descr:DataGridExportOptions.margin]
+     * [descr:PdfExportDataGridProps.margin]
      */
     margin?: {
       /**
-       * [descr:DataGridExportOptions.margin.top]
+       * [descr:PdfExportDataGridProps.margin.top]
        */
       top?: number;
       /**
-       * [descr:DataGridExportOptions.margin.left]
+       * [descr:PdfExportDataGridProps.margin.left]
        */
       left?: number;
       /**
-       * [descr:DataGridExportOptions.margin.right]
+       * [descr:PdfExportDataGridProps.margin.right]
        */
       right?: number;
       /**
-       * [descr:DataGridExportOptions.margin.bottom]
+       * [descr:PdfExportDataGridProps.margin.bottom]
        */
       bottom?: number;
     };
     /**
-     * [descr:DataGridExportOptions.repeatHeaders]
+     * [descr:PdfExportDataGridProps.repeatHeaders]
      */
     repeatHeaders?: boolean;
     /**
-     * [descr:DataGridExportOptions.selectedRowsOnly]
+     * [descr:PdfExportDataGridProps.selectedRowsOnly]
      */
     selectedRowsOnly?: boolean;
     /**
-     * [descr:DataGridExportOptions.customDrawCell]
+     * [descr:PdfExportDataGridProps.customDrawCell]
      */
     customDrawCell?: (options: {
       gridCell?: DataGridCell;
@@ -7838,21 +7827,21 @@ declare module DevExpress.pdfExporter {
       cancel?: boolean;
     }) => void;
     /**
-     * [descr:DataGridExportOptions.customizeCell]
+     * [descr:PdfExportDataGridProps.customizeCell]
      */
     customizeCell?: (options: {
       gridCell?: DataGridCell;
       pdfCell?: Cell;
     }) => void;
     /**
-     * [descr:DataGridExportOptions.onRowExporting]
+     * [descr:PdfExportDataGridProps.onRowExporting]
      */
     onRowExporting?: (options: {
       rowCells?: Array<Cell>;
       rowHeight?: number;
     }) => void;
     /**
-     * [descr:DataGridExportOptions.loadPanel]
+     * [descr:PdfExportDataGridProps.loadPanel]
      */
     loadPanel?: ExportLoadPanel;
   };
