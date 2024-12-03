@@ -1,4 +1,7 @@
-export type EventObjectInternal = {
+/**
+ * @namespace DevExpress.events
+ */
+export type EventObject = {
   /**
    * @docid
    * @public
@@ -78,10 +81,10 @@ export interface EventType { }
  * @type EventObject|jQuery.Event
  *
  */
-export type DxEvent<TNativeEvent = Event> = {} extends EventType ? (EventObjectInternal & TNativeEvent) : EventType;
+export type DxEvent<TNativeEvent = Event> = {} extends EventType ? (EventObject & TNativeEvent) : EventType;
 
 /** @deprecated EventObject */
-export type dxEvent = EventObjectInternal;
+export type dxEvent = EventObject;
 
 /**
  * @docid

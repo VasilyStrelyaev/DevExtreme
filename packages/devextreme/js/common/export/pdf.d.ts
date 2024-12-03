@@ -10,8 +10,9 @@ import { ExportLoadPanel } from '../../exporter/export_load_panel';
 /**
  * @docid
  * @public
+ * @namespace DevExpress.pdfExporter
  */
-export interface PdfExportGanttFont {
+export type GanttExportFont = {
   /**
   * @docid
   * @default undefined
@@ -38,7 +39,7 @@ export interface PdfExportGanttFont {
   * @public
   */
   weight?: string | number | undefined;
-}
+};
 
 /**
  * @docid
@@ -46,7 +47,7 @@ export interface PdfExportGanttFont {
  * @namespace DevExpress.pdfExporter
  * @type object
  */
-export interface PdfExportGanttOptions {
+export type GanttExportOptions = {
   /**
    * @docid
    * @type_function_param1 options:object
@@ -104,8 +105,8 @@ export interface PdfExportGanttOptions {
   * @docid
   * @public
   */
-  font?: PdfExportGanttFont;
-}
+  font?: GanttExportFont;
+};
 
 /**
  * @docid
@@ -113,7 +114,7 @@ export interface PdfExportGanttOptions {
  * @namespace DevExpress.pdfExporter
  * @type object
  */
-export interface PdfExportDataGridOptions {
+export type DataGridExportOptions = {
   /**
    * @docid
    * @default undefined
@@ -220,7 +221,7 @@ export interface PdfExportDataGridOptions {
    * @public
    */
   loadPanel?: ExportLoadPanel;
-}
+};
 
 /**
  * @public
@@ -233,7 +234,7 @@ export type DataGridCell = PdfDataGridCell;
  * @docid PdfCell
  * @namespace DevExpress.pdfExporter
  */
-export interface Cell {
+export type Cell = {
   /**
    * @docid PdfCell.backgroundColor
    * @default '#FFFFFF'
@@ -348,7 +349,7 @@ export interface Cell {
    * @public
    */
   wordWrapEnabled?: boolean;
-}
+};
 
 /**
  * @docid pdfExporter.exportDataGrid
@@ -358,7 +359,7 @@ export interface Cell {
  * @static
  * @public
  */
-export function exportDataGrid(options: PdfExportDataGridOptions): DxPromise<void>;
+export function exportDataGrid(options: DataGridExportOptions): DxPromise<void>;
 
 /**
  * @docid pdfExporter.exportGantt
@@ -368,4 +369,4 @@ export function exportDataGrid(options: PdfExportDataGridOptions): DxPromise<voi
  * @static
  * @public
  */
-export function exportGantt(options: PdfExportGanttOptions): DxPromise<any>;
+export function exportGantt(options: GanttExportOptions): DxPromise<any>;

@@ -1,11 +1,10 @@
 import { DxPromise, DxExtendedPromise } from '../core/utils/deferred';
 import { DeepPartial } from '../core';
-import { FilterDescriptor, GroupDescriptor } from '../common/data.types';
-import { LoadOptions } from '.';
+import { FilterDescriptor, GroupDescriptor, LoadOptions } from '../common/data.types';
 
 /**
  * @docid StoreOptions
- * @namespace DevExpress.data.Store
+ * @namespace DevExpress.common.data
  * @hidden
  */
 export type StoreOptions<
@@ -98,7 +97,7 @@ type StoreEventName = 'loaded' | 'loading' | 'inserted' | 'inserting' | 'updated
 
 /**
  * @docid Store
- * @namespace DevExpress.data
+ * @namespace DevExpress.common.data
  * @hidden
  * @options StoreOptions
  */

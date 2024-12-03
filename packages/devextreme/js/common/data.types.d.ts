@@ -5,22 +5,22 @@ import {
 } from '../data/data.types';
 
 /**
- * @namespace DevExpress.utils
+ * @namespace DevExpress.data
  */
 export type SearchOperation = '=' | '<>' | '>' | '>=' | '<' | '<=' | 'startswith' | 'endswith' | 'contains' | 'notcontains';
 
 /**
- * @namespace DevExpress.utils
+ * @namespace DevExpress.data
  */
 export type GroupingInterval = 'year' | 'quarter' | 'month' | 'day' | 'dayOfWeek' | 'hour' | 'minute' | 'second';
 
 /**
- * @namespace DevExpress.utils
+ * @namespace DevExpress.data
  */
 export type SortDescriptor<T> = KeySelector<T> | OrderingDescriptor<T>;
 
 /**
- * @namespace DevExpress.utils
+ * @namespace DevExpress.data
  */
 export type GroupDescriptor<T> = KeySelector<T> | (OrderingDescriptor<T> & {
   groupInterval?: number | GroupingInterval;
@@ -28,24 +28,24 @@ export type GroupDescriptor<T> = KeySelector<T> | (OrderingDescriptor<T> & {
 });
 
 /**
- * @namespace DevExpress.utils
+ * @namespace DevExpress.data
  */
 export type SelectDescriptor<T> = string | Array<string> | ((source: T) => any);
 
 /**
- * @namespace DevExpress.utils
+ * @namespace DevExpress.data
  */
 export type FilterDescriptor = any;
 
 /**
- * @namespace DevExpress.utils
+ * @namespace DevExpress.data
  */
 export type SummaryDescriptor<T> = KeySelector<T> | SelectionDescriptor<T> & {
   summaryType?: 'sum' | 'avg' | 'min' | 'max' | 'count';
 };
 
 /**
- * @namespace DevExpress.utils
+ * @namespace DevExpress.data
  */
 export interface LoadOptions<T = any> {
   /**
