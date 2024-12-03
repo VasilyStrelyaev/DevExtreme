@@ -5,7 +5,6 @@ import {
 } from '../../events/events.types';
 
 /**
- * @docid
  * @section commonObjectStructures
  * @public
  * @namespace DevExpress.common.core.events
