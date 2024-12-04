@@ -64,4 +64,3 @@ export type StoreOptions<TItem = any, TKey = any> = StoreOptionsBase<TItem, TKey
  * @deprecated Use Store from common/data instead
  */
 export type Store<TItem = any, TKey = any> = StoreBase<TItem, TKey>;
-

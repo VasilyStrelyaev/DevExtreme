@@ -106,7 +106,7 @@ export type ArrayStoreOptions<
      * @public
      */
     data?: Array<TItem>;
-}
+};
 
 /**
  * @docid
@@ -310,7 +310,7 @@ export type CustomStoreOptions<
      * @public
      */
     useDefaultSearch?: boolean | undefined;
-}
+};
 
 /**
  * @docid
@@ -496,7 +496,7 @@ export type DataSourceOptions<
      * @type Store|StoreOptions|Array<any>
      */
     store?: Array<TStoreItem> | Store<TStoreItem, TKey> | StoreOptions<TStoreItem, TKey>;
-}
+};
 
 /**
  * @docid
@@ -867,7 +867,7 @@ export type LocalStoreOptions<
      * @public
      */
     name?: string;
-}
+};
 
 /**
  * @docid
@@ -1052,7 +1052,7 @@ export type Query = {
      * @public
      */
     toArray(): Array<any>;
-}
+};
 
 /**
  * @docid Utils.query
@@ -1174,7 +1174,8 @@ export type ODataContextOptions = {
      * @public
      */
     withCredentials?: boolean;
-}
+};
+
 /**
  * @docid
  * @public
@@ -1283,7 +1284,7 @@ export type ODataStoreOptions<
      * @public
      */
     withCredentials?: boolean;
-}
+};
 
 /**
  * @docid

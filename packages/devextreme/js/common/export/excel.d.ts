@@ -54,7 +54,7 @@ export type DataGridExportOptions = ExcelExportBaseOptions & {
      * @public
      */
     customizeCell?: ((options: { gridCell?: DataGridCell; excelCell?: any }) => void);
-}
+};
 
 /**
  * @docid
@@ -113,7 +113,7 @@ export type PivotGridExportOptions = ExcelExportBaseOptions & {
      * @public
      */
     customizeCell?: ((options: { pivotCell?: PivotGridCell; excelCell?: any }) => void);
-  }
+};
 
 /**
  * @docid excelExporter.exportDataGrid

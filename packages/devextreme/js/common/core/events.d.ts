@@ -13,7 +13,6 @@ export type EventObject = EventObjectInternal;
 
 type DxEvent<TNativeEvent = Event> = {} extends EventType ? (EventObject & TNativeEvent) : EventType;
 
-
 /**
  * @docid
  * @public
