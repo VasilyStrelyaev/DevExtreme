@@ -987,12 +987,6 @@ declare module DevExpress.common {
   export type Draggable =
     DevExpress.core.OmitInternal<DevExpress.ui.dxDraggable>;
   export type DragHighlight = 'push' | 'indicate';
-  /**
-   * @deprecated Attention! This type is for internal purposes only. If you used it previously, please submit a ticket to our {@link https://supportcenter.devexpress.com/ticket/create Support Center}. We will check if there is an alternative solution.
-   */
-  type DxEvent<TNativeEvent = Event> = {} extends DevExpress.events.EventType
-    ? DevExpress.common.core.events.EventObject & TNativeEvent
-    : DevExpress.events.EventType;
   export type EditorStyle = 'outlined' | 'underlined' | 'filled';
   /**
    * [descr:EmailRule]
@@ -2746,7 +2740,7 @@ declare module DevExpress.common.core.events {
     /**
      * [descr:NativeEventInfo.event]
      */
-    readonly event?: DxEvent<TNativeEvent>;
+    readonly event?: DevExpress.events.DxEvent<TNativeEvent>;
   };
   /**
    * [descr:events.off(element)]
@@ -2861,14 +2855,14 @@ declare module DevExpress.common.core.events {
    */
   export function trigger(
     element: Element | Array<Element>,
-    event: string | DxEvent
+    event: string | DevExpress.events.DxEvent
   ): void;
   /**
    * [descr:events.trigger(element, event, extraParameters)]
    */
   export function trigger(
     element: Element | Array<Element>,
-    event: string | DxEvent,
+    event: string | DevExpress.events.DxEvent,
     extraParameters: any
   ): void;
 }
