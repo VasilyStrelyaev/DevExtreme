@@ -73,3 +73,9 @@ export {
     VerticalAlignment,
     VerticalEdge,
 } from "devextreme/common";
+
+export * as Charts from "./charts";
+export * as Core from "./core";
+export * as Data from "./data";
+export * as Export from "./export";
+export * as Grids from "./grids";

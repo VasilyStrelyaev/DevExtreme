@@ -89,9 +89,12 @@ gulp.task('generate.facades', gulp.series('generate.moduleFacades', (done) => {
 }));
 
 gulp.task('generate.common-reexports', (done) => {
-  const commonReexportsGenerator = new AngularCommonReexportsGenerator();
+  const { outputPath, imdMetadataFilePath } = buildConfig.tools.commonReexportsGenerator;
 
-  commonReexportsGenerator.generate(buildConfig.tools.commonReexportsGenerator);
+  AngularCommonReexportsGenerator.generate({
+    outputPath,
+    metadata: JSON.parse(fs.readFileSync(imdMetadataFilePath).toString()),
+  });
   done();
 });
 
