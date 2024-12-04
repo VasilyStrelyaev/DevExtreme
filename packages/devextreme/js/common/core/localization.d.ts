@@ -4,7 +4,7 @@ import { Format as PredefinedFormat } from '../../common';
  * @docid localization.formatDate
  * @publicName formatDate(value, format)
  * @static
- * @namespace DevExpress.localization
+ * @namespace DevExpress.common.core.localization
  * @public
  */
 export function formatDate(value: Date, format: Format): string;
@@ -14,7 +14,7 @@ export function formatDate(value: Date, format: Format): string;
  * @publicName formatMessage(key, value)
  * @param2 value:string|Array<string>
  * @static
- * @namespace DevExpress.localization
+ * @namespace DevExpress.common.core.localization
  * @public
  */
 export function formatMessage(key: string, ...values: Array<string>): string;
@@ -23,7 +23,7 @@ export function formatMessage(key: string, ...values: Array<string>): string;
  * @docid localization.formatNumber
  * @publicName formatNumber(value, format)
  * @static
- * @namespace DevExpress.localization
+ * @namespace DevExpress.common.core.localization
  * @public
  */
 export function formatNumber(value: number, format: Format): string;
@@ -33,7 +33,7 @@ export function formatNumber(value: number, format: Format): string;
  * @publicName loadMessages(messages)
  * @param1 messages:object
  * @static
- * @namespace DevExpress.localization
+ * @namespace DevExpress.common.core.localization
  * @public
  */
 export function loadMessages(messages: any): void;
@@ -42,7 +42,7 @@ export function loadMessages(messages: any): void;
  * @docid localization.locale
  * @publicName locale()
  * @static
- * @namespace DevExpress.localization
+ * @namespace DevExpress.common.core.localization
  * @public
  */
 export function locale(): string;
@@ -51,7 +51,7 @@ export function locale(): string;
  * @docid localization.locale
  * @publicName locale(locale)
  * @static
- * @namespace DevExpress.localization
+ * @namespace DevExpress.common.core.localization
  * @public
  */
 // eslint-disable-next-line @typescript-eslint/no-shadow
@@ -61,7 +61,7 @@ export function locale(locale: string): void;
  * @docid localization.parseDate
  * @publicName parseDate(text, format)
  * @static
- * @namespace DevExpress.localization
+ * @namespace DevExpress.common.core.localization
  * @public
  */
 export function parseDate(text: string, format: Format): Date;
@@ -70,7 +70,7 @@ export function parseDate(text: string, format: Format): Date;
  * @docid localization.parseNumber
  * @publicName parseNumber(text, format)
  * @static
- * @namespace DevExpress.localization
+ * @namespace DevExpress.common.core.localization
  * @public
  */
 export function parseNumber(text: string, format: Format): number;
@@ -84,7 +84,7 @@ type ExternalFormat =
  * @type Object|Enums.Format|string|function
  * @default undefined
  * @section Common
- * @namespace DevExpress.ui
+ * @namespace DevExpress.common.core.localization
  * @public
  */
 export type Format =

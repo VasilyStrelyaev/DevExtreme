@@ -823,3 +823,133 @@ declare namespace DevExpress.common.grids {
   /** @deprecated Use DevExpress.common.DisplayMode instead */
   export type PagerDisplayMode = DisplayMode;
 }
+
+declare namespace DevExpress {
+  export type AnimationConfig = DevExpress.common.core.animation.AnimationConfig;
+  export const animationPresets: typeof DevExpress.common.core.animation.animationPresets
+  export type commonFormat = DevExpress.common.core.localization.Format
+  export type Device = DevExpress.common.core.environment.Device;
+  export const devices: typeof DevExpress.common.core.environment.devices;
+  export type DevicesObject = DevExpress.common.core.environment.DevicesObject;
+  export type dxSchedulerTimeZone = DevExpress.common.core.environment.SchedulerTimeZone;
+  export type EndpointSelector = DevExpress.common.data.EndpointSelector;
+  export const fx: typeof DevExpress.common.core.animation.fx;
+  export const hideTopOverlay: typeof DevExpress.common.core.environment.hideTopOverlay;
+  export const localizationformatDate: typeof DevExpress.common.core.localization.formatDate;
+  export const localizationformatMessage: typeof DevExpress.common.core.localization.formatMessage;
+  export const localizationformatNumber: typeof DevExpress.common.core.localization.formatNumber;
+  export const localizationloadMessages: typeof DevExpress.common.core.localization.loadMessages;
+  export const localizationlocale: typeof DevExpress.common.core.localization.locale;
+  export const localizationparseDate: typeof DevExpress.common.core.localization.parseDate;
+  export const localizationparseNumber: typeof DevExpress.common.core.localization.parseNumber;
+  export type PositionConfig = DevExpress.common.core.animation.PositionConfig;
+  export type TransitionExecutor = DevExpress.common.core.animation.TransitionExecutor;
+  export const utilscancelAnimationFrame: typeof DevExpress.common.core.animation.cancelAnimationFrame;
+  export const utilsrequestAnimationFrame: typeof DevExpress.common.core.animation.requestAnimationFrame;
+}
+
+declare namespace DevExpress.common {
+  export type GroupItem = DevExpress.common.data.GroupItem;
+  export const isGroupItemsArray: typeof DevExpress.common.data.isGroupItemsArray;
+  export const isItemsArray: typeof DevExpress.common.data.isItemsArray;
+  export const isLoadResultObject: typeof DevExpress.common.data.isLoadResultObject;
+  export type LoadResult = DevExpress.common.data.LoadResult;
+  export type LoadResultObject = DevExpress.common.data.LoadResultObject;
+}
+
+declare namespace DevExpress.animation {
+  export type AnimationState = DevExpress.common.core.animation.AnimationState;
+  export type CollisionResolution = DevExpress.common.core.animation.CollisionResolution;
+  export type CollisionResolutionCombination = DevExpress.common.core.animation.CollisionResolutionCombination;
+}
+
+declare namespace DevExpress.data {
+  export const applyChanges: typeof DevExpress.common.data.applyChanges;
+  export type ArrayStore<TItem, TKey> = DevExpress.common.data.ArrayStore<TItem, TKey>;
+  export const base64_encode: typeof DevExpress.common.data.base64_encode;
+  export type CustomStore<TItem, TKey> = DevExpress.common.data.CustomStore<TItem, TKey>;
+  export type DataSource<TItem, TKey> = DevExpress.common.data.DataSource<TItem, TKey>;
+  export type EdmLiteral = DevExpress.common.data.EdmLiteral;
+  export const errorHandler: typeof DevExpress.common.data.errorHandler;
+  export type LangParams = DevExpress.common.data.LangParams;
+  export type LocalStore<TItem, TKey> = DevExpress.common.data.LocalStore<TItem, TKey>;
+  export type ODataContext = DevExpress.common.data.ODataContext;
+  export type ODataStore<TItem, TKey> = DevExpress.common.data.ODataStore<TItem, TKey>;
+  export const query: typeof DevExpress.common.data.query;
+  export type Query = DevExpress.common.data.Query;
+  export const setErrorHandler: typeof DevExpress.common.data.setErrorHandler;
+  export type Store<TItem = any, TKey = any> = DevExpress.common.data.Store<TItem, TKey>;
+}
+
+declare namespace DevExpress.data.ArrayStore {
+  export type Options<TItem, TKey> = DevExpress.common.data.ArrayStoreOptions<TItem, TKey>;
+}
+
+declare namespace DevExpress.data.CustomStore {
+  export type GroupItem<TItem = any> = DevExpress.common.data.GroupItem<TItem>;
+  export type Options<TItem = any, TKey = any> = DevExpress.common.data.CustomStoreOptions<TItem, TKey>;
+  export type ResolvedData<TItem = any> = DevExpress.common.data.ResolvedData<TItem>;
+}
+
+declare namespace DevExpress.data.DataSource {
+  export type Options<TItem = any, TKey = any> = DevExpress.common.data.DataSourceOptions<TItem, TKey>;
+}
+
+declare namespace DevExpress.data.LocalStore {
+  export type Options<TItem = any, TKey = any> = DevExpress.common.data.LocalStoreOptions<TItem, TKey>;
+}
+
+declare namespace DevExpress.data.ODataStore {
+  export type Options<TItem = any, TKey = any> = DevExpress.common.data.ODataStoreOptions<TItem, TKey>;
+}
+
+declare namespace DevExpress.data.Store {
+  export type Options<TItem = any, TKey = any> = DevExpress.common.data.StoreOptions<TItem, TKey>;
+}
+
+declare namespace DevExpress.data.utils {
+  export const compileGetter: typeof DevExpress.common.data.compileGetter;
+  export const compileSetter: typeof DevExpress.common.data.compileSetter;
+}
+
+declare namespace DevExpress.data.utils.odata {
+  export const keyConverters: typeof DevExpress.common.data.keyConverters;
+}
+
+declare namespace DevExpress.events {
+  export type AsyncCancelable = DevExpress.common.core.events.AsyncCancelable;
+  export type Cancelable = DevExpress.common.core.events.Cancelable;
+  export type ChangedOptionInfo = DevExpress.common.core.events.ChangedOptionInfo;
+  export type EventInfo<TComponent> = DevExpress.common.core.events.EventInfo<TComponent>;
+  export type InitializedEventInfo<TComponent> = DevExpress.common.core.events.InitializedEventInfo<TComponent>;
+  export type ItemInfo<TItemData = any> = DevExpress.common.core.events.ItemInfo<TItemData>;
+  export type NativeEventInfo<TComponent, TNativeEvent = Event> = DevExpress.common.core.events.NativeEventInfo<TComponent, TNativeEvent>;
+  export const off: typeof DevExpress.common.core.events.off;
+  export const on: typeof DevExpress.common.core.events.on;
+  export const one: typeof DevExpress.common.core.events.one;
+  export const trigger: typeof DevExpress.common.core.events.trigger;
+}
+
+declare namespace DevExpress.excelExporter {
+  export type DataGridCell = DevExpress.common.Export.excel.DataGridCell;
+  export type ExcelExportDataGridProps = DevExpress.common.Export.excel.DataGridExportOptions;
+  export type ExcelExportPivotGridProps = DevExpress.common.Export.excel.PivotGridExportOptions;
+  export const exportDataGrid: typeof DevExpress.common.Export.excel.exportDataGrid;
+  export const exportPivotGrid: typeof DevExpress.common.Export.excel.exportPivotGrid;
+  export type PivotGridCell = DevExpress.common.Export.excel.PivotGridCell;
+}
+
+declare namespace DevExpress.pdfExporter {
+  export type Cell = DevExpress.common.Export.pdf.Cell;
+  export type DataGridCell = DevExpress.common.Export.pdf.DataGridCell;
+  export const exportDataGrid: typeof DevExpress.common.Export.pdf.exportDataGrid;
+  export const exportGantt: typeof DevExpress.common.Export.pdf.exportGantt;
+  export type PdfExportDataGridProps = DevExpress.common.Export.pdf.DataGridExportOptions;
+  export type PdfExportGanttFont = DevExpress.common.Export.pdf.GanttExportFont;
+  export type PdfExportGanttProps = DevExpress.common.Export.pdf.GanttExportOptions;
+}
+
+declare namespace DevExpress.utils {
+  export const getTimeZones: typeof DevExpress.common.core.environment.getTimeZones;
+  export const initMobileViewport: typeof DevExpress.common.core.environment.initMobileViewport;
+}

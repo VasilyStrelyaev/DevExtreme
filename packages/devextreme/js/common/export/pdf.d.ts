@@ -10,7 +10,7 @@ import { ExportLoadPanel } from '../../exporter/export_load_panel';
 /**
  * @docid
  * @public
- * @namespace DevExpress.pdfExporter
+ * @namespace DevExpress.common.Export.pdf
  */
 export type GanttExportFont = {
   /**
@@ -44,7 +44,7 @@ export type GanttExportFont = {
 /**
  * @docid
  * @public
- * @namespace DevExpress.pdfExporter
+ * @namespace DevExpress.common.Export.pdf
  * @type object
  */
 export type GanttExportOptions = {
@@ -111,7 +111,7 @@ export type GanttExportOptions = {
 /**
  * @docid PdfExportDataGridProps
  * @public
- * @namespace DevExpress.pdfExporter
+ * @namespace DevExpress.common.Export.pdf
  * @type object
  */
 export type DataGridExportOptions = {
@@ -225,14 +225,14 @@ export type DataGridExportOptions = {
 
 /**
  * @public
- * @namespace DevExpress.pdfExporter
+ * @namespace DevExpress.common.Export.pdf
  */
 export type DataGridCell = PdfDataGridCell;
 
 /**
  * @public
  * @docid PdfCell
- * @namespace DevExpress.pdfExporter
+ * @namespace DevExpress.common.Export.pdf
  */
 export type Cell = {
   /**
@@ -356,7 +356,7 @@ export type Cell = {
  * @publicName exportDataGrid(options)
  * @param1 options: PdfExportDataGridProps
  * @return Promise<void>
- * @namespace DevExpress.pdfExporter
+ * @namespace DevExpress.common.Export.pdf
  * @static
  * @public
  */
@@ -366,7 +366,7 @@ export function exportDataGrid(options: DataGridExportOptions): DxPromise<void>;
  * @docid pdfExporter.exportGantt
  * @publicName exportGantt(options)
  * @return Promise<any>
- * @namespace DevExpress.pdfExporter
+ * @namespace DevExpress.common.Export.pdf
  * @static
  * @public
  */

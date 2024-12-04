@@ -11,20 +11,20 @@ import {
 
 /**
  * @public
- * @namespace DevExpress.excelExporter
+ * @namespace DevExpress.common.Export.excel
  */
 export type DataGridCell = ExcelDataGridCell;
 
 /**
  * @public
- * @namespace DevExpress.excelExporter
+ * @namespace DevExpress.common.Export.excel
  */
 export type PivotGridCell = ExcelPivotGridCell;
 
 /**
  * @docid ExcelExportDataGridProps
  * @public
- * @namespace DevExpress.excelExporter
+ * @namespace DevExpress.common.Export.excel
  * @inherits ExcelExportBaseOptions
  * @type object
  */
@@ -59,7 +59,7 @@ export type DataGridExportOptions = ExcelExportBaseOptions & {
 /**
  * @docid
  * @public
- * @namespace DevExpress.excelExporter
+ * @namespace DevExpress.common.Export.excel
  * @inherits ExcelExportBaseOptions
  * @type object
  */
@@ -120,7 +120,7 @@ export type PivotGridExportOptions = ExcelExportBaseOptions & {
  * @publicName exportDataGrid(options)
  * @param1 options:ExcelExportDataGridProps
  * @return Promise<CellRange>
- * @namespace DevExpress.excelExporter
+ * @namespace DevExpress.common.Export.excel
  * @static
  * @public
  */
@@ -130,7 +130,7 @@ export function exportDataGrid(options: DataGridExportOptions): DxPromise<CellRa
  * @docid excelExporter.exportPivotGrid
  * @publicName exportPivotGrid(options)
  * @return Promise<CellRange>
- * @namespace DevExpress.excelExporter
+ * @namespace DevExpress.common.Export.excel
  * @static
  * @public
  */

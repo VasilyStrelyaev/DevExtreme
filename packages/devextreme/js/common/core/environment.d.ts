@@ -2,7 +2,7 @@
  * @public
  * @docid
  * @section commonObjectStructures
- * @namespace DevExpress
+ * @namespace DevExpress.common.core.environment
  */
 export type Device = {
   /**
@@ -58,7 +58,7 @@ type EventName = 'orientationChanged';
 * @docid
 * @publicName devices
 * @section Utils
-* @namespace DevExpress
+* @namespace DevExpress.common.core.environment
 * @public
 */
 declare class DevicesObject {
@@ -125,7 +125,7 @@ declare class DevicesObject {
 
 /**
 * @const devices
-* @namespace DevExpress
+* @namespace DevExpress.common.core.environment
 * @hidden
 * @public
 */
@@ -135,7 +135,7 @@ export const devices: DevicesObject;
 /**
  * @docid
  * @publicName hideTopOverlay()
- * @namespace DevExpress
+ * @namespace DevExpress.common.core.environment
  * @public
  */
 export function hideTopOverlay(): boolean;
@@ -143,7 +143,7 @@ export function hideTopOverlay(): boolean;
 /**
  * @docid utils.initMobileViewport
  * @publicName initMobileViewport(options)
- * @namespace DevExpress.utils
+ * @namespace DevExpress.common.core.environment
  * @public
  */
 export function initMobileViewport(options: { allowZoom?: boolean; allowPan?: boolean; allowSelection?: boolean }): void;
@@ -151,6 +151,7 @@ export function initMobileViewport(options: { allowZoom?: boolean; allowPan?: bo
 /**
  * @docid
  * @public
+ * @namespace DevExpress.common.core.environment
  */
 export type SchedulerTimeZone = {
   /**
@@ -171,7 +172,7 @@ export type SchedulerTimeZone = {
 * @docid utils.getTimeZones
 * @publicName getTimeZones(date)
 * @param1 date:Date|undefined
-* @namespace DevExpress.utils
+* @namespace DevExpress.common.core.environment
 * @static
 * @public
 */

@@ -17,7 +17,7 @@ export type AnimationType = 'css' | 'fade' | 'fadeIn' | 'fadeOut' | 'pop' | 'sli
 /**
  * @docid utils.cancelAnimationFrame
  * @publicName cancelAnimationFrame(requestID)
- * @namespace DevExpress.utils
+ * @namespace DevExpress.common.core.animation
  * @public
  */
 export function cancelAnimationFrame(requestID: number): void;
@@ -25,7 +25,7 @@ export function cancelAnimationFrame(requestID: number): void;
 /**
  * @docid utils.requestAnimationFrame
  * @publicName requestAnimationFrame(callback)
- * @namespace DevExpress.utils
+ * @namespace DevExpress.common.core.animation
  * @public
  */
 export function requestAnimationFrame(callback: Function): number;
@@ -34,6 +34,7 @@ export function requestAnimationFrame(callback: Function): number;
  * @docid
  * @public
  * @type object
+ * @namespace DevExpress.common.core.animation
  */
 export type AnimationState = string | number | {
     /**
@@ -69,7 +70,7 @@ export type AnimationState = string | number | {
 
 /**
  * @docid
- * @namespace DevExpress
+ * @namespace DevExpress.common.core.animation
  * @type object|number|string
  * @public
  */
@@ -138,7 +139,7 @@ export type AnimationConfig = {
  * @public
  * @docid
  * @section utils
- * @namespace DevExpress
+ * @namespace DevExpress.common.core.animation
  */
 // eslint-disable-next-line @typescript-eslint/init-declarations
 export const fx: {
@@ -168,14 +169,20 @@ export const fx: {
     stop(element: Element, jumpToEnd: boolean): void;
 };
 
-/** @public */
+/**
+ * @public
+ * @namespace DevExpress.common.core.animation
+ */
 export type CollisionResolution = 'fit' | 'flip' | 'flipfit' | 'none';
-/** @public */
+/**
+ * @public
+ * @namespace DevExpress.common.core.animation
+ */
 export type CollisionResolutionCombination = 'fit' | 'fit flip' | 'fit flipfit' | 'fit none' | 'flip' | 'flip fit' | 'flip none' | 'flipfit' | 'flipfit fit' | 'flipfit none' | 'none' | 'none fit' | 'none flip' | 'none flipfit';
 
 /**
  * @docid
- * @namespace DevExpress
+ * @namespace DevExpress.common.core.animation
  * @type object
  * @public
  */
@@ -270,7 +277,7 @@ export type PositionConfig = {
 
 /**
  * @docid
- * @namespace DevExpress
+ * @namespace DevExpress.common.core.animation
  * @public
  */
 // eslint-disable-next-line @typescript-eslint/init-declarations
@@ -321,7 +328,7 @@ export const animationPresets: {
 
 /**
  * @docid
- * @namespace DevExpress
+ * @namespace DevExpress.common.core.animation
  * @public
  */
 export class TransitionExecutor {

@@ -16,6 +16,7 @@ type DxEvent<TNativeEvent = Event> = {} extends EventType ? (EventObject & TNati
 /**
  * @docid
  * @public
+ * @namespace DevExpress.common.core.events
  */
 export type InitializedEventInfo<TComponent> = {
   /**
@@ -30,6 +31,7 @@ export type InitializedEventInfo<TComponent> = {
 /**
  * @docid
  * @public
+ * @namespace DevExpress.common.core.events
  */
 export type EventInfo<TComponent> = {
   /**
@@ -47,9 +49,10 @@ export type EventInfo<TComponent> = {
 }
 
 /**
-* @docid
-* @public
-*/
+ * @docid
+ * @public
+ * @namespace DevExpress.common.core.events
+ */
 export type NativeEventInfo<TComponent, TNativeEvent = Event> = {
   /**
    * @docid
@@ -73,6 +76,7 @@ export type NativeEventInfo<TComponent, TNativeEvent = Event> = {
 /**
  * @docid
  * @public
+ * @namespace DevExpress.common.core.events
  */
 export type ChangedOptionInfo = {
   /** @docid */
@@ -86,9 +90,10 @@ export type ChangedOptionInfo = {
 }
 
 /**
-* @docid
-* @public
-*/
+ * @docid
+ * @public
+ * @namespace DevExpress.common.core.events
+ */
 export type ItemInfo<TItemData = any> = {
   /**
    * @docid
@@ -104,6 +109,7 @@ export type ItemInfo<TItemData = any> = {
 /**
  * @docid
  * @public
+ * @namespace DevExpress.common.core.events
  */
 export type Cancelable = {
   /** @docid */
@@ -111,9 +117,10 @@ export type Cancelable = {
 }
 
 /**
-* @docid
-* @public
-*/
+ * @docid
+ * @public
+ * @namespace DevExpress.common.core.events
+ */
 export type AsyncCancelable = {
   /**
    * @docid
@@ -125,7 +132,7 @@ export type AsyncCancelable = {
 /**
  * @docid eventsMethods.off
  * @publicName off(element)
- * @namespace DevExpress.events
+ * @namespace DevExpress.common.core.events
  * @public
  */
 export function off(element: Element | Array<Element>): void;
@@ -133,7 +140,7 @@ export function off(element: Element | Array<Element>): void;
 /**
  * @docid eventsMethods.off
  * @publicName off(element, eventName)
- * @namespace DevExpress.events
+ * @namespace DevExpress.common.core.events
  * @public
  */
 export function off(element: Element | Array<Element>, eventName: string): void;
@@ -141,7 +148,7 @@ export function off(element: Element | Array<Element>, eventName: string): void;
 /**
  * @docid eventsMethods.off
  * @publicName off(element, eventName, handler)
- * @namespace DevExpress.events
+ * @namespace DevExpress.common.core.events
  * @public
  */
 export function off(element: Element | Array<Element>, eventName: string, handler: Function): void;
@@ -149,7 +156,7 @@ export function off(element: Element | Array<Element>, eventName: string, handle
 /**
  * @docid eventsMethods.off
  * @publicName off(element, eventName, selector)
- * @namespace DevExpress.events
+ * @namespace DevExpress.common.core.events
  * @public
  */
 export function off(element: Element | Array<Element>, eventName: string, selector: string): void;
@@ -157,7 +164,7 @@ export function off(element: Element | Array<Element>, eventName: string, select
 /**
  * @docid eventsMethods.off
  * @publicName off(element, eventName, selector, handler)
- * @namespace DevExpress.events
+ * @namespace DevExpress.common.core.events
  * @public
  */
 export function off(element: Element | Array<Element>, eventName: string, selector: string, handler: Function): void;
@@ -165,7 +172,7 @@ export function off(element: Element | Array<Element>, eventName: string, select
 /**
  * @docid eventsMethods.on
  * @publicName on(element, eventName, data, handler)
- * @namespace DevExpress.events
+ * @namespace DevExpress.common.core.events
  * @param3 data:object
  * @public
  */
@@ -174,7 +181,7 @@ export function on(element: Element | Array<Element>, eventName: string, data: a
 /**
  * @docid eventsMethods.on
  * @publicName on(element, eventName, handler)
- * @namespace DevExpress.events
+ * @namespace DevExpress.common.core.events
  * @public
  */
 export function on(element: Element | Array<Element>, eventName: string, handler: Function): void;
@@ -182,7 +189,7 @@ export function on(element: Element | Array<Element>, eventName: string, handler
 /**
  * @docid eventsMethods.on
  * @publicName on(element, eventName, selector, data, handler)
- * @namespace DevExpress.events
+ * @namespace DevExpress.common.core.events
  * @param4 data:object
  * @public
  */
@@ -191,7 +198,7 @@ export function on(element: Element | Array<Element>, eventName: string, selecto
 /**
  * @docid eventsMethods.on
  * @publicName on(element, eventName, selector, handler)
- * @namespace DevExpress.events
+ * @namespace DevExpress.common.core.events
  * @public
  */
 export function on(element: Element | Array<Element>, eventName: string, selector: string, handler: Function): void;
@@ -199,7 +206,7 @@ export function on(element: Element | Array<Element>, eventName: string, selecto
 /**
  * @docid eventsMethods.one
  * @publicName one(element, eventName, data, handler)
- * @namespace DevExpress.events
+ * @namespace DevExpress.common.core.events
  * @param3 data:object
  * @public
  */
@@ -208,7 +215,7 @@ export function one(element: Element | Array<Element>, eventName: string, data: 
 /**
  * @docid eventsMethods.one
  * @publicName one(element, eventName, handler)
- * @namespace DevExpress.events
+ * @namespace DevExpress.common.core.events
  * @public
  */
 export function one(element: Element | Array<Element>, eventName: string, handler: Function): void;
@@ -216,7 +223,7 @@ export function one(element: Element | Array<Element>, eventName: string, handle
 /**
  * @docid eventsMethods.one
  * @publicName one(element, eventName, selector, data, handler)
- * @namespace DevExpress.events
+ * @namespace DevExpress.common.core.events
  * @param4 data:object
  * @public
  */
@@ -225,7 +232,7 @@ export function one(element: Element | Array<Element>, eventName: string, select
 /**
  * @docid eventsMethods.one
  * @publicName one(element, eventName, selector, handler)
- * @namespace DevExpress.events
+ * @namespace DevExpress.common.core.events
  * @public
  */
 export function one(element: Element | Array<Element>, eventName: string, selector: string, handler: Function): void;
@@ -233,7 +240,7 @@ export function one(element: Element | Array<Element>, eventName: string, select
 /**
  * @docid eventsMethods.trigger
  * @publicName trigger(element, event)
- * @namespace DevExpress.events
+ * @namespace DevExpress.common.core.events
  * @param2 event:string|event
  * @public
  */
@@ -242,7 +249,7 @@ export function trigger(element: Element | Array<Element>, event: string | DxEve
 /**
  * @docid eventsMethods.trigger
  * @publicName trigger(element, event, extraParameters)
- * @namespace DevExpress.events
+ * @namespace DevExpress.common.core.events
  * @param2 event:string|event
  * @param3 extraParameters:object
  * @public
