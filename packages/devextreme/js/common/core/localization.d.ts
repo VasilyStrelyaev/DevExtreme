@@ -1,4 +1,4 @@
-import { Format as PredefinedFormat } from '../../common';
+import { Format as FormatType } from '../../common';
 
 /**
  * @docid localization.formatDate
@@ -79,6 +79,8 @@ type ExternalFormat =
   Intl.DateTimeFormatOptions |
   Intl.NumberFormatOptions;
 
+type PredefinedFormat = FormatType;
+
 /**
  * @docid
  * @type Object|Enums.Format|string|function
@@ -127,6 +129,7 @@ export interface FormatObject {
    /**
     * @docid Format.type
     * @public
+    * @type Enums.Format|string
     */
    type?: PredefinedFormat | string;
 }

@@ -1078,7 +1078,7 @@ declare module DevExpress.common {
     /**
      * [descr:Format.type]
      */
-    type?: Format | string;
+    type?: PredefinedFormat | string;
   }
   /**
    * [descr:GlobalConfig]
@@ -1302,6 +1302,10 @@ declare module DevExpress.common {
     | 'right bottom'
     | 'right top'
     | 'top';
+  /**
+   * @deprecated Attention! This type is for internal purposes only. If you used it previously, please submit a ticket to our {@link https://supportcenter.devexpress.com/ticket/create Support Center}. We will check if there is an alternative solution.
+   */
+  type PredefinedFormat = Format;
   /**
    * [descr:RangeRule]
    */
@@ -2874,7 +2878,7 @@ declare module DevExpress.common.core.localization {
    */
   export type Format =
     | FormatObject
-    | Format
+    | PredefinedFormat
     | string
     | ((value: number | Date) => string)
     | ((value: Date) => string)
