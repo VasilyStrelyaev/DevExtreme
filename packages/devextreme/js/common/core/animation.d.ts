@@ -179,7 +179,7 @@ export type CollisionResolutionCombination = 'fit' | 'fit flip' | 'fit flipfit' 
  * @type object
  * @public
  */
-export interface PositionConfig {
+export type PositionConfig = {
     /**
      * @docid
      * @public

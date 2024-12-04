@@ -152,7 +152,7 @@ export function initMobileViewport(options: { allowZoom?: boolean; allowPan?: bo
  * @docid
  * @public
  */
-export interface SchedulerTimeZone {
+export type SchedulerTimeZone = {
   /**
    * @docid
    */

@@ -17,7 +17,7 @@ type DxEvent<TNativeEvent = Event> = {} extends EventType ? (EventObject & TNati
  * @docid
  * @public
  */
-export interface InitializedEventInfo<TComponent> {
+export type InitializedEventInfo<TComponent> = {
   /**
    * @docid
    * @type this
@@ -31,7 +31,7 @@ export interface InitializedEventInfo<TComponent> {
  * @docid
  * @public
  */
-export interface EventInfo<TComponent> {
+export type EventInfo<TComponent> = {
   /**
    * @docid
    * @type this
@@ -50,7 +50,7 @@ export interface EventInfo<TComponent> {
 * @docid
 * @public
 */
-export interface NativeEventInfo<TComponent, TNativeEvent = Event> {
+export type NativeEventInfo<TComponent, TNativeEvent = Event> = {
   /**
    * @docid
    * @type this
@@ -74,7 +74,7 @@ export interface NativeEventInfo<TComponent, TNativeEvent = Event> {
  * @docid
  * @public
  */
-export interface ChangedOptionInfo {
+export type ChangedOptionInfo = {
   /** @docid */
   readonly name: string;
   /** @docid */
@@ -89,7 +89,7 @@ export interface ChangedOptionInfo {
 * @docid
 * @public
 */
-export interface ItemInfo<TItemData = any> {
+export type ItemInfo<TItemData = any> = {
   /**
    * @docid
    * @type object
@@ -105,7 +105,7 @@ export interface ItemInfo<TItemData = any> {
  * @docid
  * @public
  */
-export interface Cancelable {
+export type Cancelable = {
   /** @docid */
   cancel?: boolean;
 }

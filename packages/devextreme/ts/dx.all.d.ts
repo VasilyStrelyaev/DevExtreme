@@ -978,7 +978,7 @@ declare module DevExpress {
   /**
    * [descr:PositionConfig]
    */
-  export interface PositionConfig {
+  export type PositionConfig = {
     /**
      * [descr:PositionConfig.at]
      */
@@ -1062,7 +1062,7 @@ declare module DevExpress {
            */
           y?: number;
         };
-  }
+  };
   /**
    * [descr:registerComponent(name, componentClass)]
    * @deprecated Attention! This type is for internal purposes only. If you used it previously, please submit a ticket to our {@link https://supportcenter.devexpress.com/ticket/create Support Center}. We will check if there is an alternative solution.
@@ -1267,16 +1267,16 @@ declare module DevExpress.common {
   /**
    * [descr:Cancelable]
    */
-  export interface Cancelable {
+  export type Cancelable = {
     /**
      * [descr:Cancelable.cancel]
      */
     cancel?: boolean;
-  }
+  };
   /**
    * [descr:ChangedOptionInfo]
    */
-  export interface ChangedOptionInfo {
+  export type ChangedOptionInfo = {
     /**
      * [descr:ChangedOptionInfo.name]
      */
@@ -1293,7 +1293,7 @@ declare module DevExpress.common {
      * [descr:ChangedOptionInfo.previousValue]
      */
     readonly previousValue?: any;
-  }
+  };
   export type CollisionResolution = 'fit' | 'flip' | 'flipfit' | 'none';
   export type CollisionResolutionCombination =
     | 'fit'
@@ -1414,7 +1414,7 @@ declare module DevExpress.common {
   /**
    * [descr:EventInfo]
    */
-  export interface EventInfo<TComponent> {
+  export type EventInfo<TComponent> = {
     /**
      * [descr:EventInfo.component]
      */
@@ -1427,7 +1427,7 @@ declare module DevExpress.common {
      * [descr:EventInfo.model]
      */
     readonly model?: any;
-  }
+  };
   /**
    * @deprecated Attention! This type is for internal purposes only. If you used it previously, please submit a ticket to our {@link https://supportcenter.devexpress.com/ticket/create Support Center}. We will check if there is an alternative solution.
    */
@@ -1604,7 +1604,7 @@ declare module DevExpress.common {
   /**
    * [descr:InitializedEventInfo]
    */
-  export interface InitializedEventInfo<TComponent> {
+  export type InitializedEventInfo<TComponent> = {
     /**
      * [descr:InitializedEventInfo.component]
      */
@@ -1613,11 +1613,11 @@ declare module DevExpress.common {
      * [descr:InitializedEventInfo.element]
      */
     readonly element?: DevExpress.core.DxElement;
-  }
+  };
   /**
    * [descr:ItemInfo]
    */
-  export interface ItemInfo<TItemData = any> {
+  export type ItemInfo<TItemData = any> = {
     /**
      * [descr:ItemInfo.itemData]
      */
@@ -1630,7 +1630,7 @@ declare module DevExpress.common {
      * [descr:ItemInfo.itemIndex]
      */
     readonly itemIndex: number;
-  }
+  };
   export type LabelMode = 'static' | 'floating' | 'hidden' | 'outside';
   /**
    * @deprecated Attention! This type is for internal purposes only. If you used it previously, please submit a ticket to our {@link https://supportcenter.devexpress.com/ticket/create Support Center}. We will check if there is an alternative solution.
@@ -1650,7 +1650,7 @@ declare module DevExpress.common {
   /**
    * [descr:NativeEventInfo]
    */
-  export interface NativeEventInfo<TComponent, TNativeEvent = Event> {
+  export type NativeEventInfo<TComponent, TNativeEvent = Event> = {
     /**
      * [descr:NativeEventInfo.component]
      */
@@ -1667,7 +1667,7 @@ declare module DevExpress.common {
      * [descr:NativeEventInfo.event]
      */
     readonly event?: DxEvent<TNativeEvent>;
-  }
+  };
 
   /**
    * [descr:NumericRule]
@@ -1827,7 +1827,7 @@ declare module DevExpress.common {
   /**
    * [descr:SchedulerTimeZone]
    */
-  export interface SchedulerTimeZone {
+  export type SchedulerTimeZone = {
     /**
      * [descr:SchedulerTimeZone.id]
      */
@@ -1840,7 +1840,7 @@ declare module DevExpress.common {
      * [descr:SchedulerTimeZone.title]
      */
     title: string;
-  }
+  };
   export type Scrollable =
     DevExpress.core.OmitInternal<DevExpress.ui.dxScrollable>;
   export type ScrollbarMode = 'always' | 'never' | 'onHover' | 'onScroll';
