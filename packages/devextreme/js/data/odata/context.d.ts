@@ -5,6 +5,10 @@ export {
    * @deprecated Use ODataContextOptions from /common/data instead
    */
   ODataContextOptions,
+  /**
+   * @deprecated Use ODataRequestOptions from /common/data instead
+   */
+  ODataRequestOptions,
 } from '../../common/data';
 
 /**

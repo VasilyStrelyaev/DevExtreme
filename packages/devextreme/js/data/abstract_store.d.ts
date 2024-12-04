@@ -55,12 +55,12 @@ export default class AbstractStore<
 
 /**
  * @namespace DevExpress.common.data
- * @deprecated Use Options from common/data instead
+ * @deprecated Use StoreOptions from data/store instead
  */
 export type StoreOptions<TItem = any, TKey = any> = StoreOptionsBase<TItem, TKey>;
 
 /**
  * @namespace DevExpress.common.data
- * @deprecated Use Store from common/data instead
+ * @deprecated Use Store from data/store instead
  */
 export type Store<TItem = any, TKey = any> = StoreBase<TItem, TKey>;

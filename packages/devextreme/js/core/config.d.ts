@@ -12,7 +12,7 @@ export {
 
 /**
 * @namespace DevExpress
-* @deprecated Use GlobalConfig instead
+* @deprecated Use GlobalConfig from /common instead
 */
 export type globalConfig = GlobalConfig;
 
