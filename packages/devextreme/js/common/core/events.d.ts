@@ -24,7 +24,7 @@ export type InitializedEventInfo<TComponent> = {
   readonly component?: TComponent;
   /** @docid */
   readonly element?: DxElement;
-}
+};
 
 /**
  * @docid
@@ -44,7 +44,7 @@ export type EventInfo<TComponent> = {
    * @hidden
    */
   readonly model?: any;
-}
+};
 
 /**
  * @docid
@@ -69,7 +69,7 @@ export type NativeEventInfo<TComponent, TNativeEvent = Event> = {
    * @type event
    */
   readonly event?: DxEvent<TNativeEvent>;
-}
+};
 
 /**
  * @docid
@@ -85,7 +85,7 @@ export type ChangedOptionInfo = {
   readonly value?: any;
   /** @docid */
   readonly previousValue?: any;
-}
+};
 
 /**
  * @docid
@@ -102,7 +102,7 @@ export type ItemInfo<TItemData = any> = {
   readonly itemElement: DxElement;
   /** @docid */
   readonly itemIndex: number;
-}
+};
 
 /**
  * @docid
@@ -112,7 +112,7 @@ export type ItemInfo<TItemData = any> = {
 export type Cancelable = {
   /** @docid */
   cancel?: boolean;
-}
+};
 
 /**
  * @docid

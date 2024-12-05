@@ -273,7 +273,7 @@ export type PositionConfig = {
        */
       y?: number;
     };
-}
+};
 
 /**
  * @docid

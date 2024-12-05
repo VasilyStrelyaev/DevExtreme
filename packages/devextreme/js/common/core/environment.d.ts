@@ -166,7 +166,7 @@ export type SchedulerTimeZone = {
    * @docid
    */
   title: string;
-}
+};
 
 /**
 * @docid utils.getTimeZones
