@@ -117,7 +117,7 @@ gulp.task(NPM_PREPARE_MODULES, (done) => {
     return ['', [moduleFileName], moduleFilePath];
   });
 
-  [...packParamsForFolders, ...packParamsForModules].forEach(
+  [ ...packParamsForModules, ...packParamsForFolders].forEach(
     ([folder, moduleFileNames, moduleFilePath]) =>
       makeModule(folder, moduleFileNames, moduleFilePath)
   );

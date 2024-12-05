@@ -109,7 +109,6 @@ const prepareConfigs = (framework)=> {
   let modulesMap = {};
 
   let main = `devextreme-${framework}/index.js`;
-  let common = `devextreme-${framework}/common/bag`;
   let minify = true;
 
   if (framework === 'angular') {
@@ -134,8 +133,6 @@ const prepareConfigs = (framework)=> {
       prepareDevextremexAngularFiles();
 
       const bundlesRoot = 'node_modules/devextreme-angular/bundles';
-
-      common = `${bundlesRoot}/devextreme-angular-common.umd.js`;
 
       const componentNames = fs.readdirSync(bundlesRoot)
           .filter((fileName) => fileName.indexOf('umd.js') !== -1)
@@ -199,10 +196,6 @@ const prepareConfigs = (framework)=> {
       'devextreme/bundles/dx.custom.config.js',
       main,
   );
-
-  if (common) {
-    packages.push(common);
-  }
 
   return {
     builderConfig,
