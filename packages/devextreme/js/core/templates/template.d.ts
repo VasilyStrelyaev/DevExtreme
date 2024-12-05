@@ -1,7 +1,4 @@
 export type {
-    /**
-     * @deprecated Use 'template' from /common instead
-     */
     template,
 } from '../../common';
 

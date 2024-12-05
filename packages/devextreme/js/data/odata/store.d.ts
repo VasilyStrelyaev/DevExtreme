@@ -1,7 +1,7 @@
 import { ODataStoreOptions, ODataStore } from '../../common/data';
 
 /**
- * @deprecated Use ODataStoreOptions from /common/data instead
+ * @public
  * @namespace DevExpress.data.ODataStore
  */
 export type Options<
@@ -10,13 +10,7 @@ export type Options<
 > = ODataStoreOptions<TItem, TKey>;
 
 export {
-    /**
-     * @deprecated Use ODataStoreOptions from /common/data instead
-     */
     ODataStoreOptions,
 };
 
-/**
- * @deprecated Use ODataStore from /common/data instead
- */
 export default ODataStore;

@@ -7374,6 +7374,39 @@ declare module DevExpress.data {
     url?: string;
   }
 }
+declare module DevExpress.data.ArrayStore {
+  /**
+   * @deprecated Use DevExpress.common.data.ArrayStoreOptions from /common/data instead
+   */
+  export type Options<
+    TItem = any,
+    TKey = any
+  > = DevExpress.common.data.ArrayStoreOptions<TItem, TKey>;
+}
+declare module DevExpress.data.CustomStore {
+  /**
+   * @deprecated Use DevExpress.common.data.CustomStoreOptions from /common/data instead
+   */
+  export type Options<
+    TItem = any,
+    TKey = any
+  > = DevExpress.common.data.CustomStoreOptions<TItem, TKey>;
+}
+declare module DevExpress.data.LocalStore {
+  /**
+   * @deprecated Use DevExpress.common.data.LocalStoreOptions from /common/data instead
+   */
+  export type Options<
+    TItem = any,
+    TKey = any
+  > = DevExpress.common.data.LocalStoreOptions<TItem, TKey>;
+}
+declare module DevExpress.data.ODataStore {
+  export type Options<
+    TItem = any,
+    TKey = any
+  > = DevExpress.common.data.ODataStoreOptions<TItem, TKey>;
+}
 declare module DevExpress.data.PivotGridDataSource {
   /**
    * [descr:PivotGridDataSourceOptions.fields]

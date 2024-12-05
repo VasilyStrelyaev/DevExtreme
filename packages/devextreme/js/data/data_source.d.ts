@@ -11,15 +11,8 @@ import {
 } from '../common/data';
 
 export {
-  /**
-   * @deprecated Use DataSourceOptions from /common/data instead
-   */
   DataSourceOptions,
 } from '../common/data';
-
-/**
- * @deprecated Use DataSourceOptions from /common/data instead
- */
 export type Options<
     TStoreItem = any,
     TMappedItem = TStoreItem,
@@ -65,7 +58,4 @@ export interface DataSourceOptionsStub<
     store?: Array<TStoreItem> | Store<TStoreItem, any> | StoreOptions<TStoreItem, any>;
 }
 
-/**
- * @deprecated Use DataSource from /common/data instead
- */
 export default DataSource;

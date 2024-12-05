@@ -827,7 +827,6 @@ declare namespace DevExpress.common.grids {
 declare namespace DevExpress {
   export type AnimationConfig = DevExpress.common.core.animation.AnimationConfig;
   export const animationPresets: typeof DevExpress.common.core.animation.animationPresets
-  export type commonFormat = DevExpress.common.core.localization.Format
   export type Device = DevExpress.common.core.environment.Device;
   export const devices: typeof DevExpress.common.core.environment.devices;
   export type DevicesObject = DevExpress.common.core.environment.DevicesObject;
@@ -881,26 +880,13 @@ declare namespace DevExpress.data {
   export type Store<TItem = any, TKey = any> = DevExpress.common.data.Store<TItem, TKey>;
 }
 
-declare namespace DevExpress.data.ArrayStore {
-  export type Options<TItem, TKey> = DevExpress.common.data.ArrayStoreOptions<TItem, TKey>;
-}
-
 declare namespace DevExpress.data.CustomStore {
   export type GroupItem<TItem = any> = DevExpress.common.data.GroupItem<TItem>;
-  export type Options<TItem = any, TKey = any> = DevExpress.common.data.CustomStoreOptions<TItem, TKey>;
   export type ResolvedData<TItem = any> = DevExpress.common.data.ResolvedData<TItem>;
 }
 
 declare namespace DevExpress.data.DataSource {
   export type Options<TItem = any, TKey = any> = DevExpress.common.data.DataSourceOptions<TItem, TKey>;
-}
-
-declare namespace DevExpress.data.LocalStore {
-  export type Options<TItem = any, TKey = any> = DevExpress.common.data.LocalStoreOptions<TItem, TKey>;
-}
-
-declare namespace DevExpress.data.ODataStore {
-  export type Options<TItem = any, TKey = any> = DevExpress.common.data.ODataStoreOptions<TItem, TKey>;
 }
 
 declare namespace DevExpress.data.Store {

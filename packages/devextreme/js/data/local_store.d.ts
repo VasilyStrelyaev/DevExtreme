@@ -4,18 +4,13 @@ import {
 } from '../common/data';
 
 export {
-  /**
-   * @deprecated Use LocalStoreOptions from /common/data instead
-   */
   LocalStoreOptions,
 } from '../common/data';
 
-/**
- * @deprecated Use LocalStore from /common/data instead
- */
 export default LocalStore;
 
 /**
+* @public
 * @deprecated Use LocalStoreOptions from /common/data instead
 * @namespace DevExpress.data.LocalStore
 */
