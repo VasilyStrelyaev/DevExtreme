@@ -74,8 +74,8 @@ export {
     VerticalEdge,
 } from 'devextreme/common';
 
-export * as Charts from "./charts";
-export * as Core from "./core";
-export * as Data from "./data";
-export * as Export from "./export";
-export * as Grids from "./grids";
+export * as Charts from './charts';
+export * as Core from './core/index';
+export * as Data from './data';
+export * as Export from './export/index';
+export * as Grids from './grids';

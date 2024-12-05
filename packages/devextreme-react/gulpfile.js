@@ -43,6 +43,10 @@ gulp.task(GEN_RUN, (done) => {
             generateReexports: true,
             generateCustomTypes: true,
         },
+        templatingOptions: {
+            quotes: 'double',
+            excplicitIndexInImports: true,
+        },
     });
 
     done();

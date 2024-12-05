@@ -84,7 +84,14 @@ gulp.task('before-generate.preserve-component-files', (done) => {
 gulp.task('generate.facades', gulp.series('generate.moduleFacades', (done) => {
   const facadeGenerator = new AngularFacadeGenerator();
 
-  facadeGenerator.generate(buildConfig.tools.facadeGenerator);
+  facadeGenerator.generate({
+    ...buildConfig.tools.facadeGenerator,
+    templatingOptions: {
+      quotes: 'single',
+      excplicitIndexInImports: true,
+    },
+  });
+
   done();
 }));
 
@@ -94,6 +101,10 @@ gulp.task('generate.common-reexports', (done) => {
   AngularCommonReexportsGenerator.generate({
     outputPath,
     metadata: JSON.parse(fs.readFileSync(imdMetadataFilePath).toString()),
+    templatingOptions: {
+      quotes: 'single',
+      excplicitIndexInImports: true,
+    },
   });
   done();
 });

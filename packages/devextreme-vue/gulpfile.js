@@ -44,7 +44,11 @@ gulp.task(GENERATE,
             },
             config.widgetsPackage,
             VUE_VERSION,
-            true
+            true,
+            {
+              quotes: 'double',
+              excplicitIndexInImports: true,
+            }
         );
 
         done();
