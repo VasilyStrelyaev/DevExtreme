@@ -61,7 +61,7 @@ type EventName = 'orientationChanged';
 * @namespace DevExpress.common.core.environment
 * @public
 */
-declare class DevicesObject {
+export class DevicesObject {
   constructor(options?: { window?: Window });
   /**
    * @docid
