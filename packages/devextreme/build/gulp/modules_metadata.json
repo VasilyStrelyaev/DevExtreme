@@ -26,9 +26,14 @@
   {
     "name": "common/core/environment",
     "exports": {
-      "devices": { "path": "devices" },
       "hideTopOverlay": { "path": "hideTopOverlay" },
       "initMobileViewport": { "path": "utils.initMobileViewport" }
+    }
+  },
+  {
+    "name": "core/devices",
+    "exports": {
+      "default": { "path": "devices" }
     }
   },
   {

@@ -79,6 +79,12 @@ const getDefaultBuilderConfig = (framework, additionPaths, map) => ({
     'devexpress-gantt': 'node_modules/devexpress-gantt/dist/dx-gantt.min.js',
     'devexpress-diagram': 'node_modules/devexpress-diagram/dist/dx-diagram.min.js',
     [`devextreme-${framework}/*`]: `node_modules/devextreme-${framework}/${['react', 'vue'].includes(framework) ? 'cjs/*' : '*'}`,
+    'devextreme-react/common.js': 'node_modules/devextreme-react/cjs/common/index.js',
+    'devextreme-react/common/core.js': 'node_modules/devextreme-react/cjs/common/core/index.js',
+    'devextreme-react/common/export.js': 'node_modules/devextreme-react/cjs/common/export/index.js',
+    'devextreme-vue/common.js': 'node_modules/devextreme-vue/cjs/common/index.js',
+    'devextreme-vue/common/core.js': 'node_modules/devextreme-vue/cjs/common/core/index.js',
+    'devextreme-vue/common/export.js': 'node_modules/devextreme-vue/cjs/common/export/index.js',
     ...additionPaths,
   },
 });

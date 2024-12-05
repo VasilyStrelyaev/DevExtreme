@@ -829,7 +829,6 @@ declare namespace DevExpress {
   export const animationPresets: typeof DevExpress.common.core.animation.animationPresets
   export type Device = DevExpress.common.core.environment.Device;
   export const devices: typeof DevExpress.common.core.environment.devices;
-  export type DevicesObject = DevExpress.common.core.environment.DevicesObject;
   export type dxSchedulerTimeZone = DevExpress.common.core.environment.SchedulerTimeZone;
   export type EndpointSelector = DevExpress.common.data.EndpointSelector;
   export const fx: typeof DevExpress.common.core.animation.fx;

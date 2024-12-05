@@ -1,7 +1,5 @@
 export {
     Device,
-    devices,
-    DevicesObject,
     getTimeZones,
     hideTopOverlay,
     initMobileViewport,

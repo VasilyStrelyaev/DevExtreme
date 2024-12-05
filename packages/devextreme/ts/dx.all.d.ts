@@ -2559,46 +2559,7 @@ declare module DevExpress.common.core.environment {
   /**
    * [descr:devices]
    */
-  export const devices: DevicesObject;
-  /**
-   * [descr:DevicesObject]
-   */
-  export class DevicesObject {
-    constructor(options?: { window?: Window });
-    /**
-     * [descr:DevicesObject.current()]
-     */
-    current(): Device;
-    /**
-     * [descr:DevicesObject.current(deviceName)]
-     */
-    current(deviceName: string | Device): void;
-    /**
-     * [descr:DevicesObject.off(eventName)]
-     */
-    off(eventName: EventName): this;
-    /**
-     * [descr:DevicesObject.off(eventName, eventHandler)]
-     */
-    off(eventName: EventName, eventHandler: Function): this;
-    /**
-     * [descr:DevicesObject.on(eventName, eventHandler)]
-     */
-    on(eventName: EventName, eventHandler: Function): this;
-    /**
-     * [descr:DevicesObject.on(events)]
-     */
-    on(events: { [key in EventName]?: Function }): this;
-    /**
-     * [descr:DevicesObject.orientation()]
-     */
-    orientation(): 'portrait' | 'landscape' | undefined;
-    /**
-     * [descr:DevicesObject.real()]
-     */
-    real(): Device;
-    isSimulator(): boolean;
-  }
+  export const devices: DevExpress.core.DevicesObject;
   /**
    * [descr:utils.getTimeZones(date)]
    */
@@ -6558,6 +6519,47 @@ declare module DevExpress.core {
     : {
         [P in keyof T]?: DeepPartial<T[P]>;
       };
+  /**
+   * [descr:DevicesObject]
+   */
+  export class DevicesObject {
+    constructor(options?: { window?: Window });
+    /**
+     * [descr:DevicesObject.current()]
+     */
+    current(): DevExpress.common.core.environment.Device;
+    /**
+     * [descr:DevicesObject.current(deviceName)]
+     */
+    current(
+      deviceName: string | DevExpress.common.core.environment.Device
+    ): void;
+    /**
+     * [descr:DevicesObject.off(eventName)]
+     */
+    off(eventName: DevExpress.common.EventName): this;
+    /**
+     * [descr:DevicesObject.off(eventName, eventHandler)]
+     */
+    off(eventName: DevExpress.common.EventName, eventHandler: Function): this;
+    /**
+     * [descr:DevicesObject.on(eventName, eventHandler)]
+     */
+    on(eventName: DevExpress.common.EventName, eventHandler: Function): this;
+    /**
+     * [descr:DevicesObject.on(events)]
+     */
+    on(events: { [key in DevExpress.common.EventName]?: Function }): this;
+    /**
+     * [descr:DevicesObject.orientation()]
+     */
+    orientation(): 'portrait' | 'landscape' | undefined;
+    /**
+     * [descr:DevicesObject.real()]
+     */
+    real(): DevExpress.common.core.environment.Device;
+    isSimulator(): boolean;
+  }
   /**
    * [descr:dxElement]
    * @deprecated [depNote:dxElement]
