@@ -9,6 +9,7 @@ export {
     CustomStoreOptions,
     DataSource,
     DataSourceOptions,
+    DxPromise,
     EdmLiteral,
     EndpointSelector,
     errorHandler,

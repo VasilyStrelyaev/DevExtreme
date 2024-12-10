@@ -3318,6 +3318,11 @@ declare module DevExpress.common.data {
       | DevExpress.data.utils.StoreOptions<TStoreItem, TKey>;
   };
   /**
+   * @namespace DevExpress.common.data
+   * @public
+   */
+  DxPromise;
+  /**
    * [descr:EdmLiteral]
    */
   export class EdmLiteral {
