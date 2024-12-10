@@ -26,6 +26,7 @@ export function Deferred<T>(): DeferredObj<T>;
 export interface PromiseType<T> { }
 
 /**
+ * @public
  * @docid
  * @type Promise<void>
  * @namespace DevExpress.core.utils

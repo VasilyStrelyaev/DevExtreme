@@ -18,6 +18,8 @@ import type {
     LoadOptions as LoadOptionsInternal,
 } from './data.types';
 
+export { DxPromise } from '../core/utils/deferred';
+
 /**
  * @namespace DevExpress.common.data
  * @public
